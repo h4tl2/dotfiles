@@ -40,3 +40,4 @@ au FileType go nmap <Leader>i <Plug>(go-info)
 au Filetype go inoremap <buffer> . .<C-x><C-o>
 
 autocmd CompleteDone * pclose
+autocmd BufWritePre *.go %s/\s\+$//e
