@@ -1,8 +1,8 @@
 # dotfiles
 
 ## todo
-[] makefile to automate things
-[] homebrew cask
+- [ ] makefile to automate things
+- [ ] homebrew cask
 
 ## ext
 ### vscode extension
