@@ -1,0 +1,19 @@
+code --install-extension alexcvzz.vscode-sqlite
+code --install-extension angryobject.react-pure-to-class-vscode
+code --install-extension arcticicestudio.nord-visual-studio-code
+code --install-extension christian-kohler.path-intellisense
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension donjayamanne.githistory
+code --install-extension eamodio.gitlens
+code --install-extension EQuimper.react-native-react-redux
+code --install-extension esbenp.prettier-vscode
+code --install-extension golang.go
+code --install-extension JuanBlanco.solidity
+code --install-extension mhutchie.git-graph
+code --install-extension mikestead.dotenv
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension ms-python.python
+code --install-extension ms-python.vscode-pylance
+code --install-extension planbcoding.vscode-react-refactor
+code --install-extension vscode-icons-team.vscode-icons
+
