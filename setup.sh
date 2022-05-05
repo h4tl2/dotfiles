@@ -23,6 +23,9 @@ PACKAGES=(
     gh
     zsh
     zsh-completions
+    docker
+    docker-compose
+    colima
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
