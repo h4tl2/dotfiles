@@ -1,8 +1,10 @@
 # dotfiles
 
 ## todo
-- [ ] makefile to automate things
-- [ ] homebrew cask
+- [ ] neovim config
+- [ ] vscode config
+- [ ] zsrhc config
+- [ ] alacritty config
 
 ## ext
 ### vscode extension
