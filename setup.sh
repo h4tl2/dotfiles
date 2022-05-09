@@ -26,6 +26,9 @@ PACKAGES=(
     docker
     docker-compose
     colima
+    bat
+    ripgrep
+    exa
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
