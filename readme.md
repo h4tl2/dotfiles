@@ -1,10 +1,12 @@
 # dotfiles
 
 ## todo
-- [ ] neovim config
-- [ ] vscode config
-- [ ] zsrhc config
-- [ ] alacritty config
+- [x] neovim 
+- [ ] vscode 
+- [ ] zsrhc 
+- [ ] alacritty
+- [ ] gitignore global
+- [ ] ssh auth socket
 - [ ] manage dotfiles with stow
 
 ## extension
