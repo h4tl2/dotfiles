@@ -29,6 +29,7 @@ PACKAGES=(
     bat
     ripgrep
     exa
+    lazygit
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
