@@ -1,5 +1,6 @@
 require("bufferline").setup {
     options = {
-        numbers = "buffer_id"
+        numbers = "ordinal",
+        diagnostics = "nvim_lsp"
     }
 }

@@ -46,19 +46,29 @@ set splitbelow
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'shaunsingh/nord.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+
 " Telescope, gitsigns requires plenary to function
 Plug 'nvim-lua/plenary.nvim'
+
 " The main Telescope plugin
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
+
 " Tab, Status indicators
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
+
 " Git Decorations (blame, diff)
 Plug 'lewis6991/gitsigns.nvim'
+
 " LSP config
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
+
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+
 " Autocompletion
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -66,14 +76,9 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
 " Plug 'glepnir/lspsaga.nvim'
-" Treesitter
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-" Devicons
-Plug 'kyazdani42/nvim-web-devicons'
 " File explorer
 Plug 'kyazdani42/nvim-tree.lua'
-" Show Diagnostics
-" todo find another alternative than trouble.nvim
+
 call plug#end()
 
 "lua require('plugins')
@@ -94,18 +99,27 @@ autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 " remaps
 let mapleader = ' '
 
-nnoremap <leader>h :wincmd h<Cr>
-nnoremap <leader>j :wincmd j<Cr>
-nnoremap <leader>k :wincmd k<Cr>
-nnoremap <leader>l :wincmd l<Cr>
+nnoremap <silent><leader>h :wincmd h<Cr>
+nnoremap <silent><leader>j :wincmd j<Cr>
+nnoremap <silent><leader>k :wincmd k<Cr>
+nnoremap <silent><leader>l :wincmd l<Cr>
+nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <silent><leader>ff <cmd>Telescope find_files<cr>
+nnoremap <silent><leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <silent><leader>fb <cmd>Telescope buffers<cr>
 
 nnoremap <C-b> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
-nnoremap <leader>n :NvimTreeFindFile<CR>
+" nnoremap <leader>n :NvimTreeFindFile<CR>
 
 " vim edit configuration
 nnoremap <A-j> :m .+1<CR>==
