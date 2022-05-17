@@ -55,12 +55,13 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
 
-" Tab, Status indicators
+" Tab, Status, indicators
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
 
 " Git Decorations (blame, diff)
 Plug 'lewis6991/gitsigns.nvim'
+Plug 'sindrets/diffview.nvim'
 
 " LSP config
 Plug 'williamboman/nvim-lsp-installer'
@@ -76,8 +77,10 @@ Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
 " Plug 'glepnir/lspsaga.nvim'
+
 " File explorer
 Plug 'kyazdani42/nvim-tree.lua'
+
 
 call plug#end()
 
@@ -103,6 +106,8 @@ nnoremap <silent><leader>h :wincmd h<Cr>
 nnoremap <silent><leader>j :wincmd j<Cr>
 nnoremap <silent><leader>k :wincmd k<Cr>
 nnoremap <silent><leader>l :wincmd l<Cr>
+nnoremap <silent><leader>= <C-w>=      
+
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
