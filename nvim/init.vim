@@ -58,6 +58,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
 " Tab, Status, indicators
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Git Decorations (blame, diff)
 Plug 'lewis6991/gitsigns.nvim'
@@ -94,6 +95,8 @@ lua require('plugins/treesitter')
 lua require('plugins/nvim-tree')
 lua require('plugins/bufferline')
 lua require('plugins/lualine')
+lua require('plugins/indent-blankline')
+lua require('plugins/diffview')
 
 
 " Plugin Configuration
