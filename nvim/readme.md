@@ -13,7 +13,8 @@ cp -R ../nvim ~/.config/nvim
 Setup plugins
 ```
 # Inside nvim
-:PlugInstall
+:PlugInstall # install plugins
+:LspInstallInfo # install language server
 ```
 ## Todo
 - keymapping for gitdiff
