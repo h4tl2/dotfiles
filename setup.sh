@@ -45,6 +45,8 @@ CASKS=(
     notable
     google-chrome
     rectangle
+    kubecontext
+    tyke
 )
 echo "Installing cask apps..."
 brew cask install ${CASKS[@]}
