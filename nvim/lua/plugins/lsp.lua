@@ -1,6 +1,16 @@
 -- lspconfig
 local nvim_lsp = require('lspconfig')
+local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+if not status_ok then
+    return
+end
+
 local servers = { 'tsserver', 'gopls', 'yamlls', 'sumneko_lua', 'rust_analyzer', 'tflint', 'zk' }
+
+-- Completion kinds
+lsp_installer.setup({
+    ensure_installed = servers,
+})
 
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -36,7 +46,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
-        apabilities = capabilities,
+        capabilities = capabilities,
     }
 end
 

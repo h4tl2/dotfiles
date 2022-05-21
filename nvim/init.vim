@@ -6,7 +6,7 @@ set ttyfast                 " Speed up scrolling in Vim
 " Visual
 set number                  " add line numbers
 set relativenumber
-set wildmode=longest,list   " get bash-like tab completions
+set wildmode=longest,list,full   " get bash-like tab completions
 set cc=100                  " set an 80 column border for good coding style
 set cursorline              " highlight current cursorline
 set noshowmode
@@ -38,7 +38,7 @@ set splitbelow
 
 " Others
 " set spell                 " enable spell check (may need to download language package)
-" set noswapfile            " disable creating swap file
+set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 " set hidden                 " navigate buffers without losing unsaved work
 
@@ -77,27 +77,28 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
-" Plug 'glepnir/lspsaga.nvim'
+Plug 'numToStr/Comment.nvim'
+Plug 'windwp/nvim-autopairs'
 
 " File explorer
 Plug 'kyazdani42/nvim-tree.lua'
 
-
 call plug#end()
 
-"lua require('plugins')
-lua require('plugins/telescope')
-lua require('plugins/nord')
-lua require('plugins/gitsigns')
 lua require('plugins/nvim-lsp-installer')
 lua require('plugins/lsp')
+lua require('plugins/telescope')
+lua require('plugins/autopair')
+lua require('plugins/nord')
+lua require('plugins/gitsigns')
 lua require('plugins/treesitter')
 lua require('plugins/nvim-tree')
 lua require('plugins/bufferline')
 lua require('plugins/lualine')
 lua require('plugins/indent-blankline')
-lua require('plugins/diffview')
 
+lua require('plugins/diffview')
+lua require('Comment').setup()
 
 " Plugin Configuration
 autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
@@ -125,8 +126,8 @@ nnoremap <silent><leader>ff <cmd>Telescope find_files<cr>
 nnoremap <silent><leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <silent><leader>fb <cmd>Telescope buffers<cr>
 
-nnoremap <C-b> :NvimTreeToggle<CR>
-nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <silent><C-b> :NvimTreeToggle<CR>
+nnoremap <silent><leader>r :NvimTreeRefresh<CR>
 " nnoremap <leader>n :NvimTreeFindFile<CR>
 
 " vim edit configuration
