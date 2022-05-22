@@ -10,11 +10,14 @@ set wildmode=longest,list,full   " get bash-like tab completions
 set cc=100                  " set an 80 column border for good coding style
 set cursorline              " highlight current cursorline
 set noshowmode
-
+set nohlsearch
 " Code
 filetype plugin indent on   "allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
 filetype plugin on
+set foldlevel=20
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 
 " Indent
 set tabstop=4               " number of columns occupied by a tab 
@@ -83,6 +86,9 @@ Plug 'windwp/nvim-autopairs'
 " File explorer
 Plug 'kyazdani42/nvim-tree.lua'
 
+" ext.
+Plug 'folke/which-key.nvim'
+
 call plug#end()
 
 lua require('plugins/nvim-lsp-installer')
@@ -96,8 +102,8 @@ lua require('plugins/nvim-tree')
 lua require('plugins/bufferline')
 lua require('plugins/lualine')
 lua require('plugins/indent-blankline')
-
 lua require('plugins/diffview')
+lua require('plugins/which-key')
 lua require('Comment').setup()
 
 " Plugin Configuration
@@ -106,12 +112,20 @@ autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 " remaps
 let mapleader = ' '
 
+" Text edits
+nmap ,P "0P
+nmap ,p "0p
+
+" windows
 nnoremap <silent><leader>h :wincmd h<Cr>
 nnoremap <silent><leader>j :wincmd j<Cr>
 nnoremap <silent><leader>k :wincmd k<Cr>
 nnoremap <silent><leader>l :wincmd l<Cr>
 nnoremap <silent><leader>= <C-w>=      
 
+nnoremap <silent><leader>nh :noh<Cr>
+
+" Buffers
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
@@ -122,21 +136,22 @@ nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
 nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
 nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 
+" Plugins
 nnoremap <silent><leader>ff <cmd>Telescope find_files<cr>
 nnoremap <silent><leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <silent><leader>fb <cmd>Telescope buffers<cr>
+nnoremap <silent><leader>fc <cmd>Telescope git_files<cr>
+nnoremap <silent><leader>fs <cmd>Telescope grep_string<cr>
 
 nnoremap <silent><C-b> :NvimTreeToggle<CR>
 nnoremap <silent><leader>r :NvimTreeRefresh<CR>
-" nnoremap <leader>n :NvimTreeFindFile<CR>
 
 " vim edit configuration
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-inoremap <A-j> <Esc>:m .+1<CR>==gi
-inoremap <A-k> <Esc>:m .-2<CR>==gi
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+nnoremap <S-Up> :m-2<CR>
+nnoremap <S-Down> :m+<CR>
+inoremap <S-Up> <Esc>:m-2<CR>
+inoremap <S-Down> <Esc>:m+<CR>
+
 
 colorscheme nord
 
