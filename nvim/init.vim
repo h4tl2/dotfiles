@@ -137,11 +137,17 @@ nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
 nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 
 " Plugins
-nnoremap <silent><leader>ff <cmd>Telescope find_files<cr>
-nnoremap <silent><leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <silent><leader>fb <cmd>Telescope buffers<cr>
-nnoremap <silent><leader>fc <cmd>Telescope git_files<cr>
-nnoremap <silent><leader>fs <cmd>Telescope grep_string<cr>
+" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+" nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+" nnoremap <leader>fb <cmd>Telescope buffers<cr>
+" nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <silent><leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <silent><leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <silent><leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <silent><leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <silent><leader>fs <cmd>lua require('telescope.builtin').grep_string()<cr>
+nnoremap <silent><leader>fc <cmd>lua require('telescope.builtin').git_files()<cr>
+
 
 nnoremap <silent><C-b> :NvimTreeToggle<CR>
 nnoremap <silent><leader>r :NvimTreeRefresh<CR>

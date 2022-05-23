@@ -1,4 +1,5 @@
 require('nvim-tree').setup {
+    auto_reload_on_write = true,
     view = {
         auto_resize = true,
     },
@@ -6,5 +7,18 @@ require('nvim-tree').setup {
         indent_markers = {
             enable = true
         }
-    }
+    },
+    filters = {
+        dotfiles = false,
+    },
+    diagnostics = {
+        enable = false,
+        show_on_dirs = false,
+        icons = {
+            hint = "",
+            info = "",
+            warning = "",
+            error = "",
+        },
+    },
 }
