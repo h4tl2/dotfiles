@@ -7,7 +7,7 @@ telescope.setup {
                 ["<esc>"] = actions.close
             },
         },
-        file_ignore_patterns = { "^./.git/", "^node_modules/", "^vendor/" },
+        file_ignore_patterns = { ".git/", "^node_modules/", "^vendor/" },
         vimgrep_arguments = {
             'rg',
             '--color=never',
@@ -20,6 +20,7 @@ telescope.setup {
             '--hidden',
             "--glob=!.git/",
         },
+        path_display = { 'smart' },
     },
     pickers = {
         find_files = { hidden = true },
