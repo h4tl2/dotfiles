@@ -3,11 +3,15 @@
 ## todo
 - [x] neovim 
 - [ ] vscode 
-- [ ] zsrhc 
-- [ ] alacritty
+- [x] zsrhc 
+- [ ] iterm2
+- [ ] kitty
 - [ ] gitignore global
-- [ ] ssh auth socket
 - [ ] manage dotfiles with stow
+
+## fonts
+- https://www.programmingfonts.org/#meslo
+- https://www.nerdfonts.com/font-downloads
 
 ## extension
 ### vscode extension
