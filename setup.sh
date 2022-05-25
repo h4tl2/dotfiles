@@ -17,7 +17,6 @@ PACKAGES=(
     git
     fzf
     awscli
-    rust
     go
     neovim
     node
@@ -31,7 +30,7 @@ PACKAGES=(
     bat
     ripgrep
     lazygit
-    go
+    sqlite
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
