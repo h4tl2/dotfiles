@@ -56,7 +56,7 @@ brew cask install ${CASKS[@]}
 echo "Create dev env..."
 mkdir -p ~/code/scratches
 cp .vimrc ~/.vimrc
-cp ./zsh/.zshrc ~/.zshrc
-cp ./zsh/.p10k.zsh ~/.p10k.zsh
+# cp ./zsh/.zshrc ~/.zshrc
+# cp ./zsh/.p10k.zsh ~/.p10k.zsh
 
 echo "DONE!"
