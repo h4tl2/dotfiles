@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-echo "setting up"
+echo "Setting up development env"
 
+echo "Installing xcode..."
 xcode-select —-install
 
+echo "Installing homebrew..."
 if test ! $(which brew); then
     echo "Installing homebrew..."
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -50,5 +52,11 @@ CASKS=(
 )
 echo "Installing cask apps..."
 brew cask install ${CASKS[@]}
+
+echo "Create dev env..."
+mkdir -p ~/code/scratches
+cp .vimrc ~/.vimrc
+cp ./zsh/.zshrc ~/.zshrc
+cp ./zsh/.p10k.zsh ~/.p10k.zsh
 
 echo "DONE!"
