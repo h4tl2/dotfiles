@@ -123,11 +123,13 @@ nnoremap <silent><leader>h :wincmd h<Cr>
 nnoremap <silent><leader>j :wincmd j<Cr>
 nnoremap <silent><leader>k :wincmd k<Cr>
 nnoremap <silent><leader>l :wincmd l<Cr>
-nnoremap <silent><leader>= <C-w>=      
-
+nnoremap <silent><leader>= <C-w>=
+nnoremap <silent><leader>v :vsplit<Cr>
 nnoremap <silent><leader>nh :noh<Cr>
 
 " Buffers
+nnoremap <silent>[b :BufferLineCycleNext<CR>
+nnoremap <silent>]b :BufferLineCyclePrev<CR>
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
