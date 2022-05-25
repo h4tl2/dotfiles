@@ -28,8 +28,8 @@ PACKAGES=(
     colima
     bat
     ripgrep
-    exa
     lazygit
+    go
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
