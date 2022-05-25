@@ -5,7 +5,7 @@ if not status_ok then
     return
 end
 
-local servers = { 'tsserver', 'gopls', 'yamlls', 'sumneko_lua', 'rust_analyzer', 'tflint', 'zk' }
+local servers = { 'tsserver', 'gopls', 'yamlls', 'sumneko_lua', 'rust_analyzer', 'tflint', 'zk', 'eslint', 'vimls' }
 
 -- Completion kinds
 lsp_installer.setup({
@@ -57,6 +57,8 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- https://www.getman.io/posts/programming-go-in-neovim/
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 
 for _, lsp in ipairs(servers) do

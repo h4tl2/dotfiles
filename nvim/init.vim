@@ -31,6 +31,9 @@ set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set numberwidth=4           " columns used for the line number
+" go specific
+" au FileType go set noexpandtab
+" au FileType go set tabstop=4
 
 " Search
 set ignorecase              " case insensitive 
@@ -81,6 +84,9 @@ Plug 'neovim/nvim-lspconfig'
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
+" Language specific
+" Plug 'ray-x/go.nvim'
+
 " Autocompletion
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -114,10 +120,29 @@ lua require('plugins/indent-blankline')
 lua require('plugins/diffview')
 lua require('plugins/which-key')
 lua require('plugins/scratches')
+" lua require('plugins/go')
 lua require('Comment').setup()
 
 " Autoformat
+" formatting_sync will be deprecated on vim 0.8
+" https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-1130373799
 autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+" will prompt you to select the code action
+autocmd BufWritePre *.go lua vim.lsp.buf.code_action({ source = { organizeImports = true } })
+
+" https://stackoverflow.com/a/6496995
+" fun! Formatting()
+"     " if &ft =~ 'ruby\|javascript\|perl'
+"     if &ft =~ 'go'
+"         lua require('go.format').gofmt()
+"         return
+"     endif
+"
+"     lua vim.lsp.buf.formatting_sync()
+" endfun
+"
+" autocmd BufWritePre * call Formatting()
+
 
 " remaps
 let mapleader = ' '
@@ -136,11 +161,14 @@ nnoremap <silent><leader>k :wincmd k<Cr>
 nnoremap <silent><leader>l :wincmd l<Cr>
 nnoremap <silent><leader>= <C-w>=
 nnoremap <silent><leader>v :vsplit<Cr>
-nnoremap <silent><leader>nh :noh<Cr>
+
+nnoremap <silent><ESC> :nohlsearch<Bar>:echo<Cr>
 
 " Buffers
-nnoremap <silent>[b :BufferLineCycleNext<CR>
-nnoremap <silent>]b :BufferLineCyclePrev<CR>
+" Tab switch buffer
+nnoremap <silent><TAB> :BufferLineCycleNext<CR>
+nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
+nnoremap <silent><leader>d :bd<CR>
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
