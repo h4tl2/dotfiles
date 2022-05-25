@@ -2,15 +2,20 @@
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching
 set ttyfast                 " Speed up scrolling in Vim
+set title
+" set titlestring=\ \ %F\ \ %{strftime('%Y-%m-%d\ %H:%M',getftime(expand('%')))}
+set titlestring=%F
 
 " Visual
 set number                  " add line numbers
 set relativenumber
-set wildmode=longest,list,full   " get bash-like tab completions
-set cc=100                  " set an 80 column border for good coding style
+set wildmode=longest,full   " get bash-like tab completions
+set cc=100                  " set an 100 column border for good coding style
 set cursorline              " highlight current cursorline
 set noshowmode
 set nohlsearch
+" set nowrap
+
 " Code
 filetype plugin indent on   "allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
@@ -48,7 +53,9 @@ set noswapfile            " disable creating swap file
 
 call plug#begin('~/.config/nvim/plugged')
 
+" colorschemes, theme, icon
 Plug 'shaunsingh/nord.nvim'
+Plug 'EdenEast/nightfox.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " Telescope, gitsigns requires plenary to function
@@ -106,9 +113,10 @@ lua require('plugins/lualine')
 lua require('plugins/indent-blankline')
 lua require('plugins/diffview')
 lua require('plugins/which-key')
+lua require('plugins/scratches')
 lua require('Comment').setup()
 
-" Plugin Configuration
+" Autoformat
 autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 
 " remaps
@@ -117,6 +125,9 @@ let mapleader = ' '
 " Text edits
 nmap ,P "0P
 nmap ,p "0p
+
+" Plugins mapping
+nnoremap \s :ScratchOpenFloat<Cr>
 
 " windows
 nnoremap <silent><leader>h :wincmd h<Cr>
@@ -140,7 +151,7 @@ nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
 nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
 nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 
-" Plugins
+" Telescope mappings
 " nnoremap <leader>ff <cmd>Telescope find_files<cr>
 " nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 " nnoremap <leader>fb <cmd>Telescope buffers<cr>
@@ -152,7 +163,7 @@ nnoremap <silent><leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr
 nnoremap <silent><leader>fs <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <silent><leader>fc <cmd>lua require('telescope.builtin').git_files()<cr>
 
-
+" NvimTree mappings
 nnoremap <silent><C-b> :NvimTreeToggle<CR>
 nnoremap <silent><leader>r :NvimTreeRefresh<CR>
 
@@ -163,5 +174,9 @@ inoremap <S-Up> <Esc>:m-2<CR>
 inoremap <S-Down> <Esc>:m+<CR>
 
 
-colorscheme nord
+" colorscheme nord
+" colorscheme nightfox
+" colorscheme terafox
+" colorscheme duskfox
+colorscheme nordfox
 
