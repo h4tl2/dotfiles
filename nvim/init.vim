@@ -3,8 +3,8 @@ set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching
 set ttyfast                 " Speed up scrolling in Vim
 set title
-" set titlestring=\ \ %F\ \ %{strftime('%Y-%m-%d\ %H:%M',getftime(expand('%')))}
 set titlestring=%F
+" set titlestring=\ \ %F\ \ %{strftime('%Y-%m-%d\ %H:%M',getftime(expand('%')))}
 
 " Visual
 set number                  " add line numbers
@@ -14,6 +14,7 @@ set cc=100                  " set an 100 column border for good coding style
 set cursorline              " highlight current cursorline
 set noshowmode
 set nohlsearch
+set laststatus=3            " global status line
 " set nowrap
 
 " Code
