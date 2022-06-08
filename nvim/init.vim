@@ -104,6 +104,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 
 " ext.
 Plug 'folke/which-key.nvim'
+Plug 'famiu/bufdelete.nvim'
 
 call plug#end()
 
@@ -169,7 +170,7 @@ nnoremap <silent><ESC> :nohlsearch<Bar>:echo<Cr>
 " Tab switch buffer
 nnoremap <silent><TAB> :BufferLineCycleNext<CR>
 nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
-nnoremap <silent><leader>d :bd<CR>
+nnoremap <silent><leader>d :Bdelete<CR>
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
