@@ -3,18 +3,17 @@ set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching
 set ttyfast                 " Speed up scrolling in Vim
 set title
-set titlestring=%F
 " set titlestring=\ \ %F\ \ %{strftime('%Y-%m-%d\ %H:%M',getftime(expand('%')))}
+set titlestring=%F
 
 " Visual
 set number                  " add line numbers
 set relativenumber
 set wildmode=longest,full   " get bash-like tab completions
-set cc=100                  " set an 100 column border for good coding style
+set cc=80                  " set an 100 column border for good coding style
 set cursorline              " highlight current cursorline
 set noshowmode
 set nohlsearch
-set laststatus=3            " global status line
 " set nowrap
 
 " Code
@@ -42,7 +41,7 @@ set smartcase               " case insensitive search unless capital letters are
 set hlsearch                " highlight search 
 set incsearch               " incremental search
 set mouse=a                 " enable mouse click
-set clipboard=unnamedplus   " using system clipboard
+set clipboard+=unnamedplus   " using system clipboard
 
 " Split plane
 set splitright
@@ -52,7 +51,7 @@ set splitbelow
 " set spell                 " enable spell check (may need to download language package)
 set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
-" set hidden                 " navigate buffers without losing unsaved work
+set hidden                 " navigate buffers without losing unsaved work
 
 
 call plug#begin('~/.config/nvim/plugged')
@@ -62,10 +61,8 @@ Plug 'shaunsingh/nord.nvim'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
-" Telescope, gitsigns requires plenary to function
-Plug 'nvim-lua/plenary.nvim'
-
 " The main Telescope plugin
+Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
 
@@ -73,6 +70,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'j-hui/fidget.nvim'
 
 " Git Decorations (blame, diff)
 Plug 'lewis6991/gitsigns.nvim'
@@ -84,9 +82,6 @@ Plug 'neovim/nvim-lspconfig'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-
-" Language specific
-" Plug 'ray-x/go.nvim'
 
 " Autocompletion
 Plug 'hrsh7th/nvim-cmp'
@@ -106,6 +101,10 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'folke/which-key.nvim'
 Plug 'famiu/bufdelete.nvim'
 
+" Language specific
+" Plug 'ray-x/go.nvim'
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()
 
 lua require('plugins/nvim-lsp-installer')
@@ -122,15 +121,18 @@ lua require('plugins/indent-blankline')
 lua require('plugins/diffview')
 lua require('plugins/which-key')
 lua require('plugins/scratches')
-" lua require('plugins/go')
+lua require('plugins/go')
 lua require('Comment').setup()
+lua require('fidget').setup{}
 
 " Autoformat
 " formatting_sync will be deprecated on vim 0.8
 " https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-1130373799
 autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
-" will prompt you to select the code action
-autocmd BufWritePre *.go lua vim.lsp.buf.code_action({ source = { organizeImports = true } })
+" will prompt you to select the code action *for goimport only
+" autocmd BufWritePre *.go lua vim.lsp.buf.code_action({ source = { organizeImports = true } })
+" let nvim-lsp handle gopls server instead of vim-go
+" let g:go_gopls_enabled = 0
 
 " https://stackoverflow.com/a/6496995
 " fun! Formatting()
@@ -170,7 +172,9 @@ nnoremap <silent><ESC> :nohlsearch<Bar>:echo<Cr>
 " Tab switch buffer
 nnoremap <silent><TAB> :BufferLineCycleNext<CR>
 nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
-nnoremap <silent><leader>d :Bdelete<CR>
+nnoremap <silent><leader>dd :Bdelete<CR>
+" Close all buffers except current one
+nnoremap <silent><leader>da :%bd\|e#<CR> 
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
