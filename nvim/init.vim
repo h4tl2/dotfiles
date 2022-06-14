@@ -14,6 +14,10 @@ set cc=80                  " set an 100 column border for good coding style
 set cursorline              " highlight current cursorline
 set noshowmode
 set nohlsearch
+if (has("termguicolors"))
+    set termguicolors
+endif
+
 " set nowrap
 
 " Code
@@ -59,6 +63,8 @@ call plug#begin('~/.config/nvim/plugged')
 " colorschemes, theme, icon
 Plug 'shaunsingh/nord.nvim'
 Plug 'EdenEast/nightfox.nvim'
+Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
+Plug 'jacoborus/tender.vim'
 Plug 'kyazdani42/nvim-web-devicons'
 
 " The main Telescope plugin
@@ -207,10 +213,12 @@ nnoremap <S-Down> :m+<CR>
 inoremap <S-Up> <Esc>:m-2<CR>
 inoremap <S-Down> <Esc>:m+<CR>
 
-
 " colorscheme nord
 " colorscheme nightfox
+" colorscheme dawnfox
 " colorscheme terafox
 " colorscheme duskfox
-colorscheme nordfox
+" colorscheme nordfox
+" colorscheme embark
+colorscheme tender
 
