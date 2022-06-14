@@ -14,6 +14,7 @@ set cc=80                  " set an 100 column border for good coding style
 set cursorline              " highlight current cursorline
 set noshowmode
 set nohlsearch
+set laststatus=3
 if (has("termguicolors"))
     set termguicolors
 endif
@@ -76,6 +77,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'folke/trouble.nvim'
 Plug 'j-hui/fidget.nvim'
 
 " Git Decorations (blame, diff)
@@ -130,11 +132,11 @@ lua require('plugins/scratches')
 lua require('plugins/go')
 lua require('Comment').setup()
 lua require('fidget').setup{}
+lua require('trouble').setup{}
 
 " Autoformat
 " formatting_sync will be deprecated on vim 0.8
-" https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-1130373799
-autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+" https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-1130373799 autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
 " will prompt you to select the code action *for goimport only
 " autocmd BufWritePre *.go lua vim.lsp.buf.code_action({ source = { organizeImports = true } })
 " let nvim-lsp handle gopls server instead of vim-go
@@ -206,6 +208,16 @@ nnoremap <silent><leader>fc <cmd>lua require('telescope.builtin').git_files()<cr
 " NvimTree mappings
 nnoremap <silent><C-b> :NvimTreeToggle<CR>
 nnoremap <silent><leader>r :NvimTreeRefresh<CR>
+
+" Trouble mappings
+" https://github.com/folke/trouble.nvim
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
+nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+
 
 " vim edit configuration
 nnoremap <S-Up> :m-2<CR>
