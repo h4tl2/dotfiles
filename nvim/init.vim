@@ -136,8 +136,10 @@ lua require('trouble').setup{}
 
 " Autoformat
 " formatting_sync will be deprecated on vim 0.8
-" https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-1130373799 autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
-" will prompt you to select the code action *for goimport only
+" https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-1130373799 
+autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+
+" will prompt you to select the code action
 " autocmd BufWritePre *.go lua vim.lsp.buf.code_action({ source = { organizeImports = true } })
 " let nvim-lsp handle gopls server instead of vim-go
 " let g:go_gopls_enabled = 0
@@ -183,16 +185,17 @@ nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
 nnoremap <silent><leader>dd :Bdelete<CR>
 " Close all buffers except current one
 nnoremap <silent><leader>da :%bd\|e#<CR> 
-nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
-nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
-nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
-nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
-nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
-nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
-nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
-nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
-nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
-
+nnoremap <silent>\1 <Cmd>BufferLineGoToBuffer 1<CR>
+nnoremap <silent>\2 <Cmd>BufferLineGoToBuffer 2<CR>
+nnoremap <silent>\3 <Cmd>BufferLineGoToBuffer 3<CR>
+nnoremap <silent>\4 <Cmd>BufferLineGoToBuffer 4<CR>
+nnoremap <silent>\5 <Cmd>BufferLineGoToBuffer 5<CR>
+" rarely have more than 5 tabs in the same windows
+" nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+" nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+" nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+" nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+"
 " Telescope mappings
 " nnoremap <leader>ff <cmd>Telescope find_files<cr>
 " nnoremap <leader>fg <cmd>Telescope live_grep<cr>
