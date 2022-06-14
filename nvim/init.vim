@@ -185,16 +185,11 @@ nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
 nnoremap <silent><leader>dd :Bdelete<CR>
 " Close all buffers except current one
 nnoremap <silent><leader>da :%bd\|e#<CR> 
-nnoremap <silent>\1 <Cmd>BufferLineGoToBuffer 1<CR>
-nnoremap <silent>\2 <Cmd>BufferLineGoToBuffer 2<CR>
-nnoremap <silent>\3 <Cmd>BufferLineGoToBuffer 3<CR>
-nnoremap <silent>\4 <Cmd>BufferLineGoToBuffer 4<CR>
-nnoremap <silent>\5 <Cmd>BufferLineGoToBuffer 5<CR>
-" rarely have more than 5 tabs in the same windows
-" nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
-" nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
-" nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
-" nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
 "
 " Telescope mappings
 " nnoremap <leader>ff <cmd>Telescope find_files<cr>
