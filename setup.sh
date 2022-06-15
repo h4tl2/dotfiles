@@ -31,6 +31,7 @@ PACKAGES=(
     ripgrep
     lazygit
     sqlite
+    gnu-sed
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
