@@ -102,6 +102,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'onsails/lspkind-nvim'
 Plug 'numToStr/Comment.nvim'
 Plug 'windwp/nvim-autopairs'
+Plug 'windwp/nvim-spectre'
 
 " File explorer
 Plug 'kyazdani42/nvim-tree.lua'
@@ -140,6 +141,7 @@ lua require('plugins/go')
 lua require('Comment').setup()
 lua require('fidget').setup{}
 lua require('trouble').setup{}
+lua require('spectre').setup()
 
 " lua require('lspsaga').init_lsp_saga()
 
@@ -174,7 +176,9 @@ let mapleader = ' '
 nmap ,P "0P
 nmap ,p "0p
 
-" Plugins mapping
+nnoremap <silent>qq :q<CR>
+
+" Scratches mapping
 nnoremap \s :ScratchOpenFloat<Cr>
 
 " windows
@@ -224,6 +228,15 @@ nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
 nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
 nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+
+" Spectre mappings
+" https://github.com/nvim-pack/nvim-spectre
+nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
+" search current word
+nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
+" vnoremap <leader>s <cmd>lua require('spectre').open_visual()<CR>
+" search in current file
+nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
 
 " Lspsaga mappings
 " https://github.com/glepnir/lspsaga.nvim
