@@ -62,11 +62,11 @@ set hidden                 " navigate buffers without losing unsaved work
 call plug#begin('~/.config/nvim/plugged')
 
 " colorschemes, theme, icon
+Plug 'kyazdani42/nvim-web-devicons'
 Plug 'shaunsingh/nord.nvim'
 Plug 'EdenEast/nightfox.nvim'
-Plug 'embark-theme/vim', { 'as': 'embark', 'branch': 'main' }
 Plug 'jacoborus/tender.vim'
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'Mofiqul/dracula.nvim'
 
 " The main Telescope plugin
 Plug 'nvim-lua/plenary.nvim'
@@ -87,6 +87,7 @@ Plug 'sindrets/diffview.nvim'
 " LSP config
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
+" Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -133,6 +134,8 @@ lua require('plugins/go')
 lua require('Comment').setup()
 lua require('fidget').setup{}
 lua require('trouble').setup{}
+
+" lua require('lspsaga').init_lsp_saga()
 
 " Autoformat
 " formatting_sync will be deprecated on vim 0.8
@@ -184,7 +187,7 @@ nnoremap <silent><TAB> :BufferLineCycleNext<CR>
 nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
 nnoremap <silent><leader>dd :Bdelete<CR>
 " Close all buffers except current one
-nnoremap <silent><leader>da :%bd\|e#<CR> 
+nnoremap <silent><leader>da <C-b>:%bd\|e#<CR> 
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
@@ -216,6 +219,13 @@ nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
 nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
 nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 
+" Lspsaga mappings
+" https://github.com/glepnir/lspsaga.nvim
+" nnoremap <silent>gh :Lspsaga lsp_finder<CR>
+" nnoremap <silent><leader>ca :Lspsaga code_action<CR>
+" vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
+" nnoremap <silent>T :Lspsaga open_floaterm<CR>
+" tnoremap <silent>T <C-\><C-n>:Lspsaga close_floaterm<CR>
 
 " vim edit configuration
 nnoremap <S-Up> :m-2<CR>
@@ -229,6 +239,6 @@ inoremap <S-Down> <Esc>:m+<CR>
 " colorscheme terafox
 " colorscheme duskfox
 " colorscheme nordfox
-" colorscheme embark
-colorscheme tender
+" colorscheme tender
+colorscheme dracula
 
