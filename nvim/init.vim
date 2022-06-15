@@ -111,8 +111,14 @@ Plug 'folke/which-key.nvim'
 Plug 'famiu/bufdelete.nvim'
 
 " Language specific
+" ---
+" Golang
 " Plug 'ray-x/go.nvim'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Use these plugins instead of vim-go 
+" gofillstructs is still need to find replacement
+Plug 'mattn/vim-goaddtags'
+Plug 'buoto/gotests-vim'
 
 call plug#end()
 
