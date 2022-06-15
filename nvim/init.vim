@@ -176,8 +176,6 @@ let mapleader = ' '
 nmap ,P "0P
 nmap ,p "0p
 
-nnoremap <silent>qq :q<CR>
-
 " Scratches mapping
 nnoremap \s :ScratchOpenFloat<Cr>
 
