@@ -122,6 +122,8 @@ Plug 'mattn/vim-goaddtags'
 Plug 'buoto/gotests-vim'
 
 call plug#end()
+" https://github.com/mattn/vim-goaddtags#usage
+let g:go_addtags_transform = 'camelcase'
 
 lua require('plugins/nvim-lsp-installer')
 lua require('plugins/lsp')
@@ -175,6 +177,7 @@ let mapleader = ' '
 " Text edits
 nmap ,P "0P
 nmap ,p "0p
+
 
 " Scratches mapping
 nnoremap \s :ScratchOpenFloat<Cr>
