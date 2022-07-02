@@ -56,17 +56,17 @@ set splitbelow
 " set spell                 " enable spell check (may need to download language package)
 set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
-set hidden                 " navigate buffers without losing unsaved work
+" set hidden                 " navigate buffers without losing unsaved work
 
 
 call plug#begin('~/.config/nvim/plugged')
 
 " colorschemes, theme, icon
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'shaunsingh/nord.nvim'
-Plug 'EdenEast/nightfox.nvim'
-Plug 'jacoborus/tender.vim'
+" Plug 'shaunsingh/nord.nvim'
+" Plug 'EdenEast/nightfox.nvim'
 Plug 'Mofiqul/dracula.nvim'
+" Plug 'folke/tokyonight.nvim'
 
 " The main Telescope plugin
 Plug 'nvim-lua/plenary.nvim'
@@ -122,14 +122,11 @@ Plug 'mattn/vim-goaddtags'
 Plug 'buoto/gotests-vim'
 
 call plug#end()
-" https://github.com/mattn/vim-goaddtags#usage
-let g:go_addtags_transform = 'camelcase'
 
 lua require('plugins/nvim-lsp-installer')
 lua require('plugins/lsp')
 lua require('plugins/telescope')
 lua require('plugins/autopair')
-lua require('plugins/nord')
 lua require('plugins/gitsigns')
 lua require('plugins/treesitter')
 lua require('plugins/nvim-tree')
@@ -145,12 +142,14 @@ lua require('fidget').setup{}
 lua require('trouble').setup{}
 lua require('spectre').setup()
 
+" lua require('plugins/tokyonight')
+" lua require('plugins/nord')
 " lua require('lspsaga').init_lsp_saga()
 
 " Autoformat
 " formatting_sync will be deprecated on vim 0.8
 " https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-1130373799 
-autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()
+autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 3000)
 
 " will prompt you to select the code action
 " autocmd BufWritePre *.go lua vim.lsp.buf.code_action({ source = { organizeImports = true } })
@@ -253,12 +252,6 @@ nnoremap <S-Down> :m+<CR>
 inoremap <S-Up> <Esc>:m-2<CR>
 inoremap <S-Down> <Esc>:m+<CR>
 
-" colorscheme nord
-" colorscheme nightfox
-" colorscheme dawnfox
-" colorscheme terafox
-" colorscheme duskfox
-" colorscheme nordfox
-" colorscheme tender
+" [nord, nightfox, dawnfox, terrafox, duskfox, nordfox, dracula]
 colorscheme dracula
 
