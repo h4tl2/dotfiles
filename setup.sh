@@ -50,7 +50,6 @@ CASKS=(
     kubecontext
     tyke
     itsycal
-    alt-tab
 )
 echo "Installing cask apps..."
 brew cask install ${CASKS[@]}
