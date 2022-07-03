@@ -2,11 +2,10 @@
 
 ## todo
 - [x] neovim 
-- [ ] vscode 
+- [ ] vscode-settings
 - [x] zsrhc 
-- [ ] iterm2
-- [ ] kitty
-- [ ] gitignore global
+- [x] iterm2
+- [x] gitignore global
 - [ ] manage dotfiles with stow
 
 ## fonts
