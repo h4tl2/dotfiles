@@ -78,6 +78,7 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
+Plug 'simrat39/symbols-outline.nvim'
 Plug 'j-hui/fidget.nvim'
 
 " Git Decorations (blame, diff)
