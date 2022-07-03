@@ -4,7 +4,6 @@
 - ripgrep
 - fzf
 - scratches
-- gnu-sed
 
 ### Scratches plugins
 ```

@@ -137,6 +137,7 @@ lua require('plugins/diffview')
 lua require('plugins/which-key')
 lua require('plugins/scratches')
 lua require('plugins/go')
+lua require('plugins/snippets')
 lua require('Comment').setup()
 lua require('fidget').setup{}
 lua require('trouble').setup{}
