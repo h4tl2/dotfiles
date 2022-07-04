@@ -59,7 +59,7 @@ set noswapfile            " disable creating swap file
 " set hidden                 " navigate buffers without losing unsaved work
 
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.config/nvim_plugins/plugged')
 
 " colorschemes, theme, icon
 Plug 'kyazdani42/nvim-web-devicons'
