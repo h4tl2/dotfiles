@@ -61,6 +61,9 @@ set noswapfile            " disable creating swap file
 
 call plug#begin('~/.config/nvim_plugins/plugged')
 
+" Faster load plugins
+Plug 'lewis6991/impatient.nvim'
+
 " colorschemes, theme, icon
 Plug 'kyazdani42/nvim-web-devicons'
 " Plug 'shaunsingh/nord.nvim'
@@ -124,6 +127,7 @@ Plug 'buoto/gotests-vim'
 
 call plug#end()
 
+lua require('impatient')
 lua require('plugins/nvim-lsp-installer')
 lua require('plugins/lsp')
 lua require('plugins/telescope')
