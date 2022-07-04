@@ -1,8 +1,5 @@
 require('nvim-tree').setup {
     auto_reload_on_write = true,
-    view = {
-        auto_resize = true,
-    },
     renderer = {
         indent_markers = {
             enable = true
