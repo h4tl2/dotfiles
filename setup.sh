@@ -32,6 +32,7 @@ PACKAGES=(
     lazygit
     sqlite
     gnu-sed
+    stow
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}

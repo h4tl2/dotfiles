@@ -6,11 +6,14 @@
 - [x] zsrhc 
 - [x] iterm2
 - [x] gitignore global
-- [ ] manage dotfiles with stow
+- [x] manage dotfiles with stow 
 
 ## fonts
 - https://www.programmingfonts.org/#meslo
 - https://www.nerdfonts.com/font-downloads
+
+## stow
+https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html
 
 ## extension
 ### vscode extension
