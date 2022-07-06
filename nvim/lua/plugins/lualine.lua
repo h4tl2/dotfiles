@@ -13,15 +13,21 @@
 require('lualine').setup {
     options = {
         disabled_filetypes = { 'NvimTree' },
-        global_status = true
+        global_status = true,
+        component_separators = '|',
+        section_separators = { left = '', right = '' },
     },
     sections = {
+        -- lualine_b = { { 'diff', source = diff_source }, },
         lualine_c = {
             {
                 'filename',
                 path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
             }
-        }
-        -- lualine_b = { { 'diff', source = diff_source }, },
+        },
+        lualine_x = {
+            'encoding', 'filetype',
+        },
+        lualine_y = {},
     }
 }
