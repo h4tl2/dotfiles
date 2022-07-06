@@ -57,6 +57,12 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- to support nvim-ufo folding
+-- https://github.com/kevinhwang91/nvim-ufo
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
 -- https://www.getman.io/posts/programming-go-in-neovim/
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 

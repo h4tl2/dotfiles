@@ -61,14 +61,14 @@ set noswapfile            " disable creating swap file
 
 call plug#begin('~/.config/nvim_plugins/plugged')
 
-" Faster load plugins
+" Performance
 Plug 'lewis6991/impatient.nvim'
 
 " colorschemes, theme, icon
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'Mofiqul/dracula.nvim'
 " Plug 'shaunsingh/nord.nvim'
 " Plug 'EdenEast/nightfox.nvim'
-Plug 'Mofiqul/dracula.nvim'
 " Plug 'folke/tokyonight.nvim'
 
 " The main Telescope plugin
@@ -76,12 +76,15 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
 
-" Tab, Status, indicators
+" UI (Tab, Status, indicators)
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'simrat39/symbols-outline.nvim'
+Plug 'petertriho/nvim-scrollbar'
+Plug 'kevinhwang91/nvim-ufo'
+Plug 'kevinhwang91/promise-async' " nvim-ufo requires this plugin
 Plug 'j-hui/fidget.nvim'
 
 " Git Decorations (blame, diff)
@@ -143,10 +146,12 @@ lua require('plugins/which-key')
 lua require('plugins/scratches')
 lua require('plugins/go')
 lua require('plugins/snippets')
+lua require('plugins/scrollbar')
 lua require('Comment').setup()
 lua require('fidget').setup{}
 lua require('trouble').setup{}
 lua require('spectre').setup()
+lua require('ufo').setup()
 
 " lua require('plugins/tokyonight')
 " lua require('plugins/nord')
