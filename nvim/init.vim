@@ -83,8 +83,6 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'petertriho/nvim-scrollbar'
-Plug 'kevinhwang91/nvim-ufo'
-Plug 'kevinhwang91/promise-async' " nvim-ufo requires this plugin
 Plug 'j-hui/fidget.nvim'
 
 " Git Decorations (blame, diff)
@@ -151,7 +149,6 @@ lua require('Comment').setup()
 lua require('fidget').setup{}
 lua require('trouble').setup{}
 lua require('spectre').setup()
-lua require('ufo').setup()
 
 " lua require('plugins/tokyonight')
 " lua require('plugins/nord')
