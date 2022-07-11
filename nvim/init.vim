@@ -142,7 +142,7 @@ lua require('plugins/indent-blankline')
 lua require('plugins/diffview')
 lua require('plugins/which-key')
 lua require('plugins/scratches')
-lua require('plugins/go')
+" lua require('plugins/go')
 lua require('plugins/snippets')
 lua require('plugins/scrollbar')
 lua require('Comment').setup()
@@ -157,7 +157,7 @@ lua require('spectre').setup()
 " Autoformat
 " formatting_sync will be deprecated on vim 0.8
 " https://github.com/neovim/nvim-lspconfig/issues/115#issuecomment-1130373799 
-autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 3000)
+" autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 3000)
 
 " will prompt you to select the code action
 " autocmd BufWritePre *.go lua vim.lsp.buf.code_action({ source = { organizeImports = true } })

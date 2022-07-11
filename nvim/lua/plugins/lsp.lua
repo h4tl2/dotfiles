@@ -39,30 +39,24 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
     -- show hover diagnostic
-    vim.api.nvim_create_autocmd("CursorHold", {
-        buffer = bufnr,
-        callback = function()
-            local opts = {
-                focusable = false,
-                close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-                border = 'rounded',
-                source = 'always',
-                prefix = ' ',
-                scope = 'cursor',
-            }
-            vim.diagnostic.open_float(nil, opts)
-        end
-    })
+    -- vim.api.nvim_create_autocmd("CursorHold", {
+    --     buffer = bufnr,
+    --     callback = function()
+    --         local opts = {
+    --             focusable = false,
+    --             close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+    --             border = 'rounded',
+    --             source = 'always',
+    --             prefix = ' ',
+    --             scope = 'cursor',
+    --         }
+    --         vim.diagnostic.open_float(nil, opts)
+    --     end
+    -- })
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
--- to support nvim-ufo folding
--- https://github.com/kevinhwang91/nvim-ufo
-capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
-}
 -- https://www.getman.io/posts/programming-go-in-neovim/
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
