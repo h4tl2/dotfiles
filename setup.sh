@@ -61,4 +61,10 @@ cp .vimrc ~/.vimrc
 # cp ./zsh/.zshrc ~/.zshrc
 # cp ./zsh/.p10k.zsh ~/.p10k.zsh
 
+# stow config files
+mkdir .config
+mkdir .config/nvim
+mkdir .config/kitty
+stow --target=$HOME/.config/kitty kitty
+stow --target=$HOME/.config/nvim nvim
 echo "DONE!"
