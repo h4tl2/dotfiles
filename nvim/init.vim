@@ -32,15 +32,14 @@ endif
 
 " Code
 set nowrap
-filetype plugin indent on   "allow auto-indenting depending on file type
+filetype plugin indent on   " allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
 filetype plugin on
 set foldlevel=20
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
-" Indent
-set tabstop=4               " number of columns occupied by a tab 
+" Indent set tabstop=4               " number of columns occupied by a tab 
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
 set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for autoindents
@@ -93,7 +92,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'petertriho/nvim-scrollbar'
-Plug 'j-hui/fidget.nvim'
+Plug 'j-hui/fidget.nvim' "
 
 " Git Decorations (blame, diff)
 Plug 'lewis6991/gitsigns.nvim'
@@ -102,7 +101,6 @@ Plug 'sindrets/diffview.nvim'
 " LSP config
 Plug 'williamboman/nvim-lsp-installer'
 Plug 'neovim/nvim-lspconfig'
-" Plug 'glepnir/lspsaga.nvim', { 'branch': 'main' }
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -162,7 +160,6 @@ lua require('spectre').setup()
 
 " lua require('plugins/tokyonight')
 " lua require('plugins/nord')
-" lua require('lspsaga').init_lsp_saga()
 
 " Autoformat
 " formatting_sync will be deprecated on vim 0.8
@@ -174,21 +171,7 @@ lua require('spectre').setup()
 " let nvim-lsp handle gopls server instead of vim-go
 " let g:go_gopls_enabled = 0
 
-" https://stackoverflow.com/a/6496995
-" fun! Formatting()
-"     " if &ft =~ 'ruby\|javascript\|perl'
-"     if &ft =~ 'go'
-"         lua require('go.format').gofmt()
-"         return
-"     endif
-"
-"     lua vim.lsp.buf.formatting_sync()
-" endfun
-"
-" autocmd BufWritePre * call Formatting()
 
-
-" remaps
 let mapleader = ' '
 
 " Text edits
@@ -255,14 +238,6 @@ nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<
 " vnoremap <leader>s <cmd>lua require('spectre').open_visual()<CR>
 " search in current file
 nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
-
-" Lspsaga mappings
-" https://github.com/glepnir/lspsaga.nvim
-" nnoremap <silent>gh :Lspsaga lsp_finder<CR>
-" nnoremap <silent><leader>ca :Lspsaga code_action<CR>
-" vnoremap <silent><leader>ca :<C-U>Lspsaga range_code_action<CR>
-" nnoremap <silent>T :Lspsaga open_floaterm<CR>
-" tnoremap <silent>T <C-\><C-n>:Lspsaga close_floaterm<CR>
 
 " vim edit configuration
 nnoremap <S-Up> :m-2<CR>

@@ -1,17 +1,30 @@
--- lspconfig
 local nvim_lsp = require('lspconfig')
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
     return
 end
 
-local servers = { 'tsserver', 'gopls', 'yamlls', 'sumneko_lua', 'rust_analyzer', 'tflint', 'zk', 'eslint', 'vimls' }
+-- Install LS {{{
+local servers = {
+    'tsserver',
+    'gopls',
+    'yamlls',
+    'sumneko_lua',
+    'rust_analyzer',
+    'tflint',
+    'zk',
+    'eslint',
+    'vimls',
+}
 
 -- Completion kinds
 lsp_installer.setup({
     ensure_installed = servers,
 })
 
+-- }}}
+
+-- attach function {{{
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
@@ -36,7 +49,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+    buf_set_keymap('n', '<space>fm', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
     -- show hover diagnostic
     -- vim.api.nvim_create_autocmd("CursorHold", {
@@ -55,20 +68,62 @@ local on_attach = function(client, bufnr)
     -- })
 end
 
+-- https://www.getman.io/posts/programming-go-in-neovim/
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
--- https://www.getman.io/posts/programming-go-in-neovim/
--- capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
+local function config(_config)
+    return vim.tbl_deep_extend("force", {
+        on_attach = on_attach,
+        capabilities = capabilities,
+    }, _config or {})
+end
 
-for _, lsp in ipairs(servers) do
+nvim_lsp.gopls.setup(config({
+    cmd = { 'gopls', 'serve' },
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+                shadow = true,
+            },
+            staticcheck = true,
+        },
+    },
+}))
+
+require("lspconfig").sumneko_lua.setup(config({
+    settings = {
+        Lua = {
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { "vim" },
+            },
+        },
+    },
+}))
+
+local can_use_default_setting_servers = {
+    'tsserver',
+    'yamlls',
+    'rust_analyzer',
+    'tflint',
+    'zk',
+    'eslint',
+    'vimls',
+}
+
+for _, lsp in ipairs(can_use_default_setting_servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
         capabilities = capabilities,
     }
 end
 
--- nvim-cmp
+-- }}}
+
+-- setup lsp and autocomplete {{{
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
@@ -119,9 +174,13 @@ cmp.setup {
         { name = 'path' },
     },
 }
+-- }}}
+
+-- UI {{{
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
 vim.diagnostic.config({
     virtual_text = {
         prefix = '●', -- Could be '●', '▎', 'x', '■'
     }
 })
+-- }}}
