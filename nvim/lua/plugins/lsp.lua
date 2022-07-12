@@ -1,4 +1,5 @@
 local nvim_lsp = require('lspconfig')
+local util = require('lspconfig/util')
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not status_ok then
     return
@@ -82,6 +83,8 @@ end
 
 nvim_lsp.gopls.setup(config({
     cmd = { 'gopls', 'serve' },
+    filetypes = { "go", "gomod" },
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
     settings = {
         gopls = {
             analyses = {
