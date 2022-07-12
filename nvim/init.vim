@@ -176,9 +176,11 @@ let mapleader = ' '
 nmap ,P "0P
 nmap ,p "0p
 
+" Symbols outline
+nnoremap <silent><leader>sb :SymbolsOutline<CR>
 
 " Scratches mapping
-nnoremap \s :ScratchOpenFloat<Cr>
+nnoremap <silent>\s :ScratchOpenFloat<Cr>
 
 " windows
 nnoremap <silent><leader>h :wincmd h<Cr>
