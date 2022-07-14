@@ -8,6 +8,7 @@ treesitter.setup {
         "tsx",
         "toml",
         "json",
+        "hcl",
         "yaml",
         "html",
         "css",
