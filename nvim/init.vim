@@ -136,8 +136,7 @@ Plug 'buoto/gotests-vim'
 
 call plug#end()
 
-lua require('impatient')
-lua require('plugins/nvim-lsp-installer')
+lua require('impatient') lua require('plugins/nvim-lsp-installer')
 lua require('plugins/lsp')
 lua require('plugins/telescope')
 lua require('plugins/autopair')
@@ -152,7 +151,7 @@ lua require('plugins/which-key')
 lua require('plugins/scratches')
 lua require('plugins/go')
 lua require('plugins/snippets')
-lua require('plugins/scrollbar')
+" lua require('plugins/scrollbar')
 lua require('Comment').setup()
 lua require('fidget').setup{}
 lua require('trouble').setup{}
