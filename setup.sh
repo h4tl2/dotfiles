@@ -61,10 +61,15 @@ cp .vimrc ~/.vimrc
 # cp ./zsh/.zshrc ~/.zshrc
 # cp ./zsh/.p10k.zsh ~/.p10k.zsh
 
+echo "Stow dotfiles..."
 # stow config files
 mkdir .config
 mkdir .config/nvim
 mkdir .config/kitty
 stow --target=$HOME/.config/kitty kitty
 stow --target=$HOME/.config/nvim nvim
+
+echo "configure git..."
+git config --global --add --bool push.autoSetupRemote true
+# TODO: add .gitignore and .gitconfig
 echo "DONE!"
