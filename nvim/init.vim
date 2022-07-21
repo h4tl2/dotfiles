@@ -78,9 +78,8 @@ Plug 'lewis6991/impatient.nvim'
 " colorschemes, theme, icon
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'Mofiqul/dracula.nvim'
+Plug 'andersevenrud/nordic.nvim'
 " Plug 'shaunsingh/nord.nvim'
-" Plug 'EdenEast/nightfox.nvim'
-" Plug 'folke/tokyonight.nvim'
 
 " The main Telescope plugin
 Plug 'nvim-lua/plenary.nvim'
@@ -160,8 +159,7 @@ lua require('fidget').setup{}
 lua require('trouble').setup{}
 lua require('spectre').setup()
 
-" lua require('plugins/tokyonight')
-" lua require('plugins/nord')
+lua require('plugins/nordic-theme')
 
 " let nvim-lsp handle gopls server instead of vim-go
 " let g:go_gopls_enabled = 0
@@ -221,7 +219,9 @@ nnoremap <silent><leader>fc <cmd>lua require('telescope.builtin').git_files()<cr
 
 " NvimTree mappings
 nnoremap <silent><C-b> :NvimTreeToggle<CR>
+nnoremap <silent><C-f> :NvimTreeFindFileToggle<CR>
 nnoremap <silent><leader>r :NvimTreeRefresh<CR>
+
 
 " Trouble mappings
 " https://github.com/folke/trouble.nvim
@@ -247,6 +247,6 @@ nnoremap <S-Down> :m+<CR>
 inoremap <S-Up> <Esc>:m-2<CR>
 inoremap <S-Down> <Esc>:m+<CR>
 inoremap <C-c> <Esc>
-" [nord, nightfox, dawnfox, terrafox, duskfox, nordfox, dracula]
-colorscheme dracula
+" [nord, dracula, nordic]
+colorscheme nordic
 
