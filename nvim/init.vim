@@ -93,7 +93,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'petertriho/nvim-scrollbar'
-Plug 'j-hui/fidget.nvim' "
+Plug 'j-hui/fidget.nvim'
 
 " Git Decorations (blame, diff)
 Plug 'lewis6991/gitsigns.nvim'
@@ -117,6 +117,7 @@ Plug 'onsails/lspkind-nvim'
 Plug 'numToStr/Comment.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'windwp/nvim-spectre'
+Plug 'cappyzawa/trim.nvim'
 
 " File explorer
 Plug 'kyazdani42/nvim-tree.lua'
@@ -154,6 +155,7 @@ lua require('plugins/scratches')
 lua require('plugins/go')
 lua require('plugins/autocmd')
 lua require('plugins/snippets')
+lua require('plugins/trim')
 " lua require('plugins/scrollbar')
 lua require('Comment').setup()
 lua require('fidget').setup{}
