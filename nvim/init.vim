@@ -1,4 +1,4 @@
-" General   
+" General
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching
 set ttyfast                 " Speed up scrolling in Vim
@@ -21,8 +21,8 @@ if (has("termguicolors"))
 endif
 
 " https://github.com/kovidgoyal/kitty/issues/108#issuecomment-320492772
-" if has('gui_running') || has('nvim') 
-"     hi Normal 		guifg=#f6f3e8 guibg=#242424 
+" if has('gui_running') || has('nvim')
+"     hi Normal 		guifg=#f6f3e8 guibg=#242424
 " else
 "     " Set the terminal default background and foreground colors, thereby
 "     " improving performance by not needing to set these colors on empty cells.
@@ -40,8 +40,8 @@ set foldlevel=20
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
-" Indent 
-set tabstop=4               " number of columns occupied by a tab 
+" Indent
+set tabstop=4               " number of columns occupied by a tab
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
 set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for autoindents
@@ -52,9 +52,9 @@ set numberwidth=4           " columns used for the line number
 " au FileType go set tabstop=4
 
 " Search
-set ignorecase              " case insensitive 
+set ignorecase              " case insensitive
 set smartcase               " case insensitive search unless capital letters are used
-set hlsearch                " highlight search 
+set hlsearch                " highlight search
 set incsearch               " incremental search
 set mouse=a                 " enable mouse click
 set clipboard+=unnamedplus   " using system clipboard
@@ -68,7 +68,6 @@ set splitbelow
 set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 " set hidden                 " navigate buffers without losing unsaved work
-
 
 call plug#begin('~/.config/nvim_plugins/plugged')
 
@@ -131,7 +130,7 @@ Plug 'famiu/bufdelete.nvim'
 " Golang
 " Plug 'ray-x/go.nvim'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-" Use these plugins instead of vim-go 
+" Use these plugins instead of vim-go
 " gofillstructs is still need to find replacement
 Plug 'mattn/vim-goaddtags'
 Plug 'buoto/gotests-vim'
@@ -162,7 +161,7 @@ lua require('fidget').setup{}
 lua require('trouble').setup{}
 lua require('spectre').setup()
 
-lua require('plugins/nordic-theme')
+lua require('plugins/colors')
 
 " let nvim-lsp handle gopls server instead of vim-go
 " let g:go_gopls_enabled = 0
@@ -201,7 +200,7 @@ nnoremap <silent><TAB> :BufferLineCycleNext<CR>
 nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
 nnoremap <silent><leader>dd :Bdelete<CR>
 " Close all buffers except current one
-nnoremap <silent><leader>da <C-b>:%bd\|e#<CR> 
+nnoremap <silent><leader>da <C-b>:%bd\|e#<CR>
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
@@ -224,7 +223,6 @@ nnoremap <silent><leader>fc <cmd>lua require('telescope.builtin').git_files()<cr
 nnoremap <silent><C-b> :NvimTreeToggle<CR>
 nnoremap <silent><C-f> :NvimTreeFindFileToggle<CR>
 nnoremap <silent><leader>r :NvimTreeRefresh<CR>
-
 
 " Trouble mappings
 " https://github.com/folke/trouble.nvim
@@ -252,4 +250,3 @@ inoremap <S-Down> <Esc>:m+<CR>
 inoremap <C-c> <Esc>
 " [nord, dracula, nordic]
 colorscheme nordic
-
