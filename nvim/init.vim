@@ -76,14 +76,16 @@ Plug 'lewis6991/impatient.nvim'
 
 " colorschemes, theme, icon
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'Mofiqul/dracula.nvim'
 Plug 'andersevenrud/nordic.nvim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+" Plug 'Mofiqul/dracula.nvim'
 " Plug 'shaunsingh/nord.nvim'
 
 " The main Telescope plugin
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
+" Plug 'nvim-telescope/telescope-project.nvim'
 
 " UI (Tab, Status, indicators)
 Plug 'nvim-lualine/lualine.nvim'
@@ -248,5 +250,5 @@ nnoremap <S-Down> :m+<CR>
 inoremap <S-Up> <Esc>:m-2<CR>
 inoremap <S-Down> <Esc>:m+<CR>
 inoremap <C-c> <Esc>
-" [nord, dracula, nordic]
-colorscheme nordic
+" [dracula, nordic, tokyonight]
+colorscheme tokyonight

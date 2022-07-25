@@ -16,7 +16,5 @@ vim.g.nord_minimal_mode = true -- Minimal mode: different choice of colors for T
 vim.g.nord_alternate_backgrounds = false
 
 -- tokyonight
--- vim.g.tokyonight_style = "storm"
--- vim.g.tokyonight_transparent_sidebar = true
--- vim.g.tokyonight_transparent = true
--- vim.opt.background = "dark"
+vim.g.tokyonight_italic_comments = false
+vim.g.tokyonight_italic_keywords = false
