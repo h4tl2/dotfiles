@@ -7,6 +7,7 @@ treesitter.setup {
         "go",
         "tsx",
         "toml",
+        "http",
         "json",
         "hcl",
         "yaml",
