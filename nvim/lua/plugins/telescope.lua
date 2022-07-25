@@ -1,13 +1,17 @@
 local telescope = require('telescope')
 local actions = require("telescope.actions")
+
 telescope.setup {
     defaults = {
+        preview = {
+            treesitter = false,
+        },
         mappings = {
             i = {
                 ["<esc>"] = actions.close
             },
         },
-        file_ignore_patterns = { ".git/", "^node_modules/", "^vendor/" },
+        file_ignore_patterns = { ".git/", "^node_modules/", "^vendor/", "*%.min%.*" },
         vimgrep_arguments = {
             'rg',
             '--color=never',
@@ -16,6 +20,7 @@ telescope.setup {
             '--line-number',
             '--column',
             '--smart-case',
+            '--trim',
             '-u',
             '--hidden',
             "--glob=!.git/",
@@ -24,6 +29,12 @@ telescope.setup {
     },
     pickers = {
         find_files = { hidden = true },
+    },
+    extensions = {
+        fzf = {
+            override_generic_sorter = true,
+            override_file_sorter = true,
+        },
     },
 }
 
