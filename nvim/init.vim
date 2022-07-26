@@ -58,7 +58,7 @@ set smartcase               " case insensitive search unless capital letters are
 set hlsearch                " highlight search
 set incsearch               " incremental search
 set mouse=a                 " enable mouse click
-set clipboard+=unnamedplus   " using system clipboard
+set clipboard=unnamedplus   " using system clipboard
 
 " Split plane
 set splitright
