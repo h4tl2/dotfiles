@@ -63,9 +63,9 @@ cp .vimrc ~/.vimrc
 
 echo "Stow dotfiles..."
 # stow config files
-mkdir .config
-mkdir .config/nvim
-mkdir .config/kitty
+mkdir $HOME/.config
+mkdir $HOME/.config/nvim
+mkdir $HOME/.config/kitty
 stow --target=$HOME/.config/kitty kitty
 stow --target=$HOME/.config/nvim nvim
 

@@ -2,7 +2,6 @@
 
 ## todo
 - [x] neovim 
-- [ ] vscode-settings
 - [x] zsrhc 
 - [x] iterm2
 - [x] gitignore global

@@ -3,17 +3,18 @@
 ## Pre-requisite
 - ripgrep
 - fzf
-- scratches
+- [scratches]()
+- [gomvp](https://github.com/abenz1267/gomvp)
+- [vim-go]()
 
 ## Setup
 Install required program
 ```sh
-brew install neovim ripgrep fzf
 # install vim-plug for neovim
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+go install github.com/abenz1267/gomvp@latest
 
-mkdir $HOME/.config/nvim
 stow --target=$HOME/.config/nvim nvim
 ```
 Setup plugins
@@ -28,6 +29,3 @@ Setup plugins
 mkdir -p ~/code/scratches
 touch ~/code/scratches/sc.md
 ```
-
-## Todo
-- keymapping for gitdiff

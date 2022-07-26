@@ -18,3 +18,20 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         end
     end,
 })
+
+-- https://github.com/abenz1267/gomvp
+vim.api.nvim_create_user_command('GoMvp',
+    function(...)
+        local args = { ... }
+
+        local Job = require 'plenary.job'
+
+        local job = Job:new {
+            command = 'gomvp',
+            args = args[1].fargs
+        }
+
+        job:sync()
+    end,
+    { nargs = '+', range = true }
+)
