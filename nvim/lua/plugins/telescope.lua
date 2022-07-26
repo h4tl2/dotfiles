@@ -25,10 +25,28 @@ telescope.setup {
             '--hidden',
             "--glob=!.git/",
         },
-        path_display = { 'smart' },
+        path_display = { "truncate" }, -- using smart here will impact performance
+        prompt_prefix = "😼 ",
     },
     pickers = {
-        find_files = { hidden = true },
+        find_files = {
+            hidden = true,
+        },
+        live_grep = {
+            theme = "dropdown",
+            previewer = false,
+            path_display = "shorten",
+        },
+        grep_string = {
+            theme = "dropdown",
+            previewer = false,
+            path_display = "shorten",
+        },
+        buffers = {
+            theme = "dropdown",
+            previewer = false,
+            initial_mode = "normal",
+        },
     },
     extensions = {
         fzf = {
