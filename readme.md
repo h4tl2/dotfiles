@@ -19,3 +19,6 @@ https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html
 ```shell
 code --list-extensions | xargs -L 1 echo code --install-extension
 ```
+
+## tuning perf
+- check zsh startuptime `for i in $(seq 1 10); do /usr/bin/time zsh -i -c exit; done`

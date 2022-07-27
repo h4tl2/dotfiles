@@ -29,3 +29,9 @@ Setup plugins
 mkdir -p ~/code/scratches
 touch ~/code/scratches/sc.md
 ```
+
+## Performance
+check nvim startup time
+```
+nvim --startuptime t.log
+```
