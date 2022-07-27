@@ -36,12 +36,12 @@ telescope.setup {
         live_grep = {
             theme = "dropdown",
             previewer = false,
-            path_display = "shorten",
+            path_display = { shorten = 1 },
         },
         grep_string = {
             theme = "dropdown",
             previewer = false,
-            path_display = "shorten",
+            path_display = { shorten = 1 },
         },
         buffers = {
             theme = "dropdown",
@@ -64,6 +64,9 @@ telescope.setup {
             override_generic_sorter = true,
             override_file_sorter = true,
         },
+        ["ui-select"] = {
+            require("telescope.themes").get_dropdown {}
+        }
     },
 }
 
@@ -71,4 +74,5 @@ telescope.setup {
 -- you need to call load_extension, somewhere after
 -- the setup function.
 telescope.load_extension('fzf')
+telescope.load_extension('ui-select')
 -- telescope.load_extension('project')
