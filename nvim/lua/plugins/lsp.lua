@@ -1,3 +1,4 @@
+-- vim:fileencoding=utf-8:foldmethod=marker
 local nvim_lsp = require('lspconfig')
 local util = require('lspconfig/util')
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
@@ -202,7 +203,13 @@ cmp.setup {
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
 vim.diagnostic.config({
     virtual_text = {
-        prefix = '●', -- Could be '●', '▎', 'x', '■'
+        prefix = '😾', -- Could be '●', '▎', 'x', '■'
     }
 })
+
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 -- }}}
