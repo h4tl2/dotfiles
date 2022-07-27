@@ -27,6 +27,7 @@ telescope.setup {
         },
         path_display = { "truncate" }, -- using smart here will impact performance
         prompt_prefix = "😼 ",
+        results_title = "🐱",
     },
     pickers = {
         find_files = {
