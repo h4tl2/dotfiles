@@ -27,6 +27,7 @@ lsp_installer.setup({
 -- }}}
 
 -- attach function {{{
+---@diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
 
