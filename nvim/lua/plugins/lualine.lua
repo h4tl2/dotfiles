@@ -25,10 +25,18 @@ require('lualine').setup {
                 path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
             }
         },
-        lualine_x = {
-            -- 'encoding',
-            'filetype',
-        },
-        lualine_y = {},
-    }
+        lualine_x = {},
+        lualine_y = { 'filetype' },
+        lualine_z = { 'location' },
+    },
+    -- tabline = {
+    --     lualine_a = {
+    --         {
+    --             "buffers",
+    --             separator = { left = "", right = "" },
+    --             symbols = { alternate_file = "" },
+    --         },
+    --     },
+    -- },
 }
+-- local a = "fdsaf"

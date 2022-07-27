@@ -1,13 +1,14 @@
 require("bufferline").setup {
     options = {
-        numbers = "ordinal",
+        numbers = "none",
         diagnostics = "nvim_lsp",
-        offsets = {
-            {
-                filetype = "NvimTree",
-                text = "File Explorer",
-                text_align = "center"
-            }
-        },
+        tab_size = 8,
+        -- offsets = {
+        --     {
+        --         filetype = "NvimTree",
+        --         text = "File Explorer",
+        --         text_align = "center"
+        --     }
+        -- },
     }
 }
