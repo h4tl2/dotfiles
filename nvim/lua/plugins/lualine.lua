@@ -12,7 +12,7 @@
 
 require('lualine').setup {
     options = {
-        disabled_filetypes = { 'NvimTree' },
+        -- disabled_filetypes = { 'NvimTree', 'TelescopePrompt' },
         global_status = true,
         component_separators = '|',
         section_separators = { left = '', right = '' },
@@ -39,4 +39,3 @@ require('lualine').setup {
     --     },
     -- },
 }
--- local a = "fdsaf"
