@@ -28,6 +28,7 @@ PACKAGES=(
     docker-compose
     colima
     bat
+    fd
     ripgrep
     lazygit
     sqlite
