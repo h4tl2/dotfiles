@@ -32,6 +32,8 @@ telescope.setup {
     pickers = {
         find_files = {
             hidden = true,
+            find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
+            -- find_command = {'rg', '--files', '--hidden', '-g', '!.git'},
         },
         live_grep = {
             theme = "dropdown",
