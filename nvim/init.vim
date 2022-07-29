@@ -80,7 +80,7 @@ Plug 'lewis6991/impatient.nvim'
 
 " colorschemes, theme, icon
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'andersevenrud/nordic.nvim'
+" Plug 'andersevenrud/nordic.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " Plug 'Mofiqul/dracula.nvim'
 " Plug 'shaunsingh/nord.nvim'
@@ -90,11 +90,11 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
 Plug 'nvim-telescope/telescope-ui-select.nvim'
-" Plug 'nvim-telescope/telescope-project.nvim'
+Plug 'nvim-telescope/telescope-project.nvim'
 
 " UI (Tab, Status, indicators)
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'akinsho/bufferline.nvim'
+Plug 'akinsho/bufferline.nvim' " TODO: might replace bufferline with lualine
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'simrat39/symbols-outline.nvim'
@@ -106,7 +106,7 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'sindrets/diffview.nvim'
 
 " LSP config
-Plug 'williamboman/nvim-lsp-installer'
+Plug 'williamboman/nvim-lsp-installer' " TODO: might replace with mason.nvim
 Plug 'neovim/nvim-lspconfig'
 
 " Treesitter
