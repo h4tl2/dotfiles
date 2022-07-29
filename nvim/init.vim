@@ -90,7 +90,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
 Plug 'nvim-telescope/telescope-ui-select.nvim'
-Plug 'nvim-telescope/telescope-project.nvim'
+" Plug 'nvim-telescope/telescope-project.nvim'
 
 " UI (Tab, Status, indicators)
 Plug 'nvim-lualine/lualine.nvim'
