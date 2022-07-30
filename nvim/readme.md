@@ -9,11 +9,8 @@
 - [vim-go]()
 
 ## TODO
-- [ ] enhance scractches to support multiple files edit
-    - [ ] mappings
-    - [ ] code-snippets
 - [ ] experiment w/ [command_center](https://github.com/FeiyouG/command_center.nvim)
-- [ ] experiment w/ telescope-project and nvim-tree update cwd
+- [ ] experiment w/ workspaces.nvim with nvim-tree update cwd api
 - [ ] convert .vim to .lua
 
 
