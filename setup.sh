@@ -34,6 +34,7 @@ PACKAGES=(
     sqlite
     gnu-sed
     stow
+    direnv
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
