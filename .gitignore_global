@@ -21,7 +21,7 @@
 # Logs and databases #
 ######################
 *.log
-*.sql
+# *.sql
 *.sqlite
 
 # OS generated files #
@@ -35,19 +35,18 @@ ehthumbs.db
 Thumbs.db
 
 # VIM #
+######################
 *.swp
 *.swo
 
-# talisman #
-.talismanrc
-
-# http vs-code extension #
-.http
-
-# terraform #
-.lock.hcl
-
-# javascript #
+# JAVASCRIPT #
+######################
 node_modules/
 
+# Others #
+######################
+.talismanrc
+.http
 *.crt
+.env
+.envrc
