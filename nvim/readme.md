@@ -3,9 +3,19 @@
 ## Pre-requisite
 - ripgrep
 - fzf
-- [scratches]()
+- fd
+- [scratches](./lua/plugins/scratches.lua)
 - [gomvp](https://github.com/abenz1267/gomvp)
 - [vim-go]()
+
+## TODO
+- [ ] enhance scractches to support multiple files edit
+    - [ ] mappings
+    - [ ] code-snippets
+- [ ] experiment w/ [command_center](https://github.com/FeiyouG/command_center.nvim)
+- [ ] experiment w/ telescope-project and nvim-tree update cwd
+- [ ] convert .vim to .lua
+
 
 ## Setup
 Install required program
