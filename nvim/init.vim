@@ -192,7 +192,10 @@ nmap ,p "0p
 nnoremap <silent><leader>sb :SymbolsOutline<CR>
 
 " Scratches mapping
-nnoremap <silent>\s :ScratchOpenFloat<Cr>
+" nnoremap <silent>\s :ScratchOpenFloat<Cr>
+nnoremap <silent>\s <cmd>lua require('plugins/scratches').open_scratch_file_floating()<CR>
+nnoremap <silent>\c <cmd>lua require('plugins/scratches').open_scratch_file_floating({filename="codesnip"})<CR>
+nnoremap <silent>\m <cmd>lua require('plugins/scratches').open_scratch_file_floating({filename="mapping"})<CR>
 
 " windows
 nnoremap <silent><leader>h :wincmd h<Cr>
@@ -249,7 +252,7 @@ nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
 nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
 " vnoremap <leader>s <cmd>lua require('spectre').open_visual()<CR>
 " search in current file
-nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
+nnoremap <leader>sp <cmd>lua require('spectre').open_file_search()<cr>
 
 " Rest mappings
 nnoremap <silent>\rr <Plug>RestNvim

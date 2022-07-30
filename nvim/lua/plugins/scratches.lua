@@ -8,16 +8,20 @@ local M = {
     },
 }
 
-function M.get_scratch_filename()
-    return "~/code/scratches/sc.md"
+function M.get_scratch_filename(filename)
+    if filename == "mapping" then
+        return "~/code/scratches/mapping.md"
+    elseif filename == "codesnip" then
+        return "~/code/scratches/codesnip.md"
+    else
+        return "~/code/scratches/sc.md"
+    end
 end
 
-function M.open_scratch_file()
+function M.open_scratch_file(opts)
     vim.api.nvim_command("!mkdir -p ~/code/scratches")
-    vim.api.nvim_command("vsplit " .. M.get_scratch_filename())
+    vim.api.nvim_command("vsplit " .. M.get_scratch_filename(opts.filename))
 end
-
-vim.api.nvim_create_user_command("ScratchOpenSplit", M.open_scratch_file, {})
 
 function M.open_scratch_file_floating(opts)
     if M._state.last_floating_window ~= nil then
@@ -47,7 +51,7 @@ function M.open_scratch_file_floating(opts)
     local winnr = vim.api.nvim_open_win(0, true, win_opts)
     M._state.last_floating_window = winnr
 
-    vim.api.nvim_command("edit " .. M.get_scratch_filename())
+    vim.api.nvim_command("edit " .. M.get_scratch_filename(opts.filename))
 
     local bufnr = vim.api.nvim_get_current_buf()
 
@@ -66,5 +70,6 @@ function M.open_scratch_file_floating(opts)
 end
 
 vim.api.nvim_create_user_command("ScratchOpenFloat", M.open_scratch_file_floating, {})
+vim.api.nvim_create_user_command("ScratchOpenSplit", M.open_scratch_file, {})
 
 return M
