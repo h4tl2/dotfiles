@@ -1,0 +1,9 @@
+[core]
+	excludesfile = /Users/nivit.n/.gitignore_global
+[user]
+	name = nivitn
+	email = nivit.nan@gmail.com
+[init]
+	templatedir = /Users/nivit.n/.git-template
+[push]
+	autoSetupRemote = true
