@@ -4,6 +4,8 @@
 - ripgrep
 - fzf
 - fd
+- node 
+- yarn
 - [scratches](./lua/plugins/scratches.lua)
 - [gomvp](https://github.com/abenz1267/gomvp)
 - [vim-go]()
