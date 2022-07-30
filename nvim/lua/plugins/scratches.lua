@@ -1,3 +1,4 @@
+-- original one contains git push while saving the scratches too
 -- https://github.com/crivotz/nv-ide/blob/master/lua/plugins/scratches.lua
 -- Credits to https://github.com/GustavoKatel/
 

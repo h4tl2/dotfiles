@@ -18,3 +18,4 @@ vim.g.nord_alternate_backgrounds = false
 -- tokyonight
 vim.g.tokyonight_italic_comments = false
 vim.g.tokyonight_italic_keywords = false
+vim.g.tokyonight_colors = { border = "dark5" }
