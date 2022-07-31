@@ -9,13 +9,10 @@ local M = {
 }
 
 function M.get_scratch_filename(filename)
-    if filename == "mapping" then
-        return "~/code/scratches/mapping.md"
-    elseif filename == "codesnip" then
-        return "~/code/scratches/codesnip.md"
-    else
-        return "~/code/scratches/sc.md"
+    if filename == nil then
+        filename = "sc"
     end
+    return "~/code/scratches/" .. filename .. ".md"
 end
 
 function M.open_scratch_file(opts)
