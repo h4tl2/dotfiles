@@ -11,6 +11,7 @@
 - [vim-go]()
 
 ## TODO
+- [ ] a way to run test under the cursor
 - [ ] experiment w/ [command_center](https://github.com/FeiyouG/command_center.nvim)
 - [ ] experiment w/ workspaces.nvim with nvim-tree update cwd api
 - [ ] convert .vim to .lua
