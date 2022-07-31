@@ -35,6 +35,7 @@ PACKAGES=(
     gnu-sed
     stow
     direnv
+    git-delta
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
