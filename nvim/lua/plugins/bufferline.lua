@@ -9,7 +9,11 @@ require("bufferline").setup {
             local icon = level:match("error") and " " or " "
             return "" .. icon .. count
         end,
-        -- always_show_bufferline = true,
+        always_show_bufferline = true,
+        show_buffer_close_icons = false,
+        left_mouse_command = function(bufnum)
+            require('bufdelete').bufdelete(bufnum, true)
+        end
         -- offsets = {
         --     {
         --         filetype = "NvimTree",
