@@ -11,7 +11,7 @@ telescope.setup {
                 ["<esc>"] = actions.close
             },
         },
-        file_ignore_patterns = { ".git/", "^node_modules/", "^vendor/", "*%.min%.*" },
+        file_ignore_patterns = { ".git/", "^node_modules/", "^vendor/", "*%.min%.*", "*.svg" },
         vimgrep_arguments = {
             'rg',
             '--color=never',
@@ -32,7 +32,7 @@ telescope.setup {
     pickers = {
         find_files = {
             hidden = true,
-            find_command = { "fd", "--type", "f", "--strip-cwd-prefix" },
+            find_command = { "fd", "--no-ignore", "-E", ".DS_Store", "-E", ".git", "--type", "f", "--strip-cwd-prefix" },
             -- find_command = {'rg', '--files', '--hidden', '-g', '!.git'},
         },
         live_grep = {
