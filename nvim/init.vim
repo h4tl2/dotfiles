@@ -72,9 +72,7 @@ set noswapfile            " disable creating swap file
 
 " }}}
 
-" nvim lua config scripts {{{
 lua require('config')
-" }}}
 
 " Plugins {{{
 call plug#begin('~/.config/nvim_plugins/plugged')
@@ -219,7 +217,7 @@ nnoremap <silent><TAB> :BufferLineCycleNext<CR>
 nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
 nnoremap <silent><leader>dd :Bdelete<CR>
 " Close all buffers except current one
-nnoremap <silent><leader>da <C-b>:%bd\|e#<CR>
+nnoremap <silent><leader>da <cmd>lua require('plugins/buffer-handle').close_all_buffers_except_current()<cr>
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
