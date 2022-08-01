@@ -1,4 +1,4 @@
-" vim:fileencoding=utf-8:foldmethod=marker
+" vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
 " General {{{
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching
@@ -69,6 +69,37 @@ set splitbelow
 set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 " set hidden                 " navigate buffers without losing unsaved work
+
+" }}}
+
+" Disabled some plugins for perf {{{
+lua << EOF
+local disabled_built_ins = {
+    "2html_plugin",
+    "getscript",
+    "getscriptPlugin",
+    "gzip",
+    "logipat",
+    "netrw",
+    "netrwPlugin",
+    "netrwSettings",
+    "netrwFileHandlers",
+    "matchit",
+    "matchparen",
+    "tar",
+    "tarPlugin",
+    "rrhelper",
+    "vimball",
+    "vimballPlugin",
+    "zip",
+    "zipPlugin",
+}
+
+for _, plugin in pairs(disabled_built_ins) do
+    local disable = "loaded_" .. plugin
+    vim.g[disable] = 1
+end
+EOF
 
 " }}}
 
@@ -164,7 +195,6 @@ lua require('plugins/go')
 lua require('plugins/autocmd')
 lua require('plugins/snippets')
 lua require('plugins/trim')
-" lua require('plugins/scrollbar')
 lua require('Comment').setup()
 lua require('fidget').setup{}
 lua require('trouble').setup{}

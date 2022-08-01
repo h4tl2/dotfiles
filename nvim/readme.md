@@ -14,8 +14,7 @@
 - [ ] a way to run test under the cursor
 - [ ] fd or not fd for telescope
 - [ ] experiment w/ workspaces.nvim with nvim-tree update cwd api
-- [ ] convert .vim to .lua
-
+- [ ] migrate .vim to .lua and use packer instead of vim-plug
 
 ## Setup
 Install required program
