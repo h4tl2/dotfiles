@@ -71,6 +71,7 @@ mkdir $HOME/.config/nvim
 mkdir $HOME/.config/kitty
 stow --target=$HOME/.config/kitty kitty
 stow --target=$HOME/.config/nvim nvim
+stow --target=$HOME git
 
 echo "configure git..."
 git config --global --add --bool push.autoSetupRemote true
