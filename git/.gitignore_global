@@ -45,6 +45,7 @@ node_modules/
 
 # Others #
 ######################
+.debug/
 .talismanrc
 .http
 *.crt
