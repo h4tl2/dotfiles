@@ -1,3 +1,7 @@
+-- go up/down when set wrapline
+-- vim.keymap.set("n", "k", "v:count == 0 ? \"gk\" : \"k\"", { expr = true, silent = true })
+-- vim.keymap.set("n", "j", "v:count == 0 ? \"gj\" : \"j\"", { expr = true, silent = true })
+
 local disabled_built_ins = {
     "2html_plugin",
     "getscript",
@@ -20,6 +24,5 @@ local disabled_built_ins = {
 }
 
 for _, plugin in pairs(disabled_built_ins) do
-    local disable = "loaded_" .. plugin
-    vim.g[disable] = 1
+    vim.g["loaded_" .. plugin] = 1
 end
