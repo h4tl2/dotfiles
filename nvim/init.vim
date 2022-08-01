@@ -72,38 +72,11 @@ set noswapfile            " disable creating swap file
 
 " }}}
 
-" Disabled some plugins for perf {{{
-lua << EOF
-local disabled_built_ins = {
-    "2html_plugin",
-    "getscript",
-    "getscriptPlugin",
-    "gzip",
-    "logipat",
-    "netrw",
-    "netrwPlugin",
-    "netrwSettings",
-    "netrwFileHandlers",
-    -- "matchit",
-    -- "matchparen",
-    "tar",
-    "tarPlugin",
-    "rrhelper",
-    -- "vimball",
-    -- "vimballPlugin",
-    "zip",
-    "zipPlugin",
-}
-
-for _, plugin in pairs(disabled_built_ins) do
-    local disable = "loaded_" .. plugin
-    vim.g[disable] = 1
-end
-EOF
-
+" nvim lua config scripts {{{
+lua require('config')
 " }}}
 
-" Plugin {{{
+" Plugins {{{
 call plug#begin('~/.config/nvim_plugins/plugged')
 
 " Performance
@@ -111,12 +84,11 @@ Plug 'lewis6991/impatient.nvim'
 
 " colorschemes, theme, icon
 Plug 'kyazdani42/nvim-web-devicons'
-" Plug 'andersevenrud/nordic.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-" Plug 'Mofiqul/dracula.nvim'
+" Plug 'andersevenrud/nordic.nvim'
 " Plug 'shaunsingh/nord.nvim'
+" Plug 'Mofiqul/dracula.nvim'
 
-" The main Telescope plugin
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
@@ -130,7 +102,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'petertriho/nvim-scrollbar'
-Plug 'j-hui/fidget.nvim'
+Plug 'j-hui/fidget.nvim' " LSP status indicator
 
 " Git Decorations (blame, diff)
 Plug 'lewis6991/gitsigns.nvim'
@@ -168,18 +140,24 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " Language specific
 " ---
 " Golang
-" Plug 'ray-x/go.nvim'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " Use these plugins instead of vim-go
-" gofillstructs is still need to find replacement
+" TODO: gofillstructs is still need to find replacement
 Plug 'mattn/vim-goaddtags'
 Plug 'buoto/gotests-vim'
 
 call plug#end()
 
 lua require('impatient')
-lua require('plugins/nvim-lsp-installer')
 lua require('plugins/lsp')
+lua require('nvim-lsp-installer').setup{}
+lua require('which-key').setup{}
+lua require('diffview').setup{}
+lua require('Comment').setup{}
+lua require('fidget').setup{}
+lua require('trouble').setup{}
+lua require('spectre').setup{}
+lua require('rest-nvim').setup{}
 lua require('plugins/telescope')
 lua require('plugins/autopair')
 lua require('plugins/gitsigns')
@@ -188,19 +166,11 @@ lua require('plugins/nvim-tree')
 lua require('plugins/bufferline')
 lua require('plugins/lualine')
 lua require('plugins/indent-blankline')
-lua require('plugins/diffview')
-lua require('plugins/which-key')
 lua require('plugins/scratches')
 lua require('plugins/go')
 lua require('plugins/autocmd')
 lua require('plugins/snippets')
 lua require('plugins/trim')
-lua require('Comment').setup()
-lua require('fidget').setup{}
-lua require('trouble').setup{}
-lua require('spectre').setup()
-lua require('rest-nvim').setup()
-
 lua require('plugins/colors')
 
 " }}}
