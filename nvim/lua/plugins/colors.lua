@@ -9,11 +9,11 @@
 -- require('nord').set()
 
 -- nordic
-vim.g.nord_underline_option = 'none'
-vim.g.nord_italic = false
-vim.g.nord_italic_comments = false
-vim.g.nord_minimal_mode = true -- Minimal mode: different choice of colors for Tabs and StatusLine
-vim.g.nord_alternate_backgrounds = false
+-- vim.g.nord_underline_option = 'none'
+-- vim.g.nord_italic = false
+-- vim.g.nord_italic_comments = false
+-- vim.g.nord_minimal_mode = true -- Minimal mode: different choice of colors for Tabs and StatusLine
+-- vim.g.nord_alternate_backgrounds = false
 
 -- tokyonight
 vim.g.tokyonight_italic_comments = false
