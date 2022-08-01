@@ -84,13 +84,13 @@ local disabled_built_ins = {
     "netrwPlugin",
     "netrwSettings",
     "netrwFileHandlers",
-    "matchit",
-    "matchparen",
+    -- "matchit",
+    -- "matchparen",
     "tar",
     "tarPlugin",
     "rrhelper",
-    "vimball",
-    "vimballPlugin",
+    -- "vimball",
+    -- "vimballPlugin",
     "zip",
     "zipPlugin",
 }
@@ -205,6 +205,7 @@ lua require('plugins/colors')
 
 " }}}
 
+" Others {{{
 " let nvim-lsp handle gopls server instead of vim-go
 " let g:go_gopls_enabled = 0
 
@@ -213,6 +214,8 @@ lua require('plugins/colors')
 
 " will prompt you to select the code action
 " autocmd BufWritePre *.go lua vim.lsp.buf.code_action({ source = { organizeImports = true } })
+" }}}
+
 " Keymap {{{
 let mapleader = ' '
 
