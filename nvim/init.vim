@@ -38,6 +38,7 @@ filetype plugin indent on   " allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
 filetype plugin on
 set foldlevel=20
+" set foldnestmax=1
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
@@ -72,7 +73,7 @@ set noswapfile            " disable creating swap file
 
 " }}}
 
-lua require('config')
+lua require('settings')
 
 " Plugins {{{
 call plug#begin('~/.config/nvim_plugins/plugged')
@@ -190,6 +191,8 @@ let mapleader = ' '
 " Text edits
 nmap ,P "0P
 nmap ,p "0p
+" still got no time to study macros
+nmap q <nop>
 
 " Symbols outline
 nnoremap <silent><leader>sb :SymbolsOutline<CR>
