@@ -7,10 +7,11 @@
 - yarn
 - [scratches](./lua/plugins/scratches.lua)
 - [gomvp](https://github.com/abenz1267/gomvp)
-- [vim-go]()
+- [vim-go](https://github.com/fatih/vim-go)
 
 ## TODO
 - [ ] a way to run test under the cursor
+- [ ] going back to vim-go?
 - [ ] experiment w/ workspaces.nvim with nvim-tree update cwd api
 - [ ] migrate .vim to .lua and use packer instead of vim-plug
 
