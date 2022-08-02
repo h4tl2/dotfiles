@@ -211,18 +211,23 @@ nnoremap <silent>\h :split<Cr>
 
 nnoremap <silent><ESC> :nohlsearch<Bar>:echo<Cr>
 
+" LSP
+nnoremap <silent>\L :LspStop<cr>
+nnoremap <silent>\l :LstRestart<cr>
+
 " Buffers
 " Tab switch buffer
 nnoremap <silent><TAB> :BufferLineCycleNext<CR>
 nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
 nnoremap <silent><leader>dd :Bdelete<CR>
-" Close all buffers except current one
 nnoremap <silent><leader>da <cmd>lua require('plugins/buffer-handle').close_all_buffers_except_current()<cr>
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
 nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
 nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 6<CR>
+nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 7<CR>
 "
 " Telescope mappings
 " nnoremap <leader>ff <cmd>Telescope find_files<cr>
