@@ -3,7 +3,6 @@
 ## Pre-requisite
 - ripgrep
 - fzf
-- fd
 - node 
 - yarn
 - [scratches](./lua/plugins/scratches.lua)
@@ -12,7 +11,6 @@
 
 ## TODO
 - [ ] a way to run test under the cursor
-- [ ] fd or not fd for telescope
 - [ ] experiment w/ workspaces.nvim with nvim-tree update cwd api
 - [ ] migrate .vim to .lua and use packer instead of vim-plug
 

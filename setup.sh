@@ -33,7 +33,6 @@ PACKAGES=(
     docker-compose
     colima
     bat
-    fd
     ripgrep
     lazygit
     sqlite
@@ -42,6 +41,7 @@ PACKAGES=(
     direnv
     git-delta
     font-jetbrains-mono-nerd-font
+    # fd
 )
 echo "Installing packages..."
 brew install ${PACKAGES[@]}
