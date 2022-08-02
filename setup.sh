@@ -35,6 +35,7 @@ PACKAGES=(
     bat
     ripgrep
     lazygit
+    gitui
     sqlite
     gnu-sed
     stow
