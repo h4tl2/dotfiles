@@ -2,9 +2,6 @@
 
 echo "Setting up development env"
 
-echo "Installing xcode..."
-xcode-select —-install
-
 echo "Installing homebrew..."
 if test ! $(which brew); then
     echo "Installing homebrew..."
