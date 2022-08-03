@@ -16,6 +16,7 @@ set cursorline              " highlight current cursorline
 set noshowmode
 set nohlsearch
 set laststatus=3
+set winbar=%=%m\ %f
 " set signcolumn=yes       " show symbols on the column (i.e. E error)
 if (has("termguicolors"))
     set termguicolors
