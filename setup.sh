@@ -12,7 +12,7 @@ brew update
 
 echo "Tapping homebrew..."
 TAPS=(
-    homebrew/cask-fonts
+    # homebrew/cask-fonts
 )
 
 PACKAGES=(
@@ -38,7 +38,6 @@ PACKAGES=(
     stow
     direnv
     git-delta
-    font-jetbrains-mono-nerd-font
     # fd
 )
 echo "Installing packages..."
