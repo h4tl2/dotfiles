@@ -1,11 +1,5 @@
 # dotfiles
 
-## todo
-- [x] neovim 
-- [x] zsrhc 
-- [x] iterm2
-- [x] gitignore global
-- [x] manage dotfiles with stow 
 
 ## fonts
 - https://www.programmingfonts.org/#meslo
@@ -13,6 +7,18 @@
 
 ## stow
 https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html
+
+## macos
+### Finder
+General 
+- New Finder windows show -> Home Folder
+Advanced 
+- Show all filename extensions -> Yes
+- how warning before changing an extension -> No
+- When performing a search -> Search the current folder
+View
+- Show Path Bar
+- Show Tab Bar
 
 ## extension
 ### vscode extension
