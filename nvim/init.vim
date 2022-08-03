@@ -216,7 +216,7 @@ nnoremap <silent><ESC> :nohlsearch<Bar>:echo<Cr>
 
 " LSP
 nnoremap <silent>\L :LspStop<cr>
-nnoremap <silent>\l :LstRestart<cr>
+nnoremap <silent>\l :LspRestart<cr>
 
 " Buffers
 " Tab switch buffer
