@@ -277,7 +277,7 @@ nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
 nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
 " vnoremap <leader>s <cmd>lua require('spectre').open_visual()<CR>
 " search in current file
-nnoremap <leader>sp <cmd>lua require('spectre').open_file_search()<cr>
+nnoremap <leader>sc <cmd>lua require('spectre').open_file_search()<cr>
 "}}}
 
 " Rest mappings {{{
