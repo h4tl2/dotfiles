@@ -71,10 +71,8 @@ set splitbelow
 set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
 " set hidden                 " navigate buffers without losing unsaved work
-
-" }}}
-
 lua require('settings')
+" }}}
 
 " Plugins {{{
 call plug#begin('~/.config/nvim_plugins/plugged')
