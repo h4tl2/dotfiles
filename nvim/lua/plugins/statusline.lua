@@ -4,14 +4,15 @@ local api = vim.api
 local cmd = vim.cmd
 
 local c = require("tokyonight.colors").setup()
-cmd("hi StatusLineAccent guifg=" .. c.bg .. " guibg=" .. c.magenta)
-cmd("hi StatusLineInsertAccent guifg=" .. c.bg .. " guibg=" .. c.red)
-cmd("hi StatusLineVisualAccent guifg=" .. c.bg .. " guibg=" .. c.green)
-cmd("hi StatusLineReplaceAccent guifg=" .. c.bg .. " guibg=" .. c.red)
-cmd("hi StatusLineCmdLineAccent guifg=" .. c.bg .. " guibg=" .. c.yellow)
-cmd("hi StatuslineTerminalAccent guifg=" .. c.bg .. " guibg=" .. c.yellow)
+cmd("hi StatusLineAccent guifg=" .. c.black .. " guibg=" .. c.blue)
+cmd("hi StatusLineInsertAccent guifg=" .. c.black .. " guibg=" .. c.green)
+cmd("hi StatusLineVisualAccent guifg=" .. c.black .. " guibg=" .. c.magenta)
+cmd("hi StatusLineReplaceAccent guifg=" .. c.black .. " guibg=" .. c.red)
+cmd("hi StatusLineCmdLineAccent guifg=" .. c.black .. " guibg=" .. c.yellow)
+cmd("hi StatuslineTerminalAccent guifg=" .. c.black .. " guibg=" .. c.yellow)
 cmd("hi StatusLineExtra guifg=" .. c.fg)
 cmd "hi StatusLineNC guibg=NONE"
+
 local modes = {
     ["n"] = "NORMAL",
     ["no"] = "NORMAL",
@@ -143,7 +144,7 @@ local vcs = function()
         "%#Normal#",
         " ",
         git_info.head,
-        " %#Normal#",
+        "%#Normal#",
         " ",
         added,
         changed,
@@ -161,7 +162,7 @@ Statusline.active = function()
         "%#Normal# ",
         vcs(),
         lsp(),
-        "%#Normal# ",
+        "%#Normal#",
         filepath(),
         filename(),
         "%#Normal#",
