@@ -162,7 +162,8 @@ lua require('plugins/gitsigns')
 lua require('plugins/treesitter')
 lua require('plugins/nvim-tree')
 lua require('plugins/bufferline')
-lua require('plugins/lualine')
+lua require('plugins/statusline')
+" lua require('plugins/lualine')
 lua require('plugins/indent-blankline')
 lua require('plugins/scratches')
 lua require('plugins/go')
@@ -176,9 +177,6 @@ lua require('plugins/colors')
 " Others {{{
 " let nvim-lsp handle gopls server instead of vim-go
 " let g:go_gopls_enabled = 0
-
-" formatting_sync will be deprecated on vim 0.8
-" autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil, 3000)
 
 " will prompt you to select the code action
 " autocmd BufWritePre *.go lua vim.lsp.buf.code_action({ source = { organizeImports = true } })
