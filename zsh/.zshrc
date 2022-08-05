@@ -163,10 +163,14 @@ alias nv="nvim"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH="$PATH:$GOPATH/bin"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 export PATH="/usr/local/opt/kubernetes-cli@1.22/bin:$PATH"
+
+export HISTFILE="~/.zsh_history"
+export HISTFILESIZE=1000000000
+export HISTSIZE=10000000005
 
 # SSH AGENT SOCK
 if [ ! -S ~/.ssh/ssh_auth_sock ]; then
@@ -176,6 +180,7 @@ fi
 export SSH_AUTH_SOCK=~/.ssh/ssh_auth_sock
 ssh-add -l > /dev/null || (ssh-add ~/.ssh/id_rsa && ssh-add ~/.ssh/id_rsa_personal_github)
 
+# FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
