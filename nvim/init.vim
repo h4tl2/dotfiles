@@ -186,25 +186,35 @@ lua require('plugins/colors')
 " autocmd BufWritePre *.go lua vim.lsp.buf.code_action({ source = { organizeImports = true } })
 " }}}
 
-" Keymap {{{
+" Keymap
 let mapleader = ' '
 
-" Text edits
+" Text edits {{{
 nmap ,P "0P
 nmap ,p "0p
 " still got no time to study macros
 nmap q <nop>
-
+nnoremap <silent><ESC> :nohlsearch<Bar>:echo<Cr>
+" vim edit configuration
+nnoremap <S-Up> :m-2<CR>
+nnoremap <S-Down> :m+<CR>
+inoremap <S-Up> <Esc>:m-2<CR>
+inoremap <S-Down> <Esc>:m+<CR>
+inoremap <C-c> <Esc>
+" easy indent
+vnoremap <silent>> >gv
+vnoremap <silent>< <gv
 " Symbols outline
 nnoremap <silent><leader>sb :SymbolsOutline<CR>
+" }}}
 
-" Scratches mapping
-" nnoremap <silent>\s :ScratchOpenFloat<Cr>
+" Scratches mapping {{{
 nnoremap <silent>\s <cmd>lua require('plugins/scratches').open_scratch_file_floating()<CR>
 nnoremap <silent>\c <cmd>lua require('plugins/scratches').open_scratch_file_floating({filename="codesnip"})<CR>
-nnoremap <silent>\m <cmd>lua require('plugins/scratches').open_scratch_file_floating({filename="mapping"})<CR>
+nnoremap <silent>\m <cmd>lua require('plugins/scratches').open_scratch_file_floating({filename="vim"})<CR>
+" }}}
 
-" windows
+" windows mapping {{{
 nnoremap <silent><leader>h :wincmd h<Cr>
 nnoremap <silent><leader>j :wincmd j<Cr>
 nnoremap <silent><leader>k :wincmd k<Cr>
@@ -212,14 +222,19 @@ nnoremap <silent><leader>l :wincmd l<Cr>
 nnoremap <silent><leader>= <C-w>=
 nnoremap <silent>\v :vsplit<Cr>
 nnoremap <silent>\h :split<Cr>
+" }}}
 
-nnoremap <silent><ESC> :nohlsearch<Bar>:echo<Cr>
-
-" LSP
+" LSP {{{
 nnoremap \L :LspStop<cr>
 nnoremap \l :LspRestart<cr>
+" }}}
 
-" Buffers
+" Git keymaps {{{
+nnoremap \dv <cmd>DiffviewFileHistory %<cr>
+nnoremap \dc <cmd>DiffviewClose<cr>
+" }}}
+
+" Buffers {{{
 " Tab switch buffer
 nnoremap <silent><TAB> :BufferLineCycleNext<CR>
 nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
@@ -230,11 +245,11 @@ nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
 nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
 nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
-nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 6<CR>
-nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 7<CR>
-"
-" Telescope mappings
-" nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+" }}}
+
+" Telescope mappings {{{
 " nnoremap <silent><leader>fg <cmd>lua require('telescope.builtin').live_grep({ previewer=false, path_display = { "shorten" } })<cr>
 nnoremap <silent><leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <silent><leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
@@ -242,13 +257,15 @@ nnoremap <silent><leader>b  <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <silent><leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <silent><leader>fs <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <silent><leader>fc <cmd>lua require('telescope.builtin').git_files()<cr>
+" }}}
 
-" NvimTree mappings
+" NvimTree mappings {{{
 nnoremap <silent><C-b> :NvimTreeToggle<CR>
 nnoremap <silent><C-f> :NvimTreeFindFileToggle<CR>
 nnoremap <silent><leader>r :NvimTreeRefresh<CR>
+"}}}
 
-" Trouble mappings
+" Trouble mappings {{{
 " https://github.com/folke/trouble.nvim
 nnoremap <leader>xx <cmd>TroubleToggle<cr>
 nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
@@ -256,30 +273,21 @@ nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
 nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
 nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
 nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+"}}}
 
-" Spectre mappings
+" Spectre mappings {{{
 " https://github.com/nvim-pack/nvim-spectre
 nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
-" search current word
 nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
 " vnoremap <leader>s <cmd>lua require('spectre').open_visual()<CR>
 " search in current file
 nnoremap <leader>sp <cmd>lua require('spectre').open_file_search()<cr>
+"}}}
 
-" Rest mappings
+" Rest mappings {{{
 nnoremap <silent>\rr <Plug>RestNvim
 nnoremap <silent>\rp <Plug>RestNvimPreview
-
-" vim edit configuration
-nnoremap <S-Up> :m-2<CR>
-nnoremap <S-Down> :m+<CR>
-inoremap <S-Up> <Esc>:m-2<CR>
-inoremap <S-Down> <Esc>:m+<CR>
-inoremap <C-c> <Esc>
-" easy indent
-vnoremap <silent>> >gv
-vnoremap <silent>< <gv
-
-" }}}
+"}}}
+"
 " [dracula, nordic, tokyonight]
 colorscheme tokyonight
