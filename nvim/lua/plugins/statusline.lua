@@ -12,7 +12,6 @@ cmd("hi StatusLineCmdLineAccent guifg=" .. c.bg .. " guibg=" .. c.yellow)
 cmd("hi StatuslineTerminalAccent guifg=" .. c.bg .. " guibg=" .. c.yellow)
 cmd("hi StatusLineExtra guifg=" .. c.fg)
 cmd "hi StatusLineNC guibg=NONE"
-
 local modes = {
     ["n"] = "NORMAL",
     ["no"] = "NORMAL",
@@ -107,16 +106,16 @@ local function lsp()
     local info = ""
 
     if count["errors"] ~= 0 then
-        errors = " %#LspDiagnosticsSignError# " .. count["errors"]
+        errors = " %#DiagnosticError# " .. count["errors"]
     end
     if count["warnings"] ~= 0 then
-        warnings = " %#LspDiagnosticsSignWarning# " .. count["warnings"]
+        warnings = " %#DiagnosticWarn# " .. count["warnings"]
     end
     if count["hints"] ~= 0 then
-        hints = " %#LspDiagnosticsSignHint# " .. count["hints"]
+        hints = " %#DiagnosticHint# " .. count["hints"]
     end
     if count["info"] ~= 0 then
-        info = " %#LspDiagnosticsSignInformation# " .. count["info"]
+        info = " %#DiagnosticInfo# " .. count["info"]
     end
 
     return errors .. warnings .. hints .. info .. "%#Normal#"
