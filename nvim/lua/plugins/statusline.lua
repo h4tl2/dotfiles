@@ -1,12 +1,9 @@
 -- https://nuxsh.is-a.dev/blog/custom-nvim-statusline.html
 local fn = vim.fn
 local api = vim.api
-local c = require("tokyonight.colors").setup()
--- todo:
--- VCS sections
--- colors
-
 local cmd = vim.cmd
+
+local c = require("tokyonight.colors").setup()
 cmd("hi StatusLineAccent guifg=" .. c.bg .. " guibg=" .. c.magenta)
 cmd("hi StatusLineInsertAccent guifg=" .. c.bg .. " guibg=" .. c.red)
 cmd("hi StatusLineVisualAccent guifg=" .. c.bg .. " guibg=" .. c.green)
@@ -81,14 +78,14 @@ local function filename()
 end
 
 local function filetype()
-    return string.format(" %s ", vim.bo.filetype):upper()
+    return string.format(" %s ", vim.bo.filetype):lower()
 end
 
 local function lineinfo()
     if vim.bo.filetype == "alpha" then
         return ""
     end
-    return " %P %#Normal# %l:%c "
+    return "%#Normal# %l:%c "
 end
 
 local function lsp()
@@ -144,13 +141,14 @@ local vcs = function()
     end
     return table.concat {
         " ",
+        "%#Normal#",
+        " ",
+        git_info.head,
+        " %#Normal#",
+        " ",
         added,
         changed,
         removed,
-        " ",
-        "%#GitSignsAdd# ",
-        git_info.head,
-        " %#Normal#",
     }
 end
 
@@ -161,12 +159,13 @@ Statusline.active = function()
         "%#Statusline#",
         update_mode_colors(),
         mode(),
+        "%#Normal# ",
         vcs(),
+        lsp(),
         "%#Normal# ",
         filepath(),
         filename(),
         "%#Normal#",
-        lsp(),
         "%=%#StatusLineExtra#",
         filetype(),
         lineinfo(),

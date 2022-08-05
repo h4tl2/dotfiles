@@ -11,7 +11,7 @@ require('nvim-tree').setup {
         exclude = { ".env", ".debug" }
     },
     diagnostics = {
-        enable = false,
+        enable = true,
         show_on_dirs = false,
         icons = {
             hint = "",
@@ -21,3 +21,5 @@ require('nvim-tree').setup {
         },
     },
 }
+
+local t = ""
