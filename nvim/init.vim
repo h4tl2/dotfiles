@@ -75,6 +75,7 @@ lua require('settings')
 " }}}
 
 " Plugins {{{
+" Plug instal {{{
 call plug#begin('~/.config/nvim_plugins/plugged')
 
 " Performance
@@ -145,6 +146,7 @@ Plug 'mattn/vim-goaddtags'
 Plug 'buoto/gotests-vim'
 
 call plug#end()
+" }}}
 
 lua require('impatient')
 lua require('plugins/lsp')
@@ -162,8 +164,8 @@ lua require('plugins/gitsigns')
 lua require('plugins/treesitter')
 lua require('plugins/nvim-tree')
 lua require('plugins/bufferline')
-lua require('plugins/statusline')
-" lua require('plugins/lualine')
+" lua require('plugins/statusline')
+lua require('plugins/lualine')
 lua require('plugins/indent-blankline')
 lua require('plugins/scratches')
 lua require('plugins/go')
