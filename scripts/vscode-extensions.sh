@@ -1,3 +1,4 @@
+#!/bin/zsh
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension donjayamanne.githistory
 code --install-extension eamodio.gitlens
