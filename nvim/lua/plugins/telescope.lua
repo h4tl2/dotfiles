@@ -4,8 +4,34 @@ local previewers = require("telescope.previewers")
 
 local Job = require "plenary.job"
 
--- ignore binary file and file with a size bigger than 300kb
+-- Put all filetypes that slow you down in this array
+local _bad = { '.*%.json' }
+
+local bad_files = function(filepath)
+    for _, v in ipairs(_bad) do
+        if filepath:match(v) then
+            return false
+        end
+    end
+
+    return true
+end
+--
+-- https://github.com/nvim-telescope/telescope.nvim/issues/269#issuecomment-789704019
+-- local new_maker = function(filepath, bufnr, opts)
+--     opts = opts or {}
+--     if opts.use_ft_detect == nil then opts.use_ft_detect = true end
+--     opts.use_ft_detect = opts.use_ft_detect == false and false or bad_files(filepath)
+--     previewers.buffer_previewer_maker(filepath, bufnr, opts)
+-- end
+
 local preview_maker = function(filepath, bufnr, opts)
+    -- turn off highlight for bad_files
+    opts = opts or {}
+    if opts.use_ft_detect == nil then opts.use_ft_detect = true end
+    opts.use_ft_detect = opts.use_ft_detect == false and false or bad_files(filepath)
+
+    -- ignore binary file and file with a size bigger than 300kb
     filepath = vim.fn.expand(filepath)
     Job
         :new({
@@ -75,6 +101,7 @@ telescope.setup {
             theme = "dropdown",
             previewer = false,
             path_display = { shorten = 1 },
+            debounce = 500,
         },
         grep_string = {
             theme = "dropdown",
@@ -113,4 +140,3 @@ telescope.setup {
 -- the setup function.
 telescope.load_extension('fzf')
 telescope.load_extension('ui-select')
--- telescope.load_extension('project')
