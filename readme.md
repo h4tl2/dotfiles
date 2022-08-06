@@ -1,10 +1,5 @@
 # dotfiles
 
-
-## fonts
-- https://www.programmingfonts.org/#meslo
-- https://www.nerdfonts.com/font-downloads
-
 ## stow
 https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html
 
