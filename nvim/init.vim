@@ -76,7 +76,7 @@ lua require('settings')
 " }}}
 
 " Plugins {{{
-" Plug instal {{{
+" Plug install {{{
 call plug#begin('~/.config/nvim_plugins/plugged')
 
 " Performance
@@ -93,7 +93,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
 Plug 'nvim-telescope/telescope-ui-select.nvim'
-" Plug 'nvim-telescope/telescope-project.nvim'
 
 " UI (Tab, Status, indicators)
 Plug 'nvim-lualine/lualine.nvim'
@@ -101,7 +100,6 @@ Plug 'akinsho/bufferline.nvim' " TODO: might replace bufferline with lualine
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
 Plug 'simrat39/symbols-outline.nvim'
-Plug 'petertriho/nvim-scrollbar'
 Plug 'j-hui/fidget.nvim' " LSP status indicator
 
 " Git Decorations (blame, diff)
