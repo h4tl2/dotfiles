@@ -36,7 +36,12 @@ require('lualine').setup {
             }
         },
         lualine_x = {},
-        lualine_y = { 'filetype' },
+        lualine_y = {
+            {
+                'filetype',
+                color = { fg = '#c0caft' }
+            }
+        },
         lualine_z = { 'location' },
     },
     -- tabline = {

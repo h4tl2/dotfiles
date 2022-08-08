@@ -1,4 +1,5 @@
 " vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
+
 " General {{{
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching
@@ -286,6 +287,9 @@ nnoremap <leader>sc <cmd>lua require('spectre').open_file_search()<cr>
 nnoremap <silent>\rr <Plug>RestNvim
 nnoremap <silent>\rp <Plug>RestNvimPreview
 "}}}
-"
+
 " [dracula, nordic, tokyonight]
 colorscheme tokyonight
+" for tokyonight only, to support BufferLineFill
+" https://github.com/akinsho/bufferline.nvim/issues/112
+highlight BufferlineFill guibg=#24283b

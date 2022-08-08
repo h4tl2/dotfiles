@@ -13,7 +13,13 @@ require("bufferline").setup {
         show_buffer_close_icons = false,
         right_mouse_command = function(bufnum)
             require('bufdelete').bufdelete(bufnum, true)
-        end
+        end,
+        name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
+            -- remove extension from markdown files for example
+            if buf.name:match('%.md') then
+                return vim.fn.fnamemodify(buf.name, ':t:r')
+            end
+        end,
         -- offsets = {
         --     {
         --         filetype = "NvimTree",
@@ -21,5 +27,15 @@ require("bufferline").setup {
         --         text_align = "center"
         --     }
         -- },
-    }
+    },
+    -- https://github.com/akinsho/bufferline.nvim/blob/main/lua/bufferline/config.lua#L208
+    highlights = {
+        -- buffer_selected = {
+        --     gui = "bold",
+        --     guibg = "#545c7e" -- dark3
+        -- },
+        background = {
+            guibg = "#24283b"
+        },
+    },
 }
