@@ -18,7 +18,7 @@
 -- guifg=#c0caf5 guibg=#24283b from tokyonight
 require('lualine').setup {
     options = {
-        -- disabled_filetypes = { 'NvimTree', 'TelescopePrompt' },
+        disabled_filetypes = { 'NvimTree', 'TelescopePrompt' },
         -- theme = 'tokyonight',
         -- theme = custom_theme,
         global_status = true,
@@ -32,7 +32,11 @@ require('lualine').setup {
             {
                 'filename',
                 path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
-                color = { fg = '#c0caf5' }
+                color = { fg = '#c0caf5' },
+                -- padding = {
+                --     left = 35,
+                --     right = 0
+                -- }
             }
         },
         lualine_x = {},
