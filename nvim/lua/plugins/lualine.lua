@@ -1,14 +1,14 @@
 -- Using external source for git diff
--- local function diff_source()
---     local gitsigns = vim.b.gitsigns_status_dict
---     if gitsigns then
---         return {
---             added = gitsigns.added,
---             modified = gitsigns.changed,
---             removed = gitsigns.removed
---         }
---     end
--- end
+local function diff_source()
+    local gitsigns = vim.b.gitsigns_status_dict
+    if gitsigns then
+        return {
+            added = gitsigns.added,
+            modified = gitsigns.changed,
+            removed = gitsigns.removed
+        }
+    end
+end
 
 -- local custom_theme = require 'lualine.themes.auto'
 -- custom_theme.normal.b.fg = "#c0caf5"
@@ -18,7 +18,7 @@
 -- guifg=#c0caf5 guibg=#24283b from tokyonight
 require('lualine').setup {
     options = {
-        disabled_filetypes = { 'NvimTree', 'TelescopePrompt' },
+        -- disabled_filetypes = { 'NvimTree', 'TelescopePrompt' },
         -- theme = 'tokyonight',
         -- theme = custom_theme,
         global_status = true,
@@ -27,7 +27,11 @@ require('lualine').setup {
     },
     sections = {
         -- lualine_b = { { 'diff', source = diff_source }, },
-        lualine_b = { { 'branch', icon = { '' }, color = { fg = '#c0caf5' } }, 'diff', 'diagnostics' },
+        lualine_b = {
+            { 'branch', icon = { '' }, color = { fg = '#c0caf5', bg = '#1f2325' } },
+            { 'diff', source = diff_source, color = { fg = '#c0caf5', bg = '#1f2325' } },
+            { 'diagnostics', color = { fg = '#c0caf5', bg = '#1f2325' } }
+        },
         lualine_c = {
             {
                 'filename',
