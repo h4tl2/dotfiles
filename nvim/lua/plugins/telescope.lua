@@ -67,6 +67,11 @@ telescope.setup {
         preview = {
             treesitter = false,
         },
+        layout_config = {
+            -- height = 0.95,
+            width = 0.95,
+            -- prompt_position = 'top',
+        },
         buffer_previewer_maker = preview_maker,
         mappings = {
             i = {
