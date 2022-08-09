@@ -71,7 +71,7 @@ set splitbelow
 " set spell                 " enable spell check (may need to download language package)
 set noswapfile            " disable creating swap file
 " set backupdir=~/.cache/vim " Directory to store backup files.
-" set hidden                 " navigate buffers without losing unsaved work
+set hidden                 " navigate buffers without losing unsaved work
 lua require('settings')
 " }}}
 
