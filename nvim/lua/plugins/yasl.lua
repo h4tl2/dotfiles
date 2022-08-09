@@ -5,7 +5,14 @@ local api = vim.api
 local cmd = vim.cmd
 
 local c = require("tokyonight.colors").setup()
-cmd("hi StatusLineAccent guifg=" .. c.black .. " guibg=" .. c.blue)
+cmd("hi StatusLineAccent guifg=" .. c.black .. " guibg=" .. c.blue5)
+cmd("hi StatusLineInsertAccent guifg=" .. c.black .. " guibg=" .. c.green)
+cmd("hi StatusLineVisualAccent guifg=" .. c.black .. " guibg=" .. c.magenta)
+cmd("hi StatusLineReplaceAccent guifg=" .. c.black .. " guibg=" .. c.red)
+cmd("hi StatusLineCmdLineAccent guifg=" .. c.black .. " guibg=" .. c.yellow)
+cmd("hi StatuslineTerminalAccent guifg=" .. c.black .. " guibg=" .. c.yellow)
+cmd("hi StatusLineExtra guifg=" .. c.fg)
+
 local M = {}
 
 M.modes = setmetatable({
@@ -38,6 +45,25 @@ M.modes = setmetatable({
 M.get_current_mode = function(self)
     local current_mode = api.nvim_get_mode().mode
     return string.format(' %s ', self.modes[current_mode]):upper()
+end
+
+M.update_mode_colors = function()
+    local current_mode = api.nvim_get_mode().mode
+    local mode_color = "%#StatusLineAccent#"
+    if current_mode == "n" then
+        mode_color = "%#StatuslineAccent#"
+    elseif current_mode == "i" or current_mode == "ic" then
+        mode_color = "%#StatuslineInsertAccent#"
+    elseif current_mode == "v" or current_mode == "V" or current_mode == "" then
+        mode_color = "%#StatuslineVisualAccent#"
+    elseif current_mode == "R" then
+        mode_color = "%#StatuslineReplaceAccent#"
+    elseif current_mode == "c" then
+        mode_color = "%#StatuslineCmdLineAccent#"
+    elseif current_mode == "t" then
+        mode_color = "%#StatuslineTerminalAccent#"
+    end
+    return mode_color
 end
 
 M.get_git_status = function()
@@ -75,7 +101,8 @@ M.get_filetype = function()
 end
 
 M.get_line_col = function()
-    return ' %l:%c '
+    -- return ' %l:%c '
+    return ' Ln: %l '
 end
 
 M.get_lsp = function()
@@ -109,20 +136,21 @@ M.get_lsp = function()
         info = " %#DiagnosticInfo# " .. count["info"]
     end
 
-    return errors .. warnings .. hints .. info .. "%#Normal#"
+    return errors .. warnings .. hints .. info .. "%#Normal# "
 end
 
 M.set_active = function(self)
     return table.concat {
-        "%#StatusLineAccent#",
+        self.update_mode_colors(),
         self:get_current_mode(),
-        "%#StatusLine#",
+        "%#Normal#",
         self:get_git_status(),
         "%=",
         self:get_filepath(),
         self:get_filename(),
         "%=",
         self:get_lsp(),
+        self.update_mode_colors(),
         self:get_filetype(),
         self:get_line_col(),
     }
