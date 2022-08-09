@@ -11,9 +11,7 @@ local function diff_source()
 end
 
 -- local custom_theme = require 'lualine.themes.auto'
--- custom_theme.normal.b.fg = "#c0caf5"
--- custom_theme.normal.b.bg = "#24283b"
--- custom_theme.normal.c.fg = "#c0caf5"
+-- custom_theme.normal.c.fg = "#e0e6ff"
 -- custom_theme.normal.c.bg = "#24283b"
 -- guifg=#c0caf5 guibg=#24283b from tokyonight
 require('lualine').setup {
@@ -28,15 +26,15 @@ require('lualine').setup {
     sections = {
         -- lualine_b = { { 'diff', source = diff_source }, },
         lualine_b = {
-            { 'branch', icon = { '' }, color = { fg = '#c0caf5', bg = '#1f2325' } },
-            { 'diff', source = diff_source, color = { fg = '#c0caf5', bg = '#1f2325' } },
-            { 'diagnostics', color = { fg = '#c0caf5', bg = '#1f2325' } }
+            { 'branch', icon = { '' }, color = { fg = '#e0e6ff', bg = '#1f2335' } },
+            { 'diff', source = diff_source, color = { fg = '#e0e6ff', bg = '#1f2335' } },
+            { 'diagnostics', color = { fg = '#e0e6ff', bg = '#1f2335' } },
         },
         lualine_c = {
             {
                 'filename',
                 path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
-                color = { fg = '#c0caf5' },
+                color = { fg = '#e0e6ff' },
                 -- padding = {
                 --     left = 35,
                 --     right = 0

@@ -18,5 +18,9 @@
 -- tokyonight
 vim.g.tokyonight_italic_comments = false
 vim.g.tokyonight_italic_keywords = false
-vim.g.tokyonight_colors = { border = "dark5" }
+vim.g.tokyonight_colors = {
+    border = "dark5",
+    fg = "#e0e6ffl",
+    gitSigns = { add = "#309c98", change = "#778fbb" }
+}
 vim.g.tokyonight_dark_sidebar = false
