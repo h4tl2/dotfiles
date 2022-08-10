@@ -15,7 +15,7 @@ local servers = {
     'rust_analyzer',
     'tflint',
     'zk',
-    'eslint',
+    -- 'eslint',
     'vimls',
 }
 
