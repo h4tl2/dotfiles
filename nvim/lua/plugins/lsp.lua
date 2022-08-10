@@ -16,7 +16,7 @@ local servers = {
     'rust_analyzer',
     'tflint',
     'zk',
-    -- 'eslint',
+    'eslint', -- because it use global eslint
     'vimls',
 }
 
@@ -173,7 +173,7 @@ local can_use_default_setting_servers = {
     'rust_analyzer',
     'tflint',
     'zk',
-    -- 'eslint',
+    'eslint',
     'vimls',
 }
 

@@ -1,13 +1,5 @@
-local null_ls = require "null-ls"
+local null_ls = require("null-ls")
 local b = null_ls.builtins
-
--- local with_root_file = function(builtin, file)
---     return builtin.with {
---         condition = function(utils)
---             return utils.root_has_file(file)
---         end,
---     }
--- end
 
 local lsp_formatting = function(bufnr)
     vim.lsp.buf.format({
@@ -36,27 +28,27 @@ local on_attach = function(client, bufnr)
     end
 end
 
+-- If I decide to go back to _d
 -- eslint_d and prettierd is running in bg
 -- use `eslint_d stop` and `prettierd stop`
 
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md#using-local-executables
+-- https://github.com/williamboman/nvim-lsp-installer/blob/main/lua/nvim-lsp-installer/servers/eslint/README.md
 null_ls.setup({
     sources = {
-        b.diagnostics.eslint.with({
-            prefer_local = "node_modules/.bin",
-            -- only_local = "node_modules/.bin",
-            diagnostics_format = '[eslint] #{m}\n(#{c})'
-        }),
+        -- b.diagnostics.eslint.with({
+        --     dynamic_command = function(params)
+        --         return command_resolver.from_node_modules(params)
+        --             or command_resolver.from_yarn_pnp(params)
+        --             or vim.fn.executable(params.command) == 1 and params.command
+        --     end,
+        --     -- prefer_local = "node_modules/.bin",
+        --     -- only_local = "node_modules/.bin",
+        --     diagnostics_format = '[eslint] #{m}\n(#{c})'
+        -- }),
         b.formatting.prettier.with({
             prefer_local = "node_modules/.bin",
         }),
-
-        -- with_root_file(
-        --     b.diagnostics.eslint_d.with({
-        --         diagnostics_format = '[eslint] #{m}\n(#{c})'
-        --     }),
-        --     { ".eslintrc.json", ".eslintrc" }
-        -- ),
     },
     on_attach = on_attach,
 })

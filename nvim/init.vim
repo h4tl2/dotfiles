@@ -147,7 +147,7 @@ call plug#end()
 
 lua require('impatient')
 lua require('plugins/lsp')
-lua require('plugins/null-ls')
+" lua require('plugins/null-ls')
 lua require('nvim-lsp-installer').setup{}
 lua require('which-key').setup{}
 lua require('diffview').setup{}
