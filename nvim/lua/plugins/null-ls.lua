@@ -16,7 +16,6 @@ local lsp_formatting = function(bufnr)
             return client.name == "null-ls"
         end,
         bufnr = bufnr,
-        async = true,
     })
 end
 
@@ -37,16 +36,19 @@ local on_attach = function(client, bufnr)
     end
 end
 
+-- eslint_d and prettierd is running in bg
+-- use `eslint_d stop` and `prettierd stop`
+
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md#using-local-executables
 null_ls.setup({
     sources = {
-        b.diagnostics.eslint_d.with({
-            only_local = "node_modules/.bin",
+        b.diagnostics.eslint.with({
+            prefer_local = "node_modules/.bin",
+            -- only_local = "node_modules/.bin",
             diagnostics_format = '[eslint] #{m}\n(#{c})'
         }),
-        b.formatting.prettierd.with({
-            env = {
-                PRETTIERD_LOCAL_PRETTIER_ONLY = 1,
-            },
+        b.formatting.prettier.with({
+            prefer_local = "node_modules/.bin",
         }),
 
         -- with_root_file(
