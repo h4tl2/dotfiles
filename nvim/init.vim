@@ -85,14 +85,11 @@ Plug 'lewis6991/impatient.nvim'
 " colorschemes, theme, icon
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-" Plug 'andersevenrud/nordic.nvim'
-" Plug 'shaunsingh/nord.nvim'
-" Plug 'Mofiqul/dracula.nvim'
 
+" Telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
-Plug 'nvim-telescope/telescope-ui-select.nvim'
 
 " UI (Tab, Status, indicators)
 Plug 'nvim-lualine/lualine.nvim'
@@ -109,6 +106,7 @@ Plug 'sindrets/diffview.nvim'
 " LSP config
 Plug 'williamboman/nvim-lsp-installer' " TODO: might replace with mason.nvim
 Plug 'neovim/nvim-lspconfig'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -148,7 +146,10 @@ call plug#end()
 " }}}
 
 lua require('impatient')
+" register autocmd first in case there is any overwrite
+" lua require('plugins/autocmd')
 lua require('plugins/lsp')
+lua require('plugins/null-ls')
 lua require('nvim-lsp-installer').setup{}
 lua require('which-key').setup{}
 lua require('diffview').setup{}
@@ -169,7 +170,6 @@ lua require('plugins/yasl')
 lua require('plugins/indent-blankline')
 lua require('plugins/scratches')
 lua require('plugins/go')
-lua require('plugins/autocmd')
 lua require('plugins/snippets')
 lua require('plugins/trim')
 lua require('plugins/colors')

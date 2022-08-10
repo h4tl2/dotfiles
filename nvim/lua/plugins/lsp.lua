@@ -11,6 +11,7 @@ local servers = {
     'tsserver',
     'gopls',
     'yamlls',
+    'jsonls',
     'sumneko_lua',
     'rust_analyzer',
     'tflint',
@@ -52,10 +53,16 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
     buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-    -- nvim 0.8.x
     buf_set_keymap('n', '<space>fm', '<cmd>lua vim.lsp.buf.format{ async = true }<CR>', opts)
-    -- nvim 0.7.x
-    -- buf_set_keymap('n', '<space>fm', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
+    -- formatting
+    if client.server_capabilities.documentFormattingProvider then
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
+            buffer = bufnr,
+            callback = function() vim.lsp.buf.format { async = true } end
+        })
+    end
 
     -- highlight references
     -- https://sbulav.github.io/til/til-neovim-highlight-references/
@@ -76,21 +83,6 @@ local on_attach = function(client, bufnr)
     --     })
     -- end
 
-    -- show hover diagnostic
-    -- vim.api.nvim_create_autocmd("CursorHold", {
-    --     buffer = bufnr,
-    --     callback = function()
-    --         local opts = {
-    --             focusable = false,
-    --             close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-    --             border = 'rounded',
-    --             source = 'always',
-    --             prefix = ' ',
-    --             scope = 'cursor',
-    --         }
-    --         vim.diagnostic.open_float(nil, opts)
-    --     end
-    -- })
 end
 
 -- https://www.getman.io/posts/programming-go-in-neovim/
@@ -120,7 +112,7 @@ nvim_lsp.gopls.setup(config({
     },
 }))
 
-require("lspconfig").sumneko_lua.setup(config({
+nvim_lsp.sumneko_lua.setup(config({
     settings = {
         Lua = {
             diagnostics = {
@@ -131,13 +123,57 @@ require("lspconfig").sumneko_lua.setup(config({
     },
 }))
 
+nvim_lsp.jsonls.setup(config({
+    settings = {
+        json = {
+            schemas = {
+                {
+                    description = "ESLint config",
+                    fileMatch = { ".eslintrc.json", ".eslintrc" },
+                    url = "http://json.schemastore.org/eslintrc",
+                },
+                {
+                    description = "Package config",
+                    fileMatch = { "package.json" },
+                    url = "https://json.schemastore.org/package",
+                },
+                {
+                    description = "OpenApi config",
+                    fileMatch = { "*api*.json" },
+                    url = "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json",
+                },
+            }
+        }
+    }
+}))
+
+nvim_lsp.yamlls.setup(config({
+    settings = {
+        yaml = {
+            schemas = {
+                kubernetes = "*.yaml",
+                ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+                ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+                -- ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+                ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+                ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+                ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+                -- ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
+                ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
+                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
+                ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
+            }
+        }
+    }
+}))
+
 local can_use_default_setting_servers = {
     'tsserver',
     'yamlls',
     'rust_analyzer',
     'tflint',
     'zk',
-    'eslint',
+    -- 'eslint',
     'vimls',
 }
 

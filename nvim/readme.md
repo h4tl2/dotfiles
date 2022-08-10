@@ -8,6 +8,8 @@
 - [scratches](./lua/plugins/scratches.lua)
 - [gomvp](https://github.com/abenz1267/gomvp)
 - [vim-go](https://github.com/fatih/vim-go)
+- [prettier-d](https://github.com/fsouza/prettierd)
+- [eslint-d](https://www.npmjs.com/package/eslint_d)
 
 ## TODO
 - [ ] a way to run test under the cursor
