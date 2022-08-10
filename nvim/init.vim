@@ -146,8 +146,6 @@ call plug#end()
 " }}}
 
 lua require('impatient')
-" register autocmd first in case there is any overwrite
-" lua require('plugins/autocmd')
 lua require('plugins/lsp')
 lua require('plugins/null-ls')
 lua require('nvim-lsp-installer').setup{}
