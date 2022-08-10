@@ -13,9 +13,7 @@ cmd("hi StatusLineCmdLineAccent guifg=" .. c.black .. " guibg=" .. c.yellow)
 cmd("hi StatuslineTerminalAccent guifg=" .. c.black .. " guibg=" .. c.yellow)
 cmd("hi StatusLineExtra guifg=" .. c.fg)
 
-local M = {}
-
-M.modes = setmetatable({
+local modes = setmetatable({
     ['n']  = 'Normal';
     ['no'] = 'N·Pending';
     ['v']  = 'Visual';
@@ -42,12 +40,12 @@ M.modes = setmetatable({
     end
 })
 
-M.get_current_mode = function(self)
+local function mode()
     local current_mode = api.nvim_get_mode().mode
-    return string.format(' %s ', self.modes[current_mode]):upper()
+    return string.format(" %s ", modes[current_mode]):upper()
 end
 
-M.update_mode_colors = function()
+local function update_mode_colors()
     local current_mode = api.nvim_get_mode().mode
     local mode_color = "%#StatusLineAccent#"
     if current_mode == "n" then
@@ -66,7 +64,7 @@ M.update_mode_colors = function()
     return mode_color
 end
 
-M.get_git_status = function()
+local function get_git_status()
     -- use fallback because it doesn't set this variable on the initial `BufEnter`
     local signs = vim.b.gitsigns_status_dict or { head = '', added = 0, changed = 0, removed = 0 }
     local is_head_empty = signs.head ~= ''
@@ -77,7 +75,7 @@ M.get_git_status = function()
     ) or ''
 end
 
-M.get_filepath = function()
+local function get_filepath()
     local fpath = fn.fnamemodify(fn.expand "%", ":~:.:h")
     if fpath == "" or fpath == "." then
         return " "
@@ -86,12 +84,12 @@ M.get_filepath = function()
     return string.format(" %%<%s/", fpath)
 end
 
-M.get_filename = function()
+local function get_filename()
     local filename = fn.expand "%:t"
     return filename == "" and "" or filename
 end
 
-M.get_filetype = function()
+local function get_filetype()
     local file_name, file_ext = fn.expand("%:t"), fn.expand("%:e")
     local icon = require 'nvim-web-devicons'.get_icon(file_name, file_ext, { default = true })
     local filetype = vim.bo.filetype
@@ -100,12 +98,12 @@ M.get_filetype = function()
     return string.format(' %s %s ', icon, filetype):lower()
 end
 
-M.get_line_col = function()
+local function get_line_col()
     -- return ' %l:%c '
     return ' Ln: %l '
 end
 
-M.get_lsp = function()
+local function get_lsp()
     local count = {}
     local levels = {
         errors = "Error",
@@ -139,20 +137,22 @@ M.get_lsp = function()
     return errors .. warnings .. hints .. info .. "%#Normal# "
 end
 
+local M = {}
+
 M.set_active = function(self)
     return table.concat {
-        self.update_mode_colors(),
-        self:get_current_mode(),
+        update_mode_colors(),
+        mode(),
         "%#Normal#",
-        self:get_git_status(),
+        get_git_status(),
         "%=",
-        self:get_filepath(),
-        self:get_filename(),
+        get_filepath(),
+        get_filename(),
         "%=",
-        self:get_lsp(),
-        self.update_mode_colors(),
-        self:get_filetype(),
-        self:get_line_col(),
+        get_lsp(),
+        update_mode_colors(),
+        get_filetype(),
+        get_line_col(),
     }
 end
 
