@@ -46,9 +46,9 @@ null_ls.setup({
         --     -- only_local = "node_modules/.bin",
         --     diagnostics_format = '[eslint] #{m}\n(#{c})'
         -- }),
-        b.formatting.prettier.with({
-            prefer_local = "node_modules/.bin",
-        }),
+        -- b.formatting.prettier.with({
+        --     prefer_local = "node_modules/.bin",
+        -- }),
     },
     on_attach = on_attach,
 })
