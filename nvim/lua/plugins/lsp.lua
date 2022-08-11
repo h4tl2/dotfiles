@@ -56,7 +56,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<space>fm', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 
     -- formatting
-    if client.server_capabilities.documentFormattingProvider then
+    if client.supports_method("textDocument/formatting") then
         vim.api.nvim_create_autocmd("BufWritePre", {
             group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
             buffer = bufnr,
