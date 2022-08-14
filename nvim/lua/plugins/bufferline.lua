@@ -2,7 +2,7 @@ require("bufferline").setup {
     options = {
         numbers = "none",
         diagnostics = "nvim_lsp",
-        tab_size = 10,
+        tab_size = 8,
         separator_style = { '', '' },
         ---@diagnostic disable-next-line: unused-local
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
@@ -30,12 +30,13 @@ require("bufferline").setup {
     },
     -- https://github.com/akinsho/bufferline.nvim/blob/main/lua/bufferline/config.lua#L208
     highlights = {
-        -- buffer_selected = {
-        --     gui = "bold",
-        --     guibg = "#545c7e" -- dark3
-        -- },
+        buffer_selected = {
+            bold = true,
+            italic = false,
+            -- bg = "#545c7e" -- dark3
+        },
         background = {
-            guibg = "#24283b"
+            bg = "#24283b"
         },
     },
 }
