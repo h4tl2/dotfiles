@@ -61,6 +61,7 @@ set smartcase               " case insensitive search unless capital letters are
 set hlsearch                " highlight search
 set incsearch               " incremental search
 set mouse=a                 " enable mouse click
+set mousemodel=extend       " disable right click in neovim 8.0"
 set clipboard=unnamedplus   " using system clipboard
 
 " Split plane
