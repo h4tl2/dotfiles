@@ -1,4 +1,4 @@
--- vim:fileencoding=utf-8:foldmethod=marker
+-- vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
 local nvim_lsp = require('lspconfig')
 local util = require('lspconfig/util')
 local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
@@ -38,7 +38,7 @@ lsp_installer.setup({
 
 -- }}}
 
--- attach function {{{
+-- LSP setup {{{
 ---@diagnostic disable-next-line: unused-local
 local on_attach = function(client, bufnr)
     local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
@@ -117,7 +117,8 @@ nvim_lsp.gopls.setup(config({
         gopls = {
             analyses = {
                 unusedparams = true,
-                shadow = true,
+                unusedwrite = true,
+                -- shadow = true,  https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md#shadow
             },
             staticcheck = true,
         },
@@ -188,7 +189,7 @@ end
 
 -- }}}
 
--- setup lsp and autocomplete {{{
+-- cmp setup {{{
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 local luasnip = require('luasnip')
