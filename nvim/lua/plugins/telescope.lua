@@ -18,13 +18,6 @@ local bad_files = function(filepath)
 end
 --
 -- https://github.com/nvim-telescope/telescope.nvim/issues/269#issuecomment-789704019
--- local new_maker = function(filepath, bufnr, opts)
---     opts = opts or {}
---     if opts.use_ft_detect == nil then opts.use_ft_detect = true end
---     opts.use_ft_detect = opts.use_ft_detect == false and false or bad_files(filepath)
---     previewers.buffer_previewer_maker(filepath, bufnr, opts)
--- end
-
 local preview_maker = function(filepath, bufnr, opts)
     -- turn off highlight for bad_files
     opts = opts or {}
@@ -134,9 +127,6 @@ telescope.setup {
             override_generic_sorter = true,
             override_file_sorter = true,
         },
-        ["ui-select"] = {
-            require("telescope.themes").get_dropdown {}
-        }
     },
 }
 

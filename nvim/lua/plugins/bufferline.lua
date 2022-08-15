@@ -1,6 +1,6 @@
 require("bufferline").setup {
     options = {
-        numbers = "none",
+        numbers = "ordinal",
         diagnostics = "nvim_lsp",
         tab_size = 8,
         separator_style = { '', '' },

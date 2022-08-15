@@ -20,6 +20,17 @@ local servers = {
     'vimls',
 }
 
+-- TODO: use metatable instead
+local can_use_default_setting_servers = {
+    'tsserver',
+    'yamlls',
+    'rust_analyzer',
+    'tflint',
+    'zk',
+    'eslint',
+    'vimls',
+}
+
 -- Completion kinds
 lsp_installer.setup({
     ensure_installed = servers,
@@ -166,16 +177,6 @@ nvim_lsp.yamlls.setup(config({
         }
     }
 }))
-
-local can_use_default_setting_servers = {
-    'tsserver',
-    'yamlls',
-    'rust_analyzer',
-    'tflint',
-    'zk',
-    'eslint',
-    'vimls',
-}
 
 for _, lsp in ipairs(can_use_default_setting_servers) do
     nvim_lsp[lsp].setup {
