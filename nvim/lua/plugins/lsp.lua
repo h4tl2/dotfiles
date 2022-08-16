@@ -23,7 +23,7 @@ local servers = {
 -- TODO: use metatable instead
 local can_use_default_setting_servers = {
     'tsserver',
-    'yamlls',
+    -- 'yamlls',
     'rust_analyzer',
     'tflint',
     'zk',
