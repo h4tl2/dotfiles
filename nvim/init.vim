@@ -17,7 +17,7 @@ set cursorline              " highlight current cursorline
 set noshowmode
 set nohlsearch
 set laststatus=3
-set winbar=%=%m\ %f
+set winbar=%=%m\ %{expand('%:~:.')}
 " set signcolumn=yes       " show symbols on the column (i.e. E error)
 if (has("termguicolors"))
     set termguicolors
@@ -71,6 +71,8 @@ set splitbelow
 " Others
 " set spell                 " enable spell check (may need to download language package)
 set noswapfile            " disable creating swap file
+set undofile
+set undodir=~/.config/nvim_plugins/undo
 " set backupdir=~/.cache/vim " Directory to store backup files.
 set hidden                 " navigate buffers without losing unsaved work
 lua require('settings')
