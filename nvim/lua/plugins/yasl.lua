@@ -70,7 +70,7 @@ local function get_git_status()
     local is_head_empty = signs.head ~= ''
 
     return is_head_empty and string.format(
-        '  %s | [+%s ~%s -%s] ',
+        '  %s |  [+%s ~%s -%s] ',
         signs.head, signs.added, signs.changed, signs.removed
     ) or ''
 end
@@ -81,7 +81,7 @@ local function get_filepath()
         return " "
     end
 
-    return string.format(" %%<%s/", fpath)
+    return string.format(" %%<%s/", fpath)
 end
 
 local function get_filename()
@@ -100,7 +100,7 @@ end
 
 local function get_line_col()
     -- return ' %l:%c '
-    return ' Ln: %l '
+    return ' Ln: %l  '
 end
 
 local function get_lsp_diagnostic()
