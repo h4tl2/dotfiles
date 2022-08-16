@@ -103,7 +103,7 @@ local function get_line_col()
     return ' Ln: %l '
 end
 
-local function get_lsp()
+local function get_lsp_diagnostic()
     local count = {}
     local levels = {
         errors = "Error",
@@ -137,6 +137,21 @@ local function get_lsp()
     return errors .. warnings .. hints .. info .. "%#Normal# "
 end
 
+-- https://alpha2phi.medium.com/neovim-for-beginners-lsp-part-2-37f9f72779b6#3249
+local function get_lsp_client()
+    local buf_clients = vim.lsp.buf_get_clients()
+    if next(buf_clients) == nil then
+        return ""
+    end
+    local buf_client_names = {}
+    for _, client in pairs(buf_clients) do
+        if client.name ~= "null-ls" then
+            table.insert(buf_client_names, client.name)
+        end
+    end
+    return " " .. table.concat(buf_client_names, ", ") .. " "
+end
+
 local M = {}
 
 M.set_active = function(self)
@@ -149,7 +164,8 @@ M.set_active = function(self)
         get_filepath(),
         get_filename(),
         "%=",
-        get_lsp(),
+        get_lsp_diagnostic(),
+        get_lsp_client(),
         update_mode_colors(),
         get_filetype(),
         get_line_col(),
