@@ -72,7 +72,7 @@ local on_attach = function(client, bufnr)
             group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
             -- buffer = bufnr,
             pattern = { "*" },
-            callback = function() vim.lsp.buf.formatting_sync(nil, 1500) end
+            callback = function() vim.lsp.buf.formatting_sync(nil, 1000) end
         })
     end
 
