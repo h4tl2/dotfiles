@@ -99,8 +99,8 @@ local function get_filetype()
 end
 
 local function get_line_col()
-    -- return ' %l:%c '
-    return ' Ln: %l  '
+    -- return ' %l:%c '"%-0"
+    return ' [L: %-04l]  '
 end
 
 local function get_lsp_diagnostic()
