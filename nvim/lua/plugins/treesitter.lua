@@ -5,6 +5,13 @@ treesitter.setup {
         "bash",
         "rust",
         "go",
+        "gomod",
+        "gowork",
+        "graphql",
+        -- "lua",
+        -- "markdown",
+        "make",
+        "vim",
         "tsx",
         "toml",
         "http",
@@ -19,7 +26,13 @@ treesitter.setup {
         "python",
     },
     highlight = {
-        enable = true
+        enable = true,
+        -- https://github.com/nvim-treesitter/nvim-treesitter/blob/16c773c0f826785760dce92bf713fb7e8e19e70c/doc/nvim-treesitter.txt#L108
+        ---@diagnostic disable-next-line: unused-local
+        disable = function(lang, bufnr)
+            -- return lang == "json" and vim.api.nvim_buf_line_count(bufnr) > 50000
+            return vim.api.nvim_buf_line_count(bufnr) > 10000
+        end,
     },
     sync_install = false,
 }
