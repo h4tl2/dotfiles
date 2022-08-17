@@ -35,8 +35,8 @@ require("bufferline").setup {
             italic = false,
             -- bg = "#545c7e" -- dark3
         },
-        background = {
-            bg = "#24283b"
-        },
+        -- background = {
+        --     bg = "#24283b"
+        -- },
     },
 }
