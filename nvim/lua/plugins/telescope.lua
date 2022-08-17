@@ -62,7 +62,7 @@ telescope.setup {
         },
         layout_config = {
             -- height = 0.95,
-            width = 0.95,
+            width = 0.90,
             -- prompt_position = 'top',
         },
         buffer_previewer_maker = preview_maker,
@@ -96,7 +96,7 @@ telescope.setup {
             -- find_command = {'rg', '--files', '--hidden', '-g', '!.git'},
         },
         live_grep = {
-            theme = "dropdown",
+            -- theme = "dropdown",
             previewer = false,
             path_display = { shorten = 1 },
             debounce = 500,
