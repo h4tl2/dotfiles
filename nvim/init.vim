@@ -1,5 +1,3 @@
-" vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
-
 " General {{{
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching
@@ -187,12 +185,13 @@ lua require('plugins/colors')
 
 " Keymap
 let mapleader = ' '
-
-" Text edits {{{
+" VIM {{{
+nnoremap <silent><leader>gd <cmd>lua require('plugins/colors').set_background("dark")<CR>
+nnoremap <silent><leader>gl <cmd>lua require('plugins/colors').set_background("light")<CR>
 nmap ,P "0P
 nmap ,p "0p
 " still got no time to study macros
-nmap q <nop>
+nnoremap q <nop>
 nnoremap <silent><ESC> :nohlsearch<Bar>:echo<Cr>
 " vim edit configuration
 nnoremap <S-Up> :m-2<CR>
@@ -293,3 +292,5 @@ colorscheme tokyonight
 " for tokyonight only, to support BufferLineFill
 " https://github.com/akinsho/bufferline.nvim/issues/112
 highlight BufferlineFill guibg=#24283b
+
+" vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
