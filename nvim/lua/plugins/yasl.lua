@@ -100,7 +100,7 @@ end
 
 local function get_line_col()
     -- return ' %l:%c '"%-0"
-    return ' [L: %-04l]  '
+    return ' [L:%-04l]  '
 end
 
 local function get_lsp_diagnostic()
