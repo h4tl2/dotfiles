@@ -186,8 +186,8 @@ lua require('plugins/colors')
 " Keymap
 let mapleader = ' '
 " VIM {{{
-nnoremap <silent><leader>gd <cmd>lua require('plugins/colors').set_background("dark")<CR>
-nnoremap <silent><leader>gl <cmd>lua require('plugins/colors').set_background("light")<CR>
+nnoremap <silent><leader>td <cmd>lua require('plugins/colors').set_background("dark")<CR>
+nnoremap <silent><leader>tl <cmd>lua require('plugins/colors').set_background("light")<CR>
 nmap ,P "0P
 nmap ,p "0p
 " still got no time to study macros
