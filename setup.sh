@@ -49,6 +49,7 @@ brew install ${PACKAGES[@]}
 
 echo "Installing cask..."
 CASKS=(
+    min
     iterm2
     spotify
     visual-studio-code
