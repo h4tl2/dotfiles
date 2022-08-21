@@ -9,25 +9,24 @@ end
 -- Install LS {{{
 local servers = {
     'tsserver',
+    'rust_analyzer',
+    'tflint',
+    'zk',
+    'vimls',
+    -- custom setting
     'gopls',
     'yamlls',
     'jsonls',
     'sumneko_lua',
-    'rust_analyzer',
-    'tflint',
-    'zk',
-    'eslint', -- because it use global eslint
-    'vimls',
+    'eslint',
 }
 
 -- TODO: use metatable instead
 local can_use_default_setting_servers = {
     'tsserver',
-    -- 'yamlls',
     'rust_analyzer',
     'tflint',
     'zk',
-    'eslint',
     'vimls',
 }
 
@@ -78,23 +77,6 @@ local on_attach = function(client, bufnr)
 
     -- highlight references
     -- https://sbulav.github.io/til/til-neovim-highlight-references/
-    -- if client.server_capabilities.documentHighlightProvider then
-    --     vim.api.nvim_create_augroup("lsp_document_highlight", { clear = true })
-    --     vim.api.nvim_clear_autocmds { buffer = bufnr, group = "lsp_document_highlight" }
-    --     vim.api.nvim_create_autocmd("CursorHold", {
-    --         callback = vim.lsp.buf.document_highlight,
-    --         buffer = bufnr,
-    --         group = "lsp_document_highlight",
-    --         desc = "Document Highlight",
-    --     })
-    --     vim.api.nvim_create_autocmd("CursorMoved", {
-    --         callback = vim.lsp.buf.clear_references,
-    --         buffer = bufnr,
-    --         group = "lsp_document_highlight",
-    --         desc = "Clear All the References",
-    --     })
-    -- end
-
 end
 
 -- https://www.getman.io/posts/programming-go-in-neovim/
@@ -177,6 +159,13 @@ nvim_lsp.yamlls.setup(config({
                 ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
             }
         }
+    }
+}))
+
+-- https://github.com/microsoft/vscode-eslint/issues/1382
+nvim_lsp.eslint.setup(config({
+    settings = {
+        useESLintClass = true,
     }
 }))
 
