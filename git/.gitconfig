@@ -1,19 +1,20 @@
 [core]
-	excludesfile = /Users/nivit.n/.gitignore_global
-	pager = delta
+    excludesfile = /Users/nivit.n/.gitignore_global
+    pager = delta
 [user]
-	name = nivitn
-	email = nivit.nan@gmail.com
+    name = nivitn
+    email = nivit.nan@gmail.com
 [init]
-	templatedir = /Users/nivit.n/.git-template
+    templatedir = /Users/nivit.n/.git-template
 [push]
-	autoSetupRemote = true
+    autoSetupRemote = true
 [alias]
     co = checkout
     amd = commit --amend --reuse-message HEAD
     lst = log -1 --format=format:%H
     lgp = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
     sw= !bash -c 'git switch $(git branch --all| sed "s#remotes/origin/##" | fzf)'
+# delta diff
 [interactive]
     diffFilter = delta --color-only
 [add.interactive]
