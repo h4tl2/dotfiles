@@ -2,16 +2,6 @@
 -- https://elianiva.my.id/post/neovim-lua-statusline
 local fn = vim.fn
 local api = vim.api
-local cmd = vim.cmd
-
-local c = require("tokyonight.colors").setup()
-cmd("hi StatusLineAccent guifg=" .. c.black .. " guibg=" .. c.blue5)
-cmd("hi StatusLineInsertAccent guifg=" .. c.black .. " guibg=" .. c.green)
-cmd("hi StatusLineVisualAccent guifg=" .. c.black .. " guibg=" .. c.magenta)
-cmd("hi StatusLineReplaceAccent guifg=" .. c.black .. " guibg=" .. c.red)
-cmd("hi StatusLineCmdLineAccent guifg=" .. c.black .. " guibg=" .. c.yellow)
-cmd("hi StatuslineTerminalAccent guifg=" .. c.black .. " guibg=" .. c.yellow)
-cmd("hi StatusLineExtra guifg=" .. c.fg)
 
 local modes = setmetatable({
     ['n']  = 'Normal';
@@ -70,7 +60,8 @@ local function get_git_status()
     local is_head_empty = signs.head ~= ''
 
     return is_head_empty and string.format(
-        '  %s |  [+%s ~%s -%s] ',
+    -- 
+        '  %s [+%s ~%s -%s] ',
         signs.head, signs.added, signs.changed, signs.removed
     ) or ''
 end
@@ -95,12 +86,12 @@ local function get_filetype()
     local filetype = vim.bo.filetype
 
     if filetype == '' then return '' end
-    return string.format(' %s %s ', icon, filetype):lower()
+    return string.format(' %s %s', icon, filetype):lower()
 end
 
 local function get_line_col()
     -- return ' %l:%c '"%-0"
-    return ' [L:%-04l]  '
+    return ' [L:%-03l]'
 end
 
 local function get_lsp_diagnostic()
