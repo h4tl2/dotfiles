@@ -124,6 +124,7 @@ Plug 'numToStr/Comment.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'windwp/nvim-spectre'
 Plug 'cappyzawa/trim.nvim'
+Plug 'rafamadriz/friendly-snippets'
 
 " File explorer
 Plug 'kyazdani42/nvim-tree.lua'

@@ -29,9 +29,6 @@ local M = {}
 M.set_background = function(bg)
     vim.cmd([[colorscheme tokyonight]])
     vim.api.nvim_command("set bg=" .. bg)
-    if bg == "dark" then
-        vim.cmd("hi BufferlineFill guibg=#24283b)")
-    end
 end
 
 M.set_tokyonight = function()
