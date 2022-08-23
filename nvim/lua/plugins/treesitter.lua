@@ -26,7 +26,7 @@ treesitter.setup {
         "python",
     },
     highlight = {
-        enable = false,
+        enable = true,
         -- https://github.com/nvim-treesitter/nvim-treesitter/blob/16c773c0f826785760dce92bf713fb7e8e19e70c/doc/nvim-treesitter.txt#L108
         ---@diagnostic disable-next-line: unused-local
         disable = function(lang, bufnr)
