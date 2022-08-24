@@ -103,6 +103,7 @@ Plug 'j-hui/fidget.nvim' " LSP status indicator
 " Git Decorations (blame, diff)
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'sindrets/diffview.nvim'
+Plug 'akinsho/git-conflict.nvim', { 'tag': '*' }
 
 " LSP config
 Plug 'williamboman/nvim-lsp-installer' " TODO: might replace with mason.nvim
@@ -158,6 +159,7 @@ lua require('fidget').setup{}
 lua require('trouble').setup{}
 lua require('spectre').setup{}
 lua require('rest-nvim').setup{}
+lua require('git-conflict').setup{}
 lua require('plugins/telescope')
 lua require('plugins/autopair')
 lua require('plugins/gitsigns')
