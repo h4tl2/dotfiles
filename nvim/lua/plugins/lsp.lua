@@ -240,11 +240,11 @@ vim.diagnostic.config({
     }
 })
 
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
-for type, icon in pairs(signs) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
+-- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+-- for type, icon in pairs(signs) do
+--     local hl = "DiagnosticSign" .. type
+--     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+-- end
 
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#borders
 vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
