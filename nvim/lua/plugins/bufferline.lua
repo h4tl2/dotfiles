@@ -11,6 +11,7 @@ require("bufferline").setup {
         end,
         always_show_bufferline = true,
         show_buffer_close_icons = false,
+        show_buffer_icons = false,
         right_mouse_command = function(bufnum)
             require('bufdelete').bufdelete(bufnum, true)
         end,
