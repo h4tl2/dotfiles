@@ -2,7 +2,7 @@ require("bufferline").setup {
     options = {
         numbers = "ordinal",
         diagnostics = "nvim_lsp",
-        tab_size = 8,
+        tab_size = 6,
         separator_style = { '', '' },
         ---@diagnostic disable-next-line: unused-local
         diagnostics_indicator = function(count, level, diagnostics_dict, context)

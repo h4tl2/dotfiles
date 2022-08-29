@@ -5,7 +5,7 @@ local previewers = require("telescope.previewers")
 local Job = require "plenary.job"
 
 -- Put all filetypes that slow you down in this array
-local _bad = { '.*%.json' }
+local _bad = { '.*%.json', '.*%.mod', '.*%.sum' }
 
 local bad_files = function(filepath)
     for _, v in ipairs(_bad) do
@@ -62,7 +62,7 @@ telescope.setup {
         },
         layout_config = {
             -- height = 0.95,
-            width = 0.90,
+            width = 0.85,
             -- prompt_position = 'top',
         },
         buffer_previewer_maker = preview_maker,
@@ -93,7 +93,7 @@ telescope.setup {
         find_files = {
             hidden = true,
             -- find_command = { "fd", "--no-ignore", "-E", ".DS_Store", "-E", ".git", "--type", "f", "--strip-cwd-prefix" },
-            -- find_command = {'rg', '--files', '--hidden', '-g', '!.git'},
+            -- find_command = { 'rg', '--files', '--hidden', '-g', '!.git' },
         },
         live_grep = {
             -- theme = "dropdown",

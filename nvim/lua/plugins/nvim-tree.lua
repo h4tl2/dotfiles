@@ -4,10 +4,10 @@ require('nvim-tree').setup {
     --     height = 30,
     --     side = "right",
     -- },
-    update_focused_file = {
-        enable = true,
-        -- update_cwd = true,
-    },
+    -- update_focused_file = {
+    --     enable = true,
+    --     update_cwd = true,
+    -- },
     auto_reload_on_write = true,
     renderer = {
         indent_markers = {
