@@ -147,7 +147,8 @@ local M = {}
 
 M.set_active = function(self)
     return table.concat {
-        update_mode_colors(),
+        -- update_mode_colors(),
+        "%#Normal#",
         mode(),
         "%#Normal#",
         get_git_status(),
@@ -157,7 +158,7 @@ M.set_active = function(self)
         "%=",
         get_lsp_diagnostic(),
         get_lsp_client(),
-        update_mode_colors(),
+        -- update_mode_colors(),
         get_filetype(),
         get_line_col(),
     }
