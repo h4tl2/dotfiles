@@ -2,9 +2,12 @@
 
 echo "Setting up development env"
 
-echo "config keystroke speed..."
+echo "Config macos specific"
 defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+killall Finder
 
 echo "Installing homebrew..."
 if test ! $(which brew); then
@@ -42,6 +45,7 @@ PACKAGES=(
     stow
     direnv
     git-delta
+    ncdu
     # fd
 )
 echo "Installing packages..."
@@ -83,5 +87,4 @@ stow --target=$HOME git
 
 echo "configure git..."
 git config --global --add --bool push.autoSetupRemote true
-# TODO: add .gitignore and .gitconfig
 echo "DONE!"
