@@ -292,5 +292,5 @@ nnoremap <silent>\rp <Plug>RestNvimPreview
 
 " [dracula, nordic, tokyonight]
 colorscheme tokyonight
-
+highlight BufferlineFill guibg=#24283b
 " vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
