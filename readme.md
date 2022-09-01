@@ -21,10 +21,19 @@ defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 ```
 ## extension
+some software/tools that I didn't turn on the autosync.
 ### vscode extension
 ```shell
 code --list-extensions | xargs -L 1 echo code --install-extension
 ```
+### Chrome extension
+- octotree or gitako
+- refined-github
+- session-buddy
+- picture-in-picture
+- cors
+- react-dev
+
 ## setting up icons
 extract: `tar -xzvf icons.tar.gz`
 compress: `tar -czvf icons.tar.gz *.icns`
