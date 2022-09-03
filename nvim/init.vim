@@ -10,7 +10,7 @@ set titlestring=%F
 set number                  " add line numbers
 set relativenumber
 set wildmode=longest,full   " get bash-like tab completions
-set cc=80                  " set an 80 column border for good coding style
+" set cc=80                  " set an 80 column border for good coding style
 set cursorline              " highlight current cursorline
 set noshowmode
 set nohlsearch
@@ -289,6 +289,7 @@ nnoremap <silent>\rp <Plug>RestNvimPreview
 
 " [dracula, nordic, tokyonight]
 colorscheme tokyonight
+" TODO::move this to autocmd in colors.lua
 highlight BufferlineFill guibg=#24283b
 highlight CursorLine gui=underline cterm=underline
 " https://github.com/folke/tokyonight.nvim/commit/d15c01499f811d15af60e74c789696f23eeafbb9

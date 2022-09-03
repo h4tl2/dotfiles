@@ -23,6 +23,8 @@ vim.g.tokyonight_colors = {
     fg = "#e0e6ffl",
     gitSigns = { add = "#309c98", change = "#778fbb" }
 }
+vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
 
 -- local M = {}
 --
