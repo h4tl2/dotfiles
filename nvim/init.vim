@@ -16,7 +16,7 @@ set noshowmode
 set nohlsearch
 set laststatus=3
 " set winbar=%=%m\ %{expand('%:~:.')}
-" set signcolumn=yes       " show symbols on the column (i.e. E error)
+set signcolumn=auto:4       " show symbols on the column (i.e. E error)
 if (has("termguicolors"))
     set termguicolors
 endif
