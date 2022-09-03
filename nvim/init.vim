@@ -93,7 +93,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
 
 " UI (Tab, Status, indicators)
-Plug 'nvim-lualine/lualine.nvim'
+" Plug 'nvim-lualine/lualine.nvim'
 Plug 'akinsho/bufferline.nvim' " TODO: might replace bufferline with lualine
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
@@ -150,7 +150,6 @@ call plug#end()
 
 lua require('impatient')
 lua require('plugins/lsp')
-" lua require('plugins/null-ls')
 lua require('nvim-lsp-installer').setup{}
 lua require('which-key').setup{}
 lua require('diffview').setup{}
@@ -166,9 +165,7 @@ lua require('plugins/gitsigns')
 lua require('plugins/treesitter')
 lua require('plugins/nvim-tree')
 lua require('plugins/bufferline')
-" lua require('plugins/statusline')
 lua require('plugins/yasl')
-" lua require('plugins/lualine')
 lua require('plugins/indent-blankline')
 lua require('plugins/scratches')
 lua require('plugins/go')
@@ -293,4 +290,7 @@ nnoremap <silent>\rp <Plug>RestNvimPreview
 " [dracula, nordic, tokyonight]
 colorscheme tokyonight
 highlight BufferlineFill guibg=#24283b
+highlight CursorLine gui=underline cterm=underline
+" https://github.com/folke/tokyonight.nvim/commit/d15c01499f811d15af60e74c789696f23eeafbb9
+highlight clear NvimTreeFolderIcon
 " vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
