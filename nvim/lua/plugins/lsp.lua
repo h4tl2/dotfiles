@@ -9,11 +9,11 @@ end
 -- Install LS {{{
 local servers = {
     'tsserver',
-    'rust_analyzer',
     'tflint',
     'zk',
     'vimls',
     -- custom setting
+    'rust_analyzer',
     'gopls',
     'yamlls',
     'jsonls',
@@ -24,7 +24,6 @@ local servers = {
 -- TODO: use metatable instead
 local can_use_default_setting_servers = {
     'tsserver',
-    'rust_analyzer',
     'tflint',
     'zk',
     'vimls',
@@ -169,6 +168,16 @@ nvim_lsp.eslint.setup(config({
     }
 }))
 
+nvim_lsp.rust_analyzer.setup(config({
+    settings = {
+        ["rust-analyzer"] = {
+            checkOnSave = {
+                command = "clippy"
+            },
+        }
+    }
+}))
+
 for _, lsp in ipairs(can_use_default_setting_servers) do
     nvim_lsp[lsp].setup {
         on_attach = on_attach,
@@ -247,9 +256,6 @@ vim.diagnostic.config({
 -- end
 
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#borders
-vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
-vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
-
 local border = {
     { '╭', 'FloatBorder' },
     { '─', 'FloatBorder' },
