@@ -289,9 +289,7 @@ nnoremap <silent>\rp <Plug>RestNvimPreview
 
 " [dracula, nordic, tokyonight]
 colorscheme tokyonight
-" TODO::move this to autocmd in colors.lua
-highlight BufferlineFill guibg=#24283b
-highlight CursorLine gui=underline cterm=underline
-" https://github.com/folke/tokyonight.nvim/commit/d15c01499f811d15af60e74c789696f23eeafbb9
-highlight clear NvimTreeFolderIcon
+" highlight BufferlineFill guibg=#24283b
+" highlight CursorLine gui=underline cterm=underline
+" highlight clear NvimTreeFolderIcon
 " vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
