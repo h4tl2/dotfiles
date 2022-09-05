@@ -88,6 +88,7 @@ stow --target=$HOME/.config/nvim nvim
 stow --target=$HOME/.config/alacritty alacritty
 stow --target=$HOME git
 stow --target=$HOME vim
+stow --target=$HOME tmux
 
 echo "configure git..."
 git config --global --add --bool push.autoSetupRemote true
