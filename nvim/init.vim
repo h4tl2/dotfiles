@@ -1,3 +1,4 @@
+" vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
 " General {{{
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching
@@ -120,7 +121,7 @@ Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
 Plug 'hrsh7th/cmp-path'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
-Plug 'onsails/lspkind-nvim'
+Plug 'onsails/lspkind-nvim' " vscode-like pictograms to neovim built-in lsp
 Plug 'numToStr/Comment.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'windwp/nvim-spectre'
@@ -144,6 +145,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 " TODO: gofillstructs is still need to find replacement
 Plug 'mattn/vim-goaddtags'
 Plug 'buoto/gotests-vim'
+Plug 'towolf/vim-helm'
 
 call plug#end()
 " }}}
@@ -292,4 +294,3 @@ colorscheme tokyonight
 " highlight BufferlineFill guibg=#24283b
 " highlight CursorLine gui=underline cterm=underline
 " highlight clear NvimTreeFolderIcon
-" vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
