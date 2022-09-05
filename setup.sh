@@ -77,13 +77,17 @@ cp .vimrc ~/.vimrc
 # cp ./zsh/.p10k.zsh ~/.p10k.zsh
 
 echo "Stow dotfiles..."
+# TODO refactor this stow
 # stow config files
 mkdir $HOME/.config
 mkdir $HOME/.config/nvim
 mkdir $HOME/.config/kitty
+mkdir $HOME/.config/alacritty
 stow --target=$HOME/.config/kitty kitty
 stow --target=$HOME/.config/nvim nvim
+stow --target=$HOME/.config/alacritty alacritty
 stow --target=$HOME git
+stow --target=$HOME vim
 
 echo "configure git..."
 git config --global --add --bool push.autoSetupRemote true

@@ -33,6 +33,8 @@ code --list-extensions | xargs -L 1 echo code --install-extension
 - picture-in-picture
 - cors
 - react-dev
+### amethyst
+`cp ~/Library/Preferences/com.amethyst.Amethyst.plist ~/code/dotfiles/amethyst`
 
 ## setting up icons
 extract: `tar -xzvf icons.tar.gz`
