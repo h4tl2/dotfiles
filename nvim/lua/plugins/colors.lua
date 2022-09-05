@@ -14,13 +14,18 @@
 -- vim.g.nord_alternate_backgrounds = false
 
 -- tokyonight
--- setup when first startup
+-- ENABLE_TRANSPARENT
+vim.g.tokyonight_transparent = true
+vim.g.tokyonight_transparent_sidebar = true
+vim.g.tokyonight_dark_float = true
+
 vim.g.tokyonight_italic_comments = false
 vim.g.tokyonight_italic_keywords = false
 vim.g.tokyonight_dark_sidebar = false
 vim.g.tokyonight_colors = {
     border = "dark5",
     fg = "#e0e6ffl",
+    comment = "#c0caf5",
     gitSigns = { add = "#309c98", change = "#778fbb" }
 }
 
@@ -43,7 +48,8 @@ M.set_tokyonight = function()
     -- for tokyonight only, to support BufferLineFill
     -- https://github.com/akinsho/bufferline.nvim/issues/112
     -- highlight BufferlineFill guibg=#24283b
-    util.highlight("BufferlineFill", { bg = c.bg, })
+    util.highlight("BufferlineFill", { bg = "NONE", }) -- ENABLE_TRANSPARENT
+    -- util.highlight("BufferlineFill", { bg = c.bg, })
     -- replace undercurl w/ underline
     util.highlight("DiagnosticUnderlineError", { style = "underline", sp = c.error })
     util.highlight("DiagnosticUnderlineWarn", { style = "underline", sp = c.warning })
