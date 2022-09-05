@@ -260,7 +260,7 @@ nnoremap <silent><leader>fc <cmd>lua require('telescope.builtin').git_files()<cr
 " }}}
 
 " NvimTree mappings {{{
-nnoremap <silent><C-b> :NvimTreeToggle<CR>
+" nnoremap <silent><C-b> :NvimTreeToggle<CR>
 nnoremap <silent><C-f> :NvimTreeFindFileToggle<CR>
 nnoremap <silent><leader>r :NvimTreeRefresh<CR>
 "}}}
