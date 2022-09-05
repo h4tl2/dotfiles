@@ -53,6 +53,7 @@ brew install ${PACKAGES[@]}
 
 echo "Installing cask..."
 CASKS=(
+    amethyst
     min
     iterm2
     spotify
@@ -62,10 +63,10 @@ CASKS=(
     chromium
     notable
     google-chrome
-    rectangle
     kubecontext
     tyke
     itsycal
+    # rectangle
 )
 echo "Installing cask apps..."
 brew cask install ${CASKS[@]}
