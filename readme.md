@@ -11,10 +11,11 @@ Advanced
 - Show all filename extensions -> Yes
 - how warning before changing an extension -> No
 - When performing a search -> Search the current folder
+
 View
 - Show Path Bar
 - Show Tab Bar
-### set keystoke
+### Keystroke
 Need to logout/in
 ```
 defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
@@ -37,15 +38,16 @@ code --list-extensions | xargs -L 1 echo code --install-extension
 `cp ~/Library/Preferences/com.amethyst.Amethyst.plist ~/code/dotfiles/amethyst`
 
 ## setting up icons
+*credit to https://github.com/DinkDonk/kitty-icon*
+```
 extract: `tar -xzvf icons.tar.gz`
 compress: `tar -czvf icons.tar.gz *.icns`
 
-*credit to https://github.com/DinkDonk/kitty-icon*
 Find `*.app` in the Applications folder, select it and press ⌘ + i.
 Drag `*.icns` onto the application icon. 
+
 Delete the icon cache and restart Dock:
-`
 $ rm /var/folders/*/*/*/com.apple.dock.iconcache; killall Dock
-`
+```
 ## tuning perf
 - check zsh startuptime `for i in $(seq 1 10); do /usr/bin/time zsh -i -c exit; done`
