@@ -62,7 +62,7 @@ local function get_git_status()
     return is_head_empty and string.format(
     -- 
         '  %s [+%s ~%s -%s] ',
-        signs.head, signs.added, signs.changed, signs.removed
+        string.sub(signs.head, 0, 10), signs.added, signs.changed, signs.removed
     ) or ''
 end
 
