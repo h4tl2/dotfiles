@@ -74,12 +74,12 @@ local on_attach = function(client, bufnr)
         })
     end
 
-    if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
-        vim.diagnostic.disable(bufnr)
-        -- vim.defer_fn(function()
-        --     vim.diagnostic.reset(nil, bufnr)
-        -- end, 1000)
-    end
+    -- if vim.bo[bufnr].buftype ~= "" or vim.bo[bufnr].filetype == "helm" then
+    --     vim.diagnostic.disable(bufnr)
+    --     vim.defer_fn(function()
+    --         vim.diagnostic.reset(nil, bufnr)
+    --     end, 1000)
+    -- end
     -- highlight references
     -- https://sbulav.github.io/til/til-neovim-highlight-references/
 end
