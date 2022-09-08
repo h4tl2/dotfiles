@@ -229,9 +229,10 @@ nnoremap \L :LspStop<cr>
 nnoremap \l :LspRestart<cr>
 " }}}
 
-" Git keymaps {{{
-nnoremap \dv <cmd>DiffviewFileHistory %<cr>
+" Git keymaps (DiffView) {{{
+nnoremap \dv <cmd>DiffviewOpen<cr>
 nnoremap \dc <cmd>DiffviewClose<cr>
+nnoremap \df <cmd>DiffviewFileHistory %<cr>
 " }}}
 
 " Buffers {{{
