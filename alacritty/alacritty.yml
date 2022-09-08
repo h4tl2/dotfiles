@@ -34,7 +34,7 @@ scrolling:
   history: 100000
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
-  multiplier: 3
+  multiplier: 1
 
 # https://github.com/fatih/dotfiles/blob/main/alacritty.yml
 key_bindings:
