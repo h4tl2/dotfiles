@@ -55,6 +55,9 @@ M.set_tokyonight = function()
     util.highlight("DiagnosticUnderlineWarn", { style = "underline", sp = c.warning })
     util.highlight("DiagnosticUnderlineInfo", { style = "underline", sp = c.info })
     util.highlight("DiagnosticUnderlineHint", { style = "underline", sp = c.hint })
+    util.highlight("CursorLineNr", { fg = "#e9ecfc" })
+    util.highlight("LineNr", { fg = "#7b8fea" })
+
     -- clear nvimtree highlight
     cmd("hi clear NvimTreeFolderIcon")
     -- extra hl for yasl
