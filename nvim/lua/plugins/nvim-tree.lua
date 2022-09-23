@@ -4,19 +4,19 @@ require('nvim-tree').setup {
     --     height = 30,
     --     side = "right",
     -- },
-    view = {
-        float = {
-            enable = true,
-        },
-        -- open_win_config = {
-        --     relative = "editor",
-        --     border = "rounded",
-        --     width = 100,
-        -- height = 30,
-        -- row = 5,
-        -- col = 5,
-        -- },
-    },
+    -- view = {
+    --     float = {
+    --         enable = true,
+    --     },
+    --     open_win_config = {
+    --         relative = "editor",
+    --         border = "rounded",
+    --         width = 100,
+    --     height = 30,
+    --     row = 5,
+    --     col = 5,
+    --     },
+    -- },
     -- update_focused_file = {
     --     enable = true,
     --     update_cwd = true,
