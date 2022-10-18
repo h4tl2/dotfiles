@@ -58,7 +58,7 @@ CASKS=(
     iterm2
     spotify
     visual-studio-code
-    logitech-options
+    # logitech-options
     tableplus
     chromium
     notable
@@ -69,7 +69,7 @@ CASKS=(
     # rectangle
 )
 echo "Installing cask apps..."
-brew cask install ${CASKS[@]}
+brew install --cask ${CASKS[@]}
 
 echo "Create dev env..."
 mkdir -p ~/code/scratches
