@@ -85,8 +85,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- https://www.getman.io/posts/programming-go-in-neovim/
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local function config(_config)
