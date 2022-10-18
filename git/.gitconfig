@@ -1,11 +1,11 @@
 [core]
-        excludesfile = /Users/nivit.n/.gitignore_global
+        excludesfile = ~/.gitignore_global
         pager = delta
 [user]
         name = nivitn
         email = nivit.nan@gmail.com
 [init]
-        templatedir = /Users/nivit.n/.git-template
+        templatedir = ~/.git-template
 [push]
         autoSetupRemote = true
 [alias]
@@ -26,5 +26,3 @@
         conflictstyle = diff3
 [diff]
         colorMoved = default
-[url "git@git.ci.motional.com:"]
-        insteadOf = https://gitlab.ci.motional.com/
