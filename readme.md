@@ -38,8 +38,10 @@ code --list-extensions | xargs -L 1 echo code --install-extension
 - cors
 - react-dev
 ### amethyst
+Backup the amethyst setting
 `cp ~/Library/Preferences/com.amethyst.Amethyst.plist ~/code/dotfiles/amethyst`
-
+restore amethyst setting
+`cp ~/code/dotfiles/amethyst/com.amethyst.Amethyst.plist ~/Library/Preferences/com.amethyst.Amethyst.plist `
 ## setting up icons
 *credit to https://github.com/DinkDonk/kitty-icon*
 ```
