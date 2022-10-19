@@ -28,7 +28,7 @@ local on_attach = function(client, bufnr)
     end
 end
 
--- If I decide to go back to _d
+-- If I decide to go back to running in daemon mode
 -- eslint_d and prettierd is running in bg
 -- use `eslint_d stop` and `prettierd stop`
 
