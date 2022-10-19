@@ -47,7 +47,7 @@ local preview_maker = function(filepath, bufnr, opts)
                     end)
                 else
                     vim.schedule(function()
-                        vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "BINARY FILE" })
+                        vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { "BINARY FILE OR PICTURE" })
                     end)
                 end
             end,
