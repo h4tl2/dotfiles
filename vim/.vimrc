@@ -2,6 +2,7 @@ syntax on
 filetype plugin indent on
 set nu
 set noswapfile
+set nowrap
 
 " General colors
 " https://github.com/kovidgoyal/kitty/issues/108#issuecomment-320492772
