@@ -13,9 +13,9 @@
 
 ## TODO
 - [ ] a way to run test under the cursor
-- [ ] going back to vim-go?
-- [ ] experiment w/ workspaces.nvim with nvim-tree update cwd api
-- [ ] migrate .vim to .lua and use packer instead of vim-plug
+- [ ] migrate init.vim to .lua
+- [ ] use packer
+- [ ] https://www.reddit.com/r/neovim/comments/y3rc2f/with_neovim_8_is_there_a_better_way_to_setup_lsp/
 
 ## Setup
 Install required program
