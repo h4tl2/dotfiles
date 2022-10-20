@@ -1,26 +1,28 @@
 [core]
-        excludesfile = ~/.gitignore_global
-        pager = delta
+    excludesfile = ~/.gitignore_global
+    pager = delta
 [user]
-        name = nivitn
-        email = nivit.nan@gmail.com
+    name = nivitn
+    email = nivit.nan@gmail.com
 [push]
-        autoSetupRemote = true
+    autoSetupRemote = true
 [alias]
-        co = checkout
-        amd = commit --amend --reuse-message HEAD
-        cm1 = log -1 --format=format:%H
-        lgp = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-        sw= !bash -c 'git switch $(git branch --all | sed "s#remotes/origin/##" | fzf)'
+    co = checkout
+    amd = commit --amend --reuse-message HEAD
+    cm1 = log -1 --format=format:%H
+    lgp = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    sw= !bash -c 'git switch $(git branch --all | sed "s#remotes/origin/##" | fzf)'
 # delta diff
 [interactive]
-        diffFilter = delta --color-only
+    diffFilter = delta --color-only
 [add.interactive]
-        useBuiltin = false # required for git 2.37.0
+    useBuiltin = false # required for git 2.37.0
 [delta]
-        navigate = true    # use n and N to move between diff sections
-        light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
 [merge]
-        conflictstyle = diff3
+    conflictstyle = diff3
 [diff]
-        colorMoved = default
+    colorMoved = default
+[submodule]
+	recurse = true
