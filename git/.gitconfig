@@ -4,6 +4,8 @@
 [user]
     name = nivitn
     email = nivit.nan@gmail.com
+[includeIf "gitdir:~/code/kn/"]
+    path = ~/code/kn/.gitconfig
 [push]
     autoSetupRemote = true
 [alias]
