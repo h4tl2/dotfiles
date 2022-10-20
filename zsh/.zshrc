@@ -158,6 +158,7 @@ alias dclogs="docker-compose logs -f"
 alias gitlgp="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all"
 alias c="cd ~/code"
 alias nv="nvim"
+alias ggg="open https://google.com"
 
 # custom load & path
 autoload -U +X bashcompinit && bashcompinit
