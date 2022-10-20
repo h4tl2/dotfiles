@@ -4,8 +4,6 @@
 [user]
         name = nivitn
         email = nivit.nan@gmail.com
-[init]
-        templatedir = ~/.git-template
 [push]
         autoSetupRemote = true
 [alias]
