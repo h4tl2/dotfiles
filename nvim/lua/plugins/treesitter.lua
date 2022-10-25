@@ -17,6 +17,7 @@ treesitter.setup {
         "http",
         -- "json",
         -- "jsonc",
+        "jsdoc",
         "hcl",
         "yaml",
         "html",
