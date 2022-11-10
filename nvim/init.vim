@@ -161,6 +161,7 @@ lua require('trouble').setup{}
 lua require('spectre').setup{}
 lua require('rest-nvim').setup{}
 lua require('git-conflict').setup{}
+lua require('plugins/autocmd')
 lua require('plugins/telescope')
 lua require('plugins/autopair')
 lua require('plugins/gitsigns')

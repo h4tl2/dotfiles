@@ -70,7 +70,7 @@ local on_attach = function(client, bufnr)
             group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
             -- buffer = bufnr,
             pattern = { "*" },
-            callback = function() vim.lsp.buf.formatting_sync(nil, 1000) end
+            callback = function() vim.lsp.buf.format() end
         })
     end
 
@@ -170,6 +170,10 @@ nvim_lsp.yamlls.setup(config({
 nvim_lsp.eslint.setup(config({
     settings = {
         useESLintClass = true,
+        codeActionOnSave = {
+            enable = true,
+            mode = "all"
+        },
     }
 }))
 
