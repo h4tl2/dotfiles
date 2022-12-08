@@ -69,7 +69,7 @@ local on_attach = function(client, bufnr)
         vim.api.nvim_create_autocmd("BufWritePre", {
             group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
             -- buffer = bufnr,
-            pattern = { "*" },
+            pattern = { "*.py", "*.go", ".md", ".mdx", "*.lua", "*.vim", "*.sh", "*.{yml,yaml}" },
             callback = function() vim.lsp.buf.format() end
         })
     end
@@ -170,10 +170,10 @@ nvim_lsp.yamlls.setup(config({
 nvim_lsp.eslint.setup(config({
     settings = {
         useESLintClass = true,
-        codeActionOnSave = {
-            enable = true,
-            mode = "all"
-        },
+        -- codeActionOnSave = {
+        --     enable = true,
+        --     mode = "all"
+        -- },
     }
 }))
 
