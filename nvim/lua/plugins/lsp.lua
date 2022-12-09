@@ -12,6 +12,7 @@ local servers = {
     'tflint',
     'zk',
     'vimls',
+    'pyright',
     -- custom setting
     'rust_analyzer',
     'gopls',
@@ -27,6 +28,7 @@ local can_use_default_setting_servers = {
     'tflint',
     'zk',
     'vimls',
+    'pyright',
 }
 
 -- Completion kinds
