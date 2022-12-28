@@ -42,7 +42,15 @@ set foldlevel=20
 " set foldnestmax=1
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
+function FoldText()
+	let line = getline(v:foldstart)
+	let numOfLines = v:foldend - v:foldstart
+	let fillCount = winwidth('%') - len(line) - len(numOfLines) - 14
+	return line . '  ' . repeat('.', fillCount) . ' (' . numOfLines . ' L)'
+endfunction
 
+set foldtext=FoldText()
+set fillchars=fold:\  " removes trailing dots. Mind that there is a whitespace after the \!
 " Indent
 set tabstop=4               " number of columns occupied by a tab
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
