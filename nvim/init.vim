@@ -87,6 +87,7 @@ Plug 'lewis6991/impatient.nvim'
 " colorschemes, theme, icon
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'shaunsingh/nord.nvim'
 
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
@@ -107,7 +108,7 @@ Plug 'sindrets/diffview.nvim'
 Plug 'akinsho/git-conflict.nvim', { 'tag': '*' }
 
 " LSP config
-Plug 'williamboman/nvim-lsp-installer' " TODO: might replace with mason.nvim
+Plug 'williamboman/nvim-lsp-installer' " TODO: need to replace with mason.nvim
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 
@@ -174,7 +175,8 @@ lua require('plugins/scratches')
 lua require('plugins/go')
 lua require('plugins/snippets')
 lua require('plugins/trim')
-lua require('plugins/colors')
+lua require('plugins/nord')
+" lua require('plugins/colors')
 
 " }}}
 
@@ -294,7 +296,7 @@ nnoremap <silent>\rp <Plug>RestNvimPreview
 "}}}
 
 " [dracula, nordic, tokyonight]
-colorscheme tokyonight
+colorscheme nord
 " highlight BufferlineFill guibg=#24283b
 " highlight CursorLine gui=underline cterm=underline
 " highlight clear NvimTreeFolderIcon

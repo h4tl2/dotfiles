@@ -1,3 +1,9 @@
+-- nord support
+local highlights = require("nord").bufferline.highlights({
+    italic = true,
+    bold = true,
+})
+
 require("bufferline").setup {
     options = {
         numbers = "ordinal",
@@ -30,14 +36,15 @@ require("bufferline").setup {
         -- },
     },
     -- https://github.com/akinsho/bufferline.nvim/blob/main/lua/bufferline/config.lua#L208
-    highlights = {
-        buffer_selected = {
-            bold = true,
-            italic = false,
-            -- bg = "#545c7e" -- dark3
-        },
-        -- background = {
-        --     bg = "#24283b"
-        -- },
-    },
+    -- highlights = {
+    --     buffer_selected = {
+    --         bold = true,
+    --         italic = false,
+    --         -- bg = "#545c7e" -- dark3
+    --     },
+    --     -- background = {
+    --     --     bg = "#24283b"
+    --     -- },
+    -- },
+    highlights = highlights,
 }
