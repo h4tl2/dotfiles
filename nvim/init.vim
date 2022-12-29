@@ -186,7 +186,7 @@ lua require('plugins/scratches')
 lua require('plugins/go')
 lua require('plugins/snippets')
 lua require('plugins/trim')
-lua require('plugins/colors/coal')
+" lua require('plugins/colors/coal')
 " lua require('plugins/colors/nord')
 " lua require('plugins/colors/tokyonight')
 
