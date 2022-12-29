@@ -95,7 +95,8 @@ Plug 'lewis6991/impatient.nvim'
 " colorschemes, theme, icon
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'cranberry-clockworks/coal.nvim'
-Plug 'kvrohit/rasmus.nvim'
+" Plug 'kvrohit/rasmus.nvim'
+Plug 'kkga/vim-envy'
 " Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " Plug 'shaunsingh/nord.nvim'
 
@@ -306,10 +307,10 @@ nnoremap <silent>\rr <Plug>RestNvim
 nnoremap <silent>\rp <Plug>RestNvimPreview
 "}}}
 
-" [coal, nordic, tokyonight, rasmus]
+" [coal, nordic, tokyonight, rasmus, envy]
 " let g:rasmus_variant = "monochrome"
 " let g:rasmus_transparent = "true"
-" colorscheme coal
+colorscheme envy
 " highlight BufferlineFill guibg=#24283b
 " highlight CursorLine gui=underline cterm=underline
 " highlight clear NvimTreeFolderIcon
