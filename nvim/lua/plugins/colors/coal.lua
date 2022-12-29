@@ -7,7 +7,7 @@ require('coal').setup({
         gray = '#E5E9F0',
         quick_silver = '#ECEFF4',
         chinese_silver = '#ECEFF4',
-        anti_flash_white = '#8FBCBB',
+        anti_flash_white = '#99ffdd',
         white = '#FFFFFF'
     }
 })
