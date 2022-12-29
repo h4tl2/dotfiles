@@ -94,8 +94,10 @@ Plug 'lewis6991/impatient.nvim'
 
 " colorschemes, theme, icon
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'shaunsingh/nord.nvim'
+Plug 'cranberry-clockworks/coal.nvim'
+Plug 'kvrohit/rasmus.nvim'
+" Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+" Plug 'shaunsingh/nord.nvim'
 
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
@@ -183,8 +185,9 @@ lua require('plugins/scratches')
 lua require('plugins/go')
 lua require('plugins/snippets')
 lua require('plugins/trim')
-lua require('plugins/nord')
-" lua require('plugins/colors')
+lua require('plugins/colors/coal')
+" lua require('plugins/colors/nord')
+" lua require('plugins/colors/tokyonight')
 
 " }}}
 
@@ -303,8 +306,10 @@ nnoremap <silent>\rr <Plug>RestNvim
 nnoremap <silent>\rp <Plug>RestNvimPreview
 "}}}
 
-" [dracula, nordic, tokyonight]
-colorscheme nord
+" [coal, nordic, tokyonight, rasmus]
+" let g:rasmus_variant = "monochrome"
+" let g:rasmus_transparent = "true"
+" colorscheme coal
 " highlight BufferlineFill guibg=#24283b
 " highlight CursorLine gui=underline cterm=underline
 " highlight clear NvimTreeFolderIcon
