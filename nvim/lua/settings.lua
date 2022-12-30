@@ -26,3 +26,12 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
+
+-- local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+-- vim.api.nvim_create_autocmd('TextYankPost', {
+--     callback = function()
+--         vim.highlight.on_yank()
+--     end,
+--     group = highlight_group,
+--     pattern = '*',
+-- })

@@ -85,7 +85,6 @@ set hidden                 " navigate buffers without losing unsaved work
 lua require('settings')
 " }}}
 
-" Plugins {{{
 " Plug install {{{
 call plug#begin('~/.config/nvim_plugins/plugged')
 
@@ -162,6 +161,7 @@ Plug 'towolf/vim-helm'
 call plug#end()
 " }}}
 
+" Plugin Loading {{{
 lua require('impatient')
 lua require('plugins/lsp')
 lua require('nvim-lsp-installer').setup{}
@@ -311,6 +311,10 @@ nnoremap <silent>\rp <Plug>RestNvimPreview
 " let g:rasmus_variant = "monochrome"
 " let g:rasmus_transparent = "true"
 colorscheme envy
+" for envy
+highlight DiagnosticInfo ctermfg=4 guifg=SkyBlue3
+highlight DiagnosticHint ctermfg=7 guifg=DarkBlue
+" for tokyonight
 " highlight BufferlineFill guibg=#24283b
 " highlight CursorLine gui=underline cterm=underline
 " highlight clear NvimTreeFolderIcon
