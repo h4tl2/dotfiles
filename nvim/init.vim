@@ -275,6 +275,7 @@ nnoremap <silent><C-b>  <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <silent><leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 nnoremap <silent><leader>fs <cmd>lua require('telescope.builtin').grep_string()<cr>
 nnoremap <silent><leader>fc <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap <silent><leader>? <cmd>lua require('telescope.builtin').oldfiles()<cr>
 " }}}
 
 " NvimTree mappings {{{
