@@ -145,7 +145,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 " ext.
 Plug 'folke/which-key.nvim'
 Plug 'famiu/bufdelete.nvim'
-Plug 'NTBBloodbath/rest.nvim'
+" Plug 'NTBBloodbath/rest.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 " Language specific
