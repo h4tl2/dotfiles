@@ -15,7 +15,7 @@ treesitter.setup {
         "tsx",
         "toml",
         "http",
-        -- "json",
+        "json",
         -- "jsonc",
         "jsdoc",
         "hcl",
