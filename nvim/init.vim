@@ -171,7 +171,7 @@ lua require('Comment').setup{}
 lua require('fidget').setup{}
 lua require('trouble').setup{}
 lua require('spectre').setup{}
-lua require('rest-nvim').setup{}
+" lua require('rest-nvim').setup{}
 lua require('git-conflict').setup{}
 lua require('plugins/autocmd')
 lua require('plugins/telescope')
@@ -304,8 +304,8 @@ nnoremap <leader>sc <cmd>lua require('spectre').open_file_search()<cr>
 "}}}
 
 " Rest mappings {{{
-nnoremap <silent>\rr <Plug>RestNvim
-nnoremap <silent>\rp <Plug>RestNvimPreview
+" nnoremap <silent>\rr <Plug>RestNvim
+" nnoremap <silent>\rp <Plug>RestNvimPreview
 "}}}
 
 " [coal, nordic, tokyonight, rasmus, envy]
