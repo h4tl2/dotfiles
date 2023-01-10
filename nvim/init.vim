@@ -93,9 +93,9 @@ Plug 'lewis6991/impatient.nvim'
 
 " colorschemes, theme, icon
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'cranberry-clockworks/coal.nvim'
-" Plug 'kvrohit/rasmus.nvim'
 Plug 'kkga/vim-envy'
+Plug 'olivercederborg/poimandres.nvim'
+" Plug 'cranberry-clockworks/coal.nvim'
 " Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " Plug 'shaunsingh/nord.nvim'
 
@@ -186,6 +186,7 @@ lua require('plugins/scratches')
 lua require('plugins/go')
 lua require('plugins/snippets')
 lua require('plugins/trim')
+lua require('plugins/colors/poimandres')
 " lua require('plugins/colors/coal')
 " lua require('plugins/colors/nord')
 " lua require('plugins/colors/tokyonight')
@@ -308,13 +309,15 @@ nnoremap <leader>sc <cmd>lua require('spectre').open_file_search()<cr>
 " nnoremap <silent>\rp <Plug>RestNvimPreview
 "}}}
 
-" [coal, nordic, tokyonight, rasmus, envy]
-" let g:rasmus_variant = "monochrome"
-" let g:rasmus_transparent = "true"
-colorscheme envy
+" [poimandres, nordic, tokyonight, envy]
+colorscheme poimandres
+" for poimandres
+highlight CursorLine guibg=#3B4252
+
 " for envy
-highlight DiagnosticInfo ctermfg=4 guifg=SkyBlue3
-highlight DiagnosticHint ctermfg=7 guifg=DarkBlue
+" highlight DiagnosticInfo ctermfg=4 guifg=SkyBlue3
+" highlight DiagnosticHint ctermfg=7 guifg=DarkBlue
+
 " for tokyonight
 " highlight BufferlineFill guibg=#24283b
 " highlight CursorLine gui=underline cterm=underline
