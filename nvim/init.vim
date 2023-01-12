@@ -190,7 +190,7 @@ lua require('plugins/colors/poimandres')
 " lua require('plugins/colors/coal')
 " lua require('plugins/colors/nord')
 " lua require('plugins/colors/tokyonight')
-
+lua require('plugins/colors/highlight')
 " }}}
 
 " Others {{{
@@ -311,14 +311,3 @@ nnoremap <leader>sc <cmd>lua require('spectre').open_file_search()<cr>
 
 " [poimandres, nordic, tokyonight, envy]
 colorscheme poimandres
-" for poimandres
-highlight CursorLine guibg=#3B4252
-
-" for envy
-" highlight DiagnosticInfo ctermfg=4 guifg=SkyBlue3
-" highlight DiagnosticHint ctermfg=7 guifg=DarkBlue
-
-" for tokyonight
-" highlight BufferlineFill guibg=#24283b
-" highlight CursorLine gui=underline cterm=underline
-" highlight clear NvimTreeFolderIcon
