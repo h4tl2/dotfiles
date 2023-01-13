@@ -251,6 +251,8 @@ nnoremap \dv <cmd>DiffviewOpen<cr>
 nnoremap \dc <cmd>DiffviewClose<cr>
 nnoremap \df <cmd>DiffviewFileHistory %<cr>
 nnoremap \gb <cmd>GitSigns blame_line<cr>
+nnoremap \gp <cmd>GitSigns preview_hunk<cr>
+nnoremap \gr <cmd>GitSigns reset_hunk<cr>
 " }}}
 
 " Buffers {{{
