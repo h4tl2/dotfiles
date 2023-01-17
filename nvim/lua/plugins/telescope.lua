@@ -103,7 +103,7 @@ telescope.setup {
         },
         grep_string = {
             theme = "dropdown",
-            previewer = false,
+            previewer = true,
             path_display = { shorten = 1 },
         },
         buffers = {
