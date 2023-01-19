@@ -109,7 +109,7 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', {'do': 'make' }
 Plug 'akinsho/bufferline.nvim' " TODO: might replace bufferline with lualine
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'folke/trouble.nvim'
-Plug 'simrat39/symbols-outline.nvim'
+" Plug 'simrat39/symbols-outline.nvim'
 Plug 'j-hui/fidget.nvim' " LSP status indicator
 
 " Git Decorations (blame, diff)
@@ -222,7 +222,7 @@ nnoremap <leader>yp :let @+ = expand("%")<CR>
 vnoremap <silent>> >gv
 vnoremap <silent>< <gv
 " Symbols outline
-nnoremap <silent><leader>sb :SymbolsOutline<CR>
+" nnoremap <silent><leader>sb :SymbolsOutline<CR>
 " }}}
 
 " Scratches mapping {{{
