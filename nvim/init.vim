@@ -313,3 +313,4 @@ nnoremap <leader>sc <cmd>lua require('spectre').open_file_search()<cr>
 
 " [poimandres, nordic, tokyonight, envy]
 colorscheme poimandres
+highlight CursorLine guibg=#3B4252
