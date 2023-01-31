@@ -13,9 +13,8 @@
 
 ## TODO
 - [ ] a way to run test under the cursor
-- [ ] migrate init.vim to .lua
-- [ ] use packer
-- [ ] https://www.reddit.com/r/neovim/comments/y3rc2f/with_neovim_8_is_there_a_better_way_to_setup_lsp/
+- [ ] migrate init.vim to init.lua
+- [ ] use lazy.nvim
 
 ## Setup
 Install required program
