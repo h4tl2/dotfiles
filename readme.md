@@ -4,6 +4,7 @@
 https://venthur.de/2021-12-19-managing-dotfiles-with-stow.html
 
 ## macos
+
 ### Finder
 General 
 - New Finder windows show -> Home Folder
@@ -15,6 +16,7 @@ Advanced
 View
 - Show Path Bar
 - Show Tab Bar
+
 ### Keystroke
 Need to logout/in
 ```
@@ -24,12 +26,15 @@ defaults write com.apple.dock static-only -bool true; killall Dock
 defaults write -g InitialKeyRepeat -int 15 # normal minimum is 15 (225 ms)
 defaults write -g KeyRepeat -int 1 # normal minimum is 2 (30 ms)
 ```
+
 ## extension
 some software/tools that I didn't turn on the autosync.
+
 ### vscode extension
 ```shell
 code --list-extensions | xargs -L 1 echo code --install-extension
 ```
+
 ### Chrome extension
 - octotree or gitako
 - refined-github
@@ -37,11 +42,7 @@ code --list-extensions | xargs -L 1 echo code --install-extension
 - picture-in-picture
 - cors
 - react-dev
-### amethyst
-Backup the amethyst setting
-`cp ~/Library/Preferences/com.amethyst.Amethyst.plist ~/code/dotfiles/amethyst`
-restore amethyst setting
-`cp ~/code/dotfiles/amethyst/com.amethyst.Amethyst.plist ~/Library/Preferences/com.amethyst.Amethyst.plist `
+
 ## setting up icons
 *credit to https://github.com/DinkDonk/kitty-icon*
 ```
