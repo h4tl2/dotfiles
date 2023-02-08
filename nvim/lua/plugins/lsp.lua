@@ -13,6 +13,7 @@ local servers = {
     'zk',
     'vimls',
     'pyright',
+    'sqlls',
     -- custom setting
     'rust_analyzer',
     'gopls',
@@ -29,6 +30,7 @@ local can_use_default_setting_servers = {
     'zk',
     'vimls',
     'pyright',
+    'sqlls',
 }
 
 -- Completion kinds

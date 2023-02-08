@@ -26,6 +26,7 @@ treesitter.setup {
         "javascript",
         "typescript",
         "python",
+        "sql"
     },
     highlight = {
         enable = true,
