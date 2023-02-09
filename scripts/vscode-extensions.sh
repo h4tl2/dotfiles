@@ -1,4 +1,5 @@
 #!/bin/zsh
+# code --list-extensions | xargs -L 1 echo code --install-extension
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension donjayamanne.githistory
 code --install-extension eamodio.gitlens
