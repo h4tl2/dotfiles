@@ -25,7 +25,6 @@ call plug#begin('~/.vim/plugged')
  Plug 'preservim/nerdtree'
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
- Plug 'pangloss/vim-javascript'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
@@ -56,6 +55,6 @@ let g:airline_theme='minimalist'
 " au FileType go nmap <Leader>s <Plug>(go-implements)
 " au FileType go nmap <Leader>i <Plug>(go-info)
 " au Filetype go inoremap <buffer> . .<C-x><C-o>
-" 
+"
 " autocmd CompleteDone * pclose
 " autocmd BufWritePre *.go %s/\s\+$//e
