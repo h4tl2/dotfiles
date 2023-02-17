@@ -71,7 +71,7 @@ telescope.setup {
                 ["<esc>"] = actions.close
             },
         },
-        file_ignore_patterns = { ".git/", "^node_modules/", "^vendor/", "*%.min%.*", "*.svg", "^target/" },
+        file_ignore_patterns = { ".git/", "^node_modules/", "^vendor/", "*%.min%.*", "*.svg", "^target/", "*-lock.json" },
         vimgrep_arguments = {
             'rg',
             '--color=never',
