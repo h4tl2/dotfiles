@@ -311,6 +311,6 @@ nnoremap <leader>sc <cmd>lua require('spectre').open_file_search()<cr>
 " nnoremap <silent>\rp <Plug>RestNvimPreview
 "}}}
 
-" [poimandres, nordic, tokyonight, envy]
-colorscheme poimandres
-highlight CursorLine guibg=#3B4252
+" [poimandres, envy]
+colorscheme envy
+" highlight CursorLine guibg=#3B4252

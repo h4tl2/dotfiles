@@ -27,6 +27,21 @@ for _, plugin in pairs(disabled_built_ins) do
     vim.g["loaded_" .. plugin] = 1
 end
 
+-- https://www.reddit.com/r/neovim/comments/11qz6w1/dynamically_resize_nvimtree/
+function NvimTree_width_ratio(percentage)
+    local ratio = percentage / 100
+    local width = math.floor(vim.go.columns * ratio)
+    return width
+end
+
+-- resize nvimtree if window got resized
+vim.api.nvim_create_autocmd({ "VimResized" }, {
+    group = vim.api.nvim_create_augroup("NvimTreeResize", { clear = true }),
+    callback = function()
+        local width = NvimTree_width_ratio(20)
+        vim.cmd("tabdo NvimTreeResize " .. width)
+    end,
+})
 -- local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 -- vim.api.nvim_create_autocmd('TextYankPost', {
 --     callback = function()
