@@ -12,9 +12,10 @@
 - [eslint-d](https://www.npmjs.com/package/eslint_d)
 
 ## TODO
-- [ ] a way to run test under the cursor
 - [ ] migrate init.vim to init.lua
 - [ ] use lazy.nvim
+- [ ] replace some plugin with mini.nvim
+- [ ] replace custom statusline with something else
 
 ## Setup
 Install required program
