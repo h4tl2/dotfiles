@@ -3,7 +3,7 @@ filetype plugin indent on
 set nu
 set noswapfile
 set nowrap
-
+let mapleader = " "
 " General colors
 " https://github.com/kovidgoyal/kitty/issues/108#issuecomment-320492772
 " if has('gui_running') || has('nvim')
@@ -26,12 +26,19 @@ call plug#begin('~/.vim/plugged')
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
  Plug 'kkga/vim-envy'
-" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+ Plug 'tpope/vim-fugitive'
+ Plug 'tpope/vim-rhubarb'
+ Plug 'tpope/vim-sleuth'
+ Plug 'tpope/vim-commentary'
+ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 nnoremap <C-f> :NERDTreeToggle<CR>
+nnoremap <leader>ff :Files<CR>
 let g:airline_theme='minimalist'
 colorscheme envy
+
 " vim-go configuration
 " let g:go_doc_popup_window = 1
 " let g:go_highlight_fields = 1
