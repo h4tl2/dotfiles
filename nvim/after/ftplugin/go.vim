@@ -79,3 +79,5 @@
 " " }}}
 "
 " setlocal noexpandtab
+" au FileType go set noexpandtab
+" au FileType go set tabstop=4

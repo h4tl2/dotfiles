@@ -1,4 +1,33 @@
-" vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
+-- vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+-- require('lazy').setup({
+--     'lewis6991/impatient.nvim',
+-- 
+--     -- UI
+--     'kyazdani42/nvim-web-devicons',
+--     'kkga/vim-envy',
+--     'olivercederborg/poimandres.nvim',
+--     'akinsho/bufferline.nvim',
+--     'lukas-reineke/indent-blankline.nvim',
+--     'folke/trouble.nvim',
+-- })
+
+vim.cmd([[
 " General {{{
 set nocompatible            " disable compatibility to old-time vi
 set showmatch               " show matching
@@ -58,9 +87,6 @@ set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set numberwidth=4           " columns used for the line number
-" go specific
-" au FileType go set noexpandtab
-" au FileType go set tabstop=4
 
 " Search
 set ignorecase              " case insensitive
@@ -95,9 +121,6 @@ Plug 'lewis6991/impatient.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kkga/vim-envy'
 Plug 'olivercederborg/poimandres.nvim'
-" Plug 'cranberry-clockworks/coal.nvim'
-" Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-" Plug 'shaunsingh/nord.nvim'
 
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
@@ -204,7 +227,6 @@ lua require('plugins/colors/highlight')
 " }}}
 
 " Keymap
-let mapleader = ' '
 " VIM {{{
 nnoremap <silent><leader>td <cmd>lua require('plugins/colors').set_background("dark")<CR>
 nnoremap <silent><leader>tl <cmd>lua require('plugins/colors').set_background("light")<CR>
@@ -316,3 +338,4 @@ nnoremap <silent>\rp <Plug>RestNvimPreview
 " [poimandres, envy]
 colorscheme envy
 " highlight CursorLine guibg=#3B4252
+]])
