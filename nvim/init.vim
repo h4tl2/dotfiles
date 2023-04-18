@@ -119,6 +119,8 @@ Plug 'akinsho/git-conflict.nvim', { 'tag': '*' }
 
 " LSP config
 Plug 'williamboman/nvim-lsp-installer' " TODO: need to replace with mason.nvim
+Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
+Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 
@@ -145,7 +147,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 " ext.
 Plug 'folke/which-key.nvim'
 Plug 'famiu/bufdelete.nvim'
-" Plug 'NTBBloodbath/rest.nvim'
+Plug 'NTBBloodbath/rest.nvim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 " Language specific
@@ -307,8 +309,8 @@ nnoremap <leader>sc <cmd>lua require('spectre').open_file_search()<cr>
 "}}}
 
 " Rest mappings {{{
-" nnoremap <silent>\rr <Plug>RestNvim
-" nnoremap <silent>\rp <Plug>RestNvimPreview
+nnoremap <silent>\rr <Plug>RestNvim
+nnoremap <silent>\rp <Plug>RestNvimPreview
 "}}}
 
 " [poimandres, envy]

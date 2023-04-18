@@ -19,7 +19,6 @@ local servers = {
     'gopls',
     'yamlls',
     'jsonls',
-    'sumneko_lua',
     'eslint',
 }
 
@@ -127,17 +126,6 @@ nvim_lsp.gopls.setup(config({
                 -- shadow = true,  https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md#shadow
             },
             staticcheck = true,
-        },
-    },
-}))
-
-nvim_lsp.sumneko_lua.setup(config({
-    settings = {
-        Lua = {
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { "vim" },
-            },
         },
     },
 }))

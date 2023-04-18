@@ -1,6 +1,7 @@
 [core]
     excludesfile = ~/.gitignore_global
     pager = delta
+	editor = neovim
 [user]
     name = nivitn
     email = nivit.nan@gmail.com
@@ -28,3 +29,12 @@
     colorMoved = default
 [submodule]
     recurse = true
+[lfs]
+	locksverify = false
+[branch]
+	autosetuprebase = always
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

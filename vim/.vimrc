@@ -25,11 +25,13 @@ call plug#begin('~/.vim/plugged')
  Plug 'preservim/nerdtree'
  Plug 'vim-airline/vim-airline'
  Plug 'vim-airline/vim-airline-themes'
+ Plug 'kkga/vim-envy'
 " Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
 nnoremap <C-f> :NERDTreeToggle<CR>
 let g:airline_theme='minimalist'
+colorscheme envy
 " vim-go configuration
 " let g:go_doc_popup_window = 1
 " let g:go_highlight_fields = 1
