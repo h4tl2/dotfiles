@@ -18,8 +18,7 @@ require('nvim-tree').setup {
     --     },
     -- },
     update_focused_file = {
-        enable = true,
-        update_cwd = true,
+        enable = false,
     },
     auto_reload_on_write = true,
     renderer = {

@@ -1,7 +1,7 @@
 [core]
     excludesfile = ~/.gitignore_global
     pager = delta
-	editor = neovim
+    editor = nvim
 [user]
     name = nivitn
     email = nivit.nan@gmail.com
@@ -30,11 +30,11 @@
 [submodule]
     recurse = true
 [lfs]
-	locksverify = false
+    locksverify = false
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
