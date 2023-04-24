@@ -47,7 +47,9 @@ node_modules/
 ######################
 .debug/
 .talismanrc
-.http
+# .http
+:wq
+:w
 *.crt
 .env
 .envrc
