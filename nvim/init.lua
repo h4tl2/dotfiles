@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- require('lazy').setup({
 --     'lewis6991/impatient.nvim',
--- 
+--
 --     -- UI
 --     'kyazdani42/nvim-web-devicons',
 --     'kkga/vim-envy',
@@ -196,7 +196,6 @@ lua require('Comment').setup{}
 lua require('fidget').setup{}
 lua require('trouble').setup{}
 lua require('spectre').setup{}
-" lua require('rest-nvim').setup{}
 lua require('git-conflict').setup{}
 lua require('plugins/autocmd')
 lua require('plugins/telescope')
@@ -212,9 +211,6 @@ lua require('plugins/go')
 lua require('plugins/snippets')
 lua require('plugins/trim')
 lua require('plugins/colors/poimandres')
-" lua require('plugins/colors/coal')
-" lua require('plugins/colors/nord')
-" lua require('plugins/colors/tokyonight')
 lua require('plugins/colors/highlight')
 " }}}
 
