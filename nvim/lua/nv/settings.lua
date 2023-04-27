@@ -26,16 +26,17 @@ vim.opt.wrap = false
 -- Enable folding
 vim.cmd('filetype plugin on')
 vim.opt.foldlevel = 20
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.cmd([[
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 function FoldText()
-	local line = vim.fn.getline(vim.v.foldstart)
-	local numOfLines = vim.v.foldend - vim.v.foldstart
-	local fillCount = vim.fn.winwidth('%') - #line - #numOfLines - 14
-	return line .. '  ' .. string.rep('.', fillCount) .. ' (' .. numOfLines .. ' L)'
-end
-vim.opt.foldtext = 'v:lua.FoldText()'
-vim.opt.fillchars = {fold=' '} -- removes trailing dotimes
+	let line = getline(v:foldstart)
+	let numOfLines = v:foldend - v:foldstart
+	let fillCount = winwidth('%') - len(line) - len(numOfLines) - 14
+	return line . '  ' . repeat('.', fillCount) . ' (' . numOfLines . ' L)'
+endfunction
+]])
+vim.opt.fillchars = { fold = ' ' } -- removes trailing dotimes
 
 -- Performance
 vim.o.ttyfast = true
