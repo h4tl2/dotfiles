@@ -43,8 +43,8 @@ nnoremap \l :LspRestart<cr>
 nnoremap <silent><C-f> :NvimTreeFindFileToggle<CR>
 nnoremap <silent><leader>r :NvimTreeRefresh<CR>
 " Buffers
-nnoremap <silent><TAB> :BufferLineCycleNext<CR>
-nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
+" nnoremap <silent><TAB> :BufferLineCycleNext<CR>
+" nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
 nnoremap <silent><leader>dd :Bdelete<CR>
 nnoremap <silent><leader>da <cmd>lua require('plugins/buffer-handle').close_all_buffers_except_current()<cr>
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
@@ -65,4 +65,11 @@ nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
 nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
 nnoremap <leader>sc <cmd>lua require('spectre').open_file_search()<cr>
+" Git
+nnoremap \dv <cmd>DiffviewOpen<cr>
+nnoremap \dc <cmd>DiffviewClose<cr>
+nnoremap \df <cmd>DiffviewFileHistory %<cr>
+nnoremap \gb <cmd>Gitsigns blame_line<cr>
+nnoremap \gp <cmd>Gitsigns preview_hunk<cr>
+nnoremap \gr <cmd>Gitsigns reset_hunk<cr>
 ]])

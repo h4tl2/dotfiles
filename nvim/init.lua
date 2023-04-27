@@ -13,7 +13,6 @@ if not vim.loop.fs_stat(lazypath) then
   }
 end
 vim.opt.rtp:prepend(lazypath)
-
 require('lazy').setup({
   {
     -- LSP Configuration & Plugins
@@ -22,9 +21,7 @@ require('lazy').setup({
       -- Automatically install LSPs to stdpath for neovim
       { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
-
       { 'j-hui/fidget.nvim',       opts = {} },
-
       'folke/neodev.nvim',
     },
   },
@@ -41,7 +38,21 @@ require('lazy').setup({
     },
   },
   { 'onsails/lspkind-nvim' },
-  { 'windwp/nvim-autopairs' },
+  {
+    'windwp/nvim-autopairs',
+    config = function()
+      require('nvim-autopairs').setup(
+        { check_ts = true }, { disable_filetype = { "TelescopePrompt", "vim" } }
+      )
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      local cmp_status_ok, cmp = pcall(require, "cmp")
+      if not cmp_status_ok then
+        return
+      end
+      cmp.event:on('confirm_done',
+        cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+    end
+  },
   { 'windwp/nvim-spectre' },
   {
     'cappyzawa/trim.nvim',
@@ -109,9 +120,6 @@ require('lazy').setup({
   { 'folke/which-key.nvim',        opts = {} },
   {
     'folke/trouble.nvim',
-    config = function()
-      require('trouble').setup {}
-    end
   },
   { 'numToStr/Comment.nvim',         opts = {} },
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
@@ -173,6 +181,7 @@ require('nv.settings')
 require('nv.keymaps')
 require('nv.telescope')
 require('nv.treesitter')
+require('nv.colors')
 
 -- [[ Highlight on yank ]]
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
@@ -183,8 +192,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
-
-
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
