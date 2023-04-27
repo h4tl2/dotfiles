@@ -15,27 +15,29 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-  { -- LSP Configuration & Plugins
+  {
+    -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
       { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
 
-      { 'j-hui/fidget.nvim', opts = {} },
+      { 'j-hui/fidget.nvim',       opts = {} },
 
       'folke/neodev.nvim',
     },
   },
 
-  { -- Autocompletion
+  {
+    -- Autocompletion
     'hrsh7th/nvim-cmp',
     dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
   },
 
-  -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim', opts = {} },
-  { -- Adds git releated signs to the gutter, as well as utilities for managing changes
+  { 'folke/which-key.nvim',          opts = {} },
+  {
+    -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
       -- See `:help gitsigns.txt`
@@ -56,7 +58,8 @@ require('lazy').setup({
     'kkga/vim-envy',
   },
 
-  { -- Set lualine as statusline
+  {
+    -- Set lualine as statusline
     'nvim-lualine/lualine.nvim',
     -- See `:help lualine.txt`
     opts = {
@@ -69,18 +72,17 @@ require('lazy').setup({
     },
   },
 
-  { -- Add indentation guides even on blank lines
+  {
+    -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
     opts = {
-      char = '┊',
+      show_end_of_line = true,
+      space_char_blankline = " ",
       show_trailing_blankline_indent = false,
     },
   },
 
-  { 'numToStr/Comment.nvim', opts = {} },
-
+  { 'numToStr/Comment.nvim',         opts = {} },
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
 
   {
@@ -91,7 +93,8 @@ require('lazy').setup({
     end,
   },
 
-  { -- Highlight, edit, and navigate code
+  {
+    -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
@@ -99,17 +102,9 @@ require('lazy').setup({
     build = ":TSUpdate",
   },
 
-  -- require 'kickstart.plugins.autoformat',
+  require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
-  -- NOTE: The import below automatically adds your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
-  --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
-  --    up-to-date with whatever is in the kickstart repo.
-  --
-  --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  --
-  --    An additional note is that if you only copied in the `init.lua`, you can just comment this line
-  --    to get rid of the warning telling you that there are not plugins in `lua/custom/plugins/`.
   { import = 'custom.plugins' },
 }, {
   performance = {

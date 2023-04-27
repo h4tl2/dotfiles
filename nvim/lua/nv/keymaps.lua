@@ -12,7 +12,7 @@ vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<C-b>', require('telescope.builtin').buffers, { desc = '[B]uffers' })
 
-vim.cmd([[ 
+vim.cmd([[
 nmap ,P "0P
 nmap ,p "0p
 " still got no time to study macros
