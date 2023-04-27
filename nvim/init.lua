@@ -32,10 +32,50 @@ require('lazy').setup({
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    dependencies = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      'hrsh7th/cmp-path',
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip'
+    },
   },
+  { 'onsails/lspkind-nvim' },
+  { 'windwp/nvim-autopairs' },
+  { 'windwp/nvim-spectre' },
+  {
+    'cappyzawa/trim.nvim',
+    opts = {
+      ft_blocklist = { "markdown" }
+    }
+  },
+  { 'rafamadriz/friendly-snippets' },
 
-  { 'folke/which-key.nvim',          opts = {} },
+
+  -- UI (Tab, status, indicators)
+  {
+    -- Add indentation guides even on blank lines
+    'lukas-reineke/indent-blankline.nvim',
+    opts = {
+      show_end_of_line = true,
+      space_char_blankline = " ",
+      show_trailing_blankline_indent = false,
+    },
+  },
+  {
+    -- Set lualine as statusline
+    'nvim-lualine/lualine.nvim',
+    -- See `:help lualine.txt`
+    opts = {
+      options = {
+        icons_enabled = false,
+        theme = 'gruvbox_light',
+        component_separators = '|',
+        section_separators = '',
+      },
+    },
+  },
+  -- GIT
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -50,7 +90,14 @@ require('lazy').setup({
       },
     },
   },
+  {
+    'sindrets/diffview.nvim',
+    config = function()
+      require('diffview').setup {}
+    end
+  },
 
+  -- Themes
   {
     'navarasu/onedark.nvim',
   },
@@ -58,33 +105,16 @@ require('lazy').setup({
     'kkga/vim-envy',
   },
 
+  -- Others
+  { 'folke/which-key.nvim',        opts = {} },
   {
-    -- Set lualine as statusline
-    'nvim-lualine/lualine.nvim',
-    -- See `:help lualine.txt`
-    opts = {
-      options = {
-        icons_enabled = false,
-        theme = 'gruvbox_light',
-        component_separators = '|',
-        section_separators = '',
-      },
-    },
+    'folke/trouble.nvim',
+    config = function()
+      require('trouble').setup {}
+    end
   },
-
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    opts = {
-      show_end_of_line = true,
-      space_char_blankline = " ",
-      show_trailing_blankline_indent = false,
-    },
-  },
-
   { 'numToStr/Comment.nvim',         opts = {} },
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
-
   {
     'nvim-telescope/telescope-fzf-native.nvim',
     build = 'make',
@@ -101,6 +131,11 @@ require('lazy').setup({
     },
     build = ":TSUpdate",
   },
+
+  -- Language specific
+  { 'mattn/vim-goaddtags' },
+  { 'buoto/gotests-vim' },
+  { 'towolf/vim-helm' },
 
   require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',

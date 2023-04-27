@@ -42,4 +42,27 @@ nnoremap \l :LspRestart<cr>
 " NvimTree
 nnoremap <silent><C-f> :NvimTreeFindFileToggle<CR>
 nnoremap <silent><leader>r :NvimTreeRefresh<CR>
+" Buffers
+nnoremap <silent><TAB> :BufferLineCycleNext<CR>
+nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
+nnoremap <silent><leader>dd :Bdelete<CR>
+nnoremap <silent><leader>da <cmd>lua require('plugins/buffer-handle').close_all_buffers_except_current()<cr>
+nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+" Trouble
+nnoremap <leader>xx <cmd>TroubleToggle<cr>
+nnoremap <leader>xw <cmd>TroubleToggle workspace_diagnostics<cr>
+nnoremap <leader>xd <cmd>TroubleToggle document_diagnostics<cr>
+nnoremap <leader>xq <cmd>TroubleToggle quickfix<cr>
+nnoremap <leader>xl <cmd>TroubleToggle loclist<cr>
+nnoremap gR <cmd>TroubleToggle lsp_references<cr>
+" Spectre
+nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
+nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
+nnoremap <leader>sc <cmd>lua require('spectre').open_file_search()<cr>
 ]])

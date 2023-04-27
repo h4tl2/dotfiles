@@ -17,9 +17,6 @@ return {
                 always_show_bufferline = true,
                 show_buffer_close_icons = false,
                 show_buffer_icons = false,
-                right_mouse_command = function(bufnum)
-                    require('bufdelete').bufdelete(bufnum, true)
-                end,
                 name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
                     -- remove extension from markdown files for example
                     if buf.name:match('%.md') then
