@@ -51,7 +51,7 @@ require('lazy').setup({
         cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
     end
   },
-  { 'windwp/nvim-spectre' },
+  { 'nvim-pack/nvim-spectre' },
   {
     'cappyzawa/trim.nvim',
     opts = {
