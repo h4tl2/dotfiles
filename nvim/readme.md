@@ -14,7 +14,6 @@
 ## TODO
 - [ ] replace some plugin with mini.nvim
 - [ ] replace custom statusline with something else
-- [ ] bring back scratches
 ## Setup
 Install required program
 ```sh
