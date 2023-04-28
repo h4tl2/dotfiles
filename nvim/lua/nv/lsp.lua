@@ -46,6 +46,7 @@ local on_attach = function(_, bufnr)
     -- end
 end
 
+local util = require('lspconfig/util')
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
@@ -55,6 +56,82 @@ local servers = {
     vimls = {},
     pyright = {},
     sqlls = {},
+    -- 'rust_analyzer',
+    rust_analyzer = {
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = {
+                    command = "clippy"
+                },
+            }
+        }
+    },
+    eslint = {
+        settings = {
+            useESLintClass = true,
+            -- codeActionOnSave = {
+            --     enable = true,
+            --     mode = "all"
+            -- },
+        }
+    },
+    yamlls = {
+        settings = {
+            yaml = {
+                schemas = {
+                    kubernetes = "*.yaml",
+                    ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
+                    ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+                    -- ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+                    ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+                    ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+                    ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+                    -- ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
+                    ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
+                    ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
+                    ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
+                }
+            }
+        }
+    },
+    jsonls = {
+        settings = {
+            json = {
+                schemas = {
+                    {
+                        description = "ESLint config",
+                        fileMatch = { ".eslintrc.json", ".eslintrc" },
+                        url = "http://json.schemastore.org/eslintrc",
+                    },
+                    {
+                        description = "Package config",
+                        fileMatch = { "package.json" },
+                        url = "https://json.schemastore.org/package",
+                    },
+                    {
+                        description = "OpenApi config",
+                        fileMatch = { "*api*.json" },
+                        url = "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json",
+                    },
+                }
+            }
+        }
+    },
+    gopls = {
+        cmd = { 'gopls', 'serve' },
+        filetypes = { "go", "gomod" },
+        root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+        settings = {
+            gopls = {
+                analyses = {
+                    unusedparams = true,
+                    unusedwrite = true,
+                    -- shadow = true,  https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md#shadow
+                },
+                staticcheck = true,
+            },
+        },
+    },
     lua_ls = {
         Lua = {
             workspace = { checkThirdParty = false },
