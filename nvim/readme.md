@@ -11,9 +11,6 @@
 - [prettier-d](https://github.com/fsouza/prettierd)
 - [eslint-d](https://www.npmjs.com/package/eslint_d)
 
-## TODO
-- [ ] replace some plugin with mini.nvim
-- [ ] replace custom statusline with something else
 ## Setup
 Install required program
 ```sh
