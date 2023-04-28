@@ -78,4 +78,8 @@ nnoremap \df <cmd>DiffviewFileHistory %<cr>
 nnoremap \gb <cmd>Gitsigns blame_line<cr>
 nnoremap \gp <cmd>Gitsigns preview_hunk<cr>
 nnoremap \gr <cmd>Gitsigns reset_hunk<cr>
+" Scratches
+nnoremap <silent>\s <cmd>lua require('plugins/scratches').open_scratch_file_floating()<CR>
+nnoremap <silent>\c <cmd>lua require('plugins/scratches').open_scratch_file_floating({filename="codesnip"})<CR>
+" nnoremap <silent>\m <cmd>lua require('plugins/scratches').open_scratch_file_floating({filename="vim"})<CR>
 ]])

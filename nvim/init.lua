@@ -171,6 +171,7 @@ require('nv.yasl')
 require('nv.autocmd')
 require('nv.cmp')
 require('nv.lsp')
+require('nv.scratches')
 
 vim.cmd [[ colorscheme envy ]]
 -- vim: ts=2 sts=2 sw=2 et
