@@ -177,6 +177,5 @@ require('nv.scratches')
 -- vim.g.rasmus_italic_comments = false
 
 -- Load the colorscheme
--- vim.cmd [[colorscheme rasmus]]
 vim.cmd [[ colorscheme envy ]]
 -- vim: ts=2 sts=2 sw=2 et
