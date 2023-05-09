@@ -95,10 +95,10 @@ require('lazy').setup({
 
   -- Themes
   {
-    'navarasu/onedark.nvim',
+    'kkga/vim-envy',
   },
   {
-    'kkga/vim-envy',
+    'kvrohit/rasmus.nvim',
   },
 
   -- Others
@@ -173,5 +173,10 @@ require('nv.cmp')
 require('nv.lsp')
 require('nv.scratches')
 
+-- vim.g.rasmus_bold_keywords = true
+-- vim.g.rasmus_italic_comments = false
+
+-- Load the colorscheme
+-- vim.cmd [[colorscheme rasmus]]
 vim.cmd [[ colorscheme envy ]]
 -- vim: ts=2 sts=2 sw=2 et
