@@ -40,6 +40,7 @@ require('lazy').setup({
   { 'onsails/lspkind-nvim' },
   {
     'windwp/nvim-autopairs',
+    lazy = true,
     config = function()
       require('nvim-autopairs').setup(
         { check_ts = true }, { disable_filetype = { "TelescopePrompt", "vim" } }
@@ -51,7 +52,7 @@ require('lazy').setup({
         cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
     end
   },
-  { 'nvim-pack/nvim-spectre' },
+  { 'nvim-pack/nvim-spectre', lazy = true },
   {
     'cappyzawa/trim.nvim',
     opts = {
@@ -59,6 +60,16 @@ require('lazy').setup({
     }
   },
   { 'rafamadriz/friendly-snippets' },
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  },
 
 
   -- UI (Tab, status, indicators)
@@ -102,7 +113,7 @@ require('lazy').setup({
   },
 
   -- Others
-  { 'folke/which-key.nvim',        opts = {} },
+  { 'folke/which-key.nvim',        lazy = true },
   {
     'folke/trouble.nvim',
   },
