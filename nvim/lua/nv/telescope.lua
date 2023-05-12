@@ -1,5 +1,4 @@
 local _, telescope = pcall(require, "telescope")
-local telescope = require('telescope')
 local actions = require("telescope.actions")
 local previewers = require("telescope.previewers")
 
@@ -113,14 +112,14 @@ telescope.setup {
             initial_mode = "normal",
             show_all_buffers = true,
             sort_lastused = true,
-            mappings = {
-                i = {
-                    ["<c-d>"] = actions.delete_buffer,
-                },
-                n = {
-                    ["<c-d>"] = actions.delete_buffer,
-                }
-            }
+            -- mappings = {
+            --     i = {
+            --         ["<c-d>"] = actions.delete_buffer,
+            --     },
+            --     n = {
+            --         ["<c-d>"] = actions.delete_buffer,
+            --     }
+            -- }
         },
     },
     extensions = {
