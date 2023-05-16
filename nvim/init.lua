@@ -105,15 +105,23 @@ require('lazy').setup({
   },
 
   -- Themes
+  { 'kkga/vim-envy', },
+  { 'kvrohit/rasmus.nvim', },
   {
-    'kkga/vim-envy',
-  },
-  {
-    'kvrohit/rasmus.nvim',
+    'olivercederborg/poimandres.nvim',
+    config = function()
+      require("poimandres").setup({
+        bold_vert_split = true,           -- use bold vertical separators
+        dim_nc_background = false,        -- dim 'non-current' window backgrounds
+        disable_background = false,       -- disable background
+        disable_float_background = false, -- disable background for floats
+        disable_italics = true,           -- disable italics
+      })
+    end
   },
 
   -- Others
-  { 'folke/which-key.nvim',        lazy = true },
+  { 'folke/which-key.nvim',          lazy = true },
   {
     'folke/trouble.nvim',
   },
@@ -184,9 +192,9 @@ require('nv.cmp')
 require('nv.lsp')
 require('nv.scratches')
 
--- vim.g.rasmus_bold_keywords = true
--- vim.g.rasmus_italic_comments = false
+vim.g.rasmus_bold_keywords = true
+vim.g.rasmus_italic_comments = false
 
 -- Load the colorscheme
-vim.cmd [[ colorscheme envy ]]
+vim.cmd [[ colorscheme poimandres ]]
 -- vim: ts=2 sts=2 sw=2 et

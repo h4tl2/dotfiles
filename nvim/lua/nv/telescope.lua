@@ -112,14 +112,14 @@ telescope.setup {
             initial_mode = "normal",
             show_all_buffers = true,
             sort_lastused = true,
-            -- mappings = {
-            --     i = {
-            --         ["<c-d>"] = actions.delete_buffer,
-            --     },
-            --     n = {
-            --         ["<c-d>"] = actions.delete_buffer,
-            --     }
-            -- }
+            mappings = {
+                i = {
+                    ["<c-d>"] = actions.delete_buffer,
+                },
+                n = {
+                    ["<c-d>"] = actions.delete_buffer,
+                }
+            }
         },
     },
     extensions = {
