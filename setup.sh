@@ -19,7 +19,7 @@ brew update
 
 echo "Tapping homebrew..."
 TAPS=(
-    # homebrew/cask-fonts
+    homebrew/cask-fonts
 )
 
 PACKAGES=(
@@ -66,6 +66,7 @@ CASKS=(
     kubecontext
     tyke
     itsycal
+    font-iosevka-nerd-font
     # rectangle
 )
 echo "Installing cask apps..."
