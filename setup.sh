@@ -72,6 +72,9 @@ CASKS=(
 echo "Installing cask apps..."
 brew install --cask ${CASKS[@]}
 
+echo "install useful key bindings and fuzzy completion..."
+eval "$(brew --prefix)/opt/fzf/install"
+
 echo "Create dev env..."
 mkdir -p ~/code/scratches
 cp .vimrc ~/.vimrc
