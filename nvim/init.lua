@@ -109,7 +109,10 @@ require('lazy').setup({
   { 'kvrohit/rasmus.nvim', },
 
   -- Others
-  { 'folke/which-key.nvim',        lazy = true },
+  {
+    'folke/which-key.nvim',
+    -- lazy = true
+  },
   {
     'folke/trouble.nvim',
   },
@@ -184,5 +187,5 @@ vim.g.rasmus_bold_keywords = true
 vim.g.rasmus_italic_comments = false
 
 -- Load the colorscheme
-vim.cmd [[ colorscheme poimandres ]]
+vim.cmd [[ colorscheme envy ]]
 -- vim: ts=2 sts=2 sw=2 et
