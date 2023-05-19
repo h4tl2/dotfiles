@@ -9,3 +9,19 @@ vim.cmd [[autocmd! ColorScheme envy highlight DiagnosticHint ctermfg=7 guifg=Dar
 vim.cmd [[autocmd! ColorScheme tokyonight highlight BufferlineFill guibg=#24283b]]
 vim.cmd [[autocmd! ColorScheme tokyonight highlight CursorLine gui=underline cterm=underline]]
 vim.cmd [[autocmd! ColorScheme tokyonight highlight clear NvimTreeFolderIcon]]
+
+local function theme_cycler()
+    local state = 0
+    local themes = {
+        "envy",
+        "rasmus",
+    }
+    return function()
+        state = (state + 1) % #themes
+        local theme = themes[state + 1]
+        vim.cmd.colorscheme(theme)
+        print(theme)
+    end
+end
+
+vim.keymap.set("n", "<C-x>", theme_cycler())
