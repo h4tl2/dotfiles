@@ -33,19 +33,19 @@ PACKAGES=(
     gh
     zsh
     zsh-completions
-    docker
-    docker-compose
-    colima
+    # docker
+    # docker-compose
+    # colima
     bat
     ripgrep
     lazygit
-    gitui
+    # gitui
     sqlite
     gnu-sed
     stow
     direnv
-    git-delta
-    ncdu
+    # git-delta
+    # ncdu
     # fd
 )
 echo "Installing packages..."
@@ -54,14 +54,14 @@ brew install ${PACKAGES[@]}
 echo "Installing cask..."
 CASKS=(
     amethyst
-    min
+    # min
     iterm2
     spotify
     visual-studio-code
     # logitech-options
-    tableplus
-    chromium
-    notable
+    # tableplus
+    # chromium
+    # notable
     google-chrome
     kubecontext
     tyke
