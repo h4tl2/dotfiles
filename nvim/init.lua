@@ -105,9 +105,9 @@ require('lazy').setup({
   },
 
   -- Themes
-  { 'kkga/vim-envy', },
-  { 'kvrohit/rasmus.nvim', },
-
+  { 'kkga/vim-envy' },
+  { 'kvrohit/rasmus.nvim' },
+  { 'vimpostor/vim-prism' },
   -- Others
   {
     'folke/which-key.nvim',
