@@ -126,7 +126,7 @@ local function get_lsp_diagnostic()
         info = " %#DiagnosticInfo# " .. count["info"]
     end
 
-    return errors .. warnings .. hints .. info .. "%#Normal# "
+    return table.concat { errors, warnings, hints, info, "%#Normal# " }
 end
 
 -- https://alpha2phi.medium.com/neovim-for-beginners-lsp-part-2-37f9f72779b6#3249
