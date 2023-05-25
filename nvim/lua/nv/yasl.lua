@@ -90,9 +90,9 @@ local function get_filetype()
     return string.format(' %s %s', icon, filetype):lower()
 end
 
-local function get_line_col()
+local function get_line_info()
     -- return ' %l:%c '"%-0"
-    return ' [L:%-03l]'
+    return ' [L:%-03l P:%-03P]'
 end
 
 local function get_lsp_diagnostic()
@@ -161,7 +161,7 @@ M.set_active = function(self)
         get_lsp_client(),
         -- update_mode_colors(),
         get_filetype(),
-        get_line_col(),
+        get_line_info(),
     }
 end
 
