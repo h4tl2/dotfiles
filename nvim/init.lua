@@ -144,10 +144,7 @@ require('lazy').setup({
   { 'buoto/gotests-vim' },
   { 'towolf/vim-helm' },
 
-  require 'nv.plugins.autoformat',
-  -- require 'nv.plugins.debug',
-
-  { import = 'custom.plugins' },
+  { import = 'nv.plugins' },
 }, {
   performance = {
     rtp = {
