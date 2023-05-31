@@ -92,7 +92,7 @@ end
 
 local function get_line_info()
     -- return ' %l:%c '"%-0"
-    return ' [L:%-03l P:%-03P]'
+    return ' [P:%-03p L:%-03l]'
 end
 
 local function get_lsp_diagnostic()
