@@ -107,6 +107,7 @@ require('lazy').setup({
   -- Themes
   { 'kkga/vim-envy' },
   { 'kvrohit/rasmus.nvim' },
+  { 'danilo-augusto/vim-afterglow' },
 
   -- Others
   {

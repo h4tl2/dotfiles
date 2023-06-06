@@ -15,6 +15,7 @@ local function theme_cycler()
     local themes = {
         "envy",
         "rasmus",
+        "afterglow",
     }
     return function()
         state = (state + 1) % #themes
