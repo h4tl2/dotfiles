@@ -52,7 +52,21 @@ require('lazy').setup({
         cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
     end
   },
-  { 'nvim-pack/nvim-spectre', lazy = true },
+  {
+    'nvim-pack/nvim-spectre',
+    lazy = true,
+    config = function()
+      require('spectre').setup({
+        mapping = {
+          ['run_replace'] = {
+            map = "<leader>ra",
+            cmd = "<cmd>lua require('spectre.actions').run_replace()<CR>",
+            desc = "replace all"
+          },
+        }
+      })
+    end
+  },
   {
     'cappyzawa/trim.nvim',
     opts = {
