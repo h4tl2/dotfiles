@@ -123,14 +123,14 @@ require('lazy').setup({
   { 'kvrohit/rasmus.nvim' },
 
   -- Others
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end,
-  },
+  -- {
+  --   "folke/which-key.nvim",
+  --   event = "VeryLazy",
+  --   init = function()
+  --     vim.o.timeout = true
+  --     vim.o.timeoutlen = 300
+  --   end,
+  -- },
   {
     'folke/trouble.nvim',
   },
