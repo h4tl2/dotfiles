@@ -53,7 +53,6 @@ nnoremap <silent><leader>r :NvimTreeRefresh<CR>
 " nnoremap <silent><TAB> :BufferLineCycleNext<CR>
 " nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
 nnoremap <silent><leader>dd :bd<CR>
-" nnoremap <silent><leader>da <cmd>lua require('plugins/buffer-handle').close_all_buffers_except_current()<cr>
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
@@ -80,7 +79,7 @@ nnoremap \gb <cmd>Gitsigns blame_line<cr>
 nnoremap \gp <cmd>Gitsigns preview_hunk<cr>
 nnoremap \gr <cmd>Gitsigns reset_hunk<cr>
 " Scratches
-nnoremap <silent>\s <cmd>lua require('plugins/scratches').open_scratch_file_floating()<CR>
-nnoremap <silent>\c <cmd>lua require('plugins/scratches').open_scratch_file_floating({filename="codesnip"})<CR>
-" nnoremap <silent>\m <cmd>lua require('plugins/scratches').open_scratch_file_floating({filename="vim"})<CR>
+nnoremap <silent>\s <cmd>lua require('nv/scratches').open_scratch_file_floating()<CR>
+nnoremap <silent>\c <cmd>lua require('nv/scratches').open_scratch_file_floating({filename="codesnip"})<CR>
+nnoremap <silent>\m <cmd>lua require('nv/scratches').open_scratch_file_floating({filename="vim"})<CR>
 ]])

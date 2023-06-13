@@ -12,9 +12,9 @@ function M.get_scratch_filename(filename)
     if filename == nil then
         filename = "sc"
     end
-    -- if filename == "vim" then
-    --     return "~/code/dotfiles/nvim/init.lua"
-    -- end
+    if filename == "vim" then
+        return "~/code/dotfiles/nvim/lua/nv/keymaps.lua"
+    end
     return "~/code/scratches/" .. filename .. ".md"
 end
 
