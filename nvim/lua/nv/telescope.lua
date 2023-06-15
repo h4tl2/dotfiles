@@ -109,7 +109,7 @@ telescope.setup {
         buffers = {
             theme = "dropdown",
             previewer = false,
-            initial_mode = "normal",
+            initial_mode = "insert",
             show_all_buffers = true,
             sort_lastused = true,
             mappings = {
