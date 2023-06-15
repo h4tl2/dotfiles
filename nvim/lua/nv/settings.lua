@@ -10,7 +10,7 @@ vim.o.titlestring = "%F"
 vim.wo.number = true
 -- vim.wo.relativenumber = true
 vim.o.wildmode = "longest,full"
-vim.wo.colorcolumn = "80"
+-- vim.wo.colorcolumn = "80"
 vim.wo.cursorline = true
 vim.o.laststatus = 3
 vim.wo.winbar = "%=%m\\ %<%f\\ %h%m%r%=%-14.(%l,%c%V%)%P"
