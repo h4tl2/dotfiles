@@ -7,7 +7,7 @@ return {
     config = function()
         require("nvim-tree").setup {
             update_focused_file = {
-                enable = false,
+                enable = true,
             },
             auto_reload_on_write = true,
             renderer = {
