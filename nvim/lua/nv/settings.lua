@@ -67,6 +67,10 @@ vim.opt.splitbelow = true
 -- Miscellaneous
 vim.opt.swapfile = false
 vim.opt.undofile = true
+vim.cmd [[
+    aunmenu PopUp.How-to\ disable\ mouse
+    aunmenu PopUp.-1-
+]]
 -- vim.opt.undodir = '~/.config/nvim_plugins/undo'
 vim.opt.hidden = true
 
