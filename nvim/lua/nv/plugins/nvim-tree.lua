@@ -6,6 +6,7 @@ return {
     },
     config = function()
         require("nvim-tree").setup {
+            view = { adaptive_size = true },
             update_focused_file = {
                 enable = true,
             },
