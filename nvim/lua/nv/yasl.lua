@@ -72,8 +72,8 @@ local function get_filepath()
     if fpath == "" or fpath == "." then
         return " "
     end
-
-    return string.format(" %%<%s/", fpath)
+    -- 
+    return string.format(" %%<%s/", fpath)
 end
 
 local function get_filename()
