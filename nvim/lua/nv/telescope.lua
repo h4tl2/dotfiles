@@ -121,6 +121,11 @@ telescope.setup {
                 }
             }
         },
+        lsp_references = {
+            -- layout_strategy = 'vertical',
+            -- previewer = true,
+            layout_config = { width = 0.98, height = 0.95, preview_width = 0.4 }
+        },
     },
     extensions = {
         fzf = {
