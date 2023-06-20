@@ -62,8 +62,8 @@ local function get_git_status()
     return is_head_empty and string.format(
     -- 
         '  %s [+%s~%s-%s] ',
-        -- string.sub(signs.head, 0, 10), signs.added, signs.changed, signs.removed
-        signs.head, signs.added, signs.changed, signs.removed
+        string.sub(signs.head, 0, 10), signs.added, signs.changed, signs.removed
+    -- signs.head, signs.added, signs.changed, signs.removed
     ) or ''
 end
 
@@ -114,24 +114,26 @@ local function get_lsp_diagnostic()
     local info = ""
 
     if count["errors"] ~= 0 then
-        errors = " %#DiagnosticError# " .. count["errors"]
+        errors = " %#DiagnosticError# " .. count["errors"]
     end
     if count["warnings"] ~= 0 then
-        warnings = " %#DiagnosticWarn# " .. count["warnings"]
+        warnings = " %#DiagnosticWarn# " .. count["warnings"]
     end
     if count["hints"] ~= 0 then
-        hints = " %#DiagnosticHint# " .. count["hints"]
+        hints = " %#DiagnosticHint# " .. count["hints"]
     end
     if count["info"] ~= 0 then
-        info = " %#DiagnosticInfo# " .. count["info"]
+        info = " %#DiagnosticInfo# " .. count["info"]
     end
-
+    -- 
     return table.concat { errors, warnings, hints, info, "%#Normal# " }
 end
 
 -- https://alpha2phi.medium.com/neovim-for-beginners-lsp-part-2-37f9f72779b6#3249
 local function get_lsp_client()
-    local buf_clients = vim.lsp.buf_get_clients()
+    -- DEPRECATED
+    -- local buf_clients = vim.lsp.buf_get_clients()
+    local buf_clients = vim.lsp.get_active_clients()
     if next(buf_clients) == nil then
         return ""
     end
@@ -152,11 +154,11 @@ M.set_active = function(self)
         "%#Normal#",
         mode(),
         "%#Normal#",
+        get_git_status(),
+        -- "%=",
         get_filepath(),
         get_filename(),
         get_lsp_diagnostic(),
-        "%=",
-        get_git_status(),
         "%=",
         get_lsp_client(),
         -- update_mode_colors(),
