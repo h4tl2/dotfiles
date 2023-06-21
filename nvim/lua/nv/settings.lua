@@ -13,7 +13,7 @@ vim.o.wildmode = "longest,full"
 -- vim.wo.colorcolumn = "80"
 vim.wo.cursorline = true
 vim.o.laststatus = 3
-vim.wo.winbar = "%=%m\\ %<%f\\ %h%m%r%=%-14.(%l,%c%V%)%P"
+-- vim.o.winbar = "%=%f"
 vim.wo.signcolumn = "yes"
 if vim.fn.has("termguicolors") == 1 then
     vim.o.termguicolors = true
