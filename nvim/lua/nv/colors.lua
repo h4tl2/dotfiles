@@ -1,5 +1,5 @@
 --  for poimandres
--- vim.cmd [[autocmd! ColorScheme poimandres highlight CursorLine guibg=#3B4252]]
+vim.cmd [[autocmd! ColorScheme poimandres highlight CursorLine guibg=#3B4252]]
 
 -- for envy
 vim.cmd [[autocmd! ColorScheme envy highlight DiagnosticInfo ctermfg=4 guifg=SkyBlue3]]
@@ -19,6 +19,7 @@ local function theme_cycler()
     local themes = {
         "envy",
         "rasmus",
+        "poimandres",
     }
     return function()
         state = (state + 1) % #themes
