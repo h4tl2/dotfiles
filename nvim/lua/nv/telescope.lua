@@ -101,11 +101,6 @@ telescope.setup {
             path_display = { shorten = 1 },
             debounce = 500,
         },
-        grep_string = {
-            theme = "dropdown",
-            previewer = true,
-            path_display = { shorten = 1 },
-        },
         buffers = {
             theme = "dropdown",
             previewer = false,
