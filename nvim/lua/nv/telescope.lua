@@ -91,7 +91,9 @@ telescope.setup {
     },
     pickers = {
         find_files = {
+            theme = "dropdown",
             hidden = true,
+            previewer = false,
             -- find_command = { "fd", "--no-ignore", "-E", ".DS_Store", "-E", ".git", "--type", "f", "--strip-cwd-prefix" },
             -- find_command = { 'rg', '--files', '--hidden', '-g', '!.git' },
         },
