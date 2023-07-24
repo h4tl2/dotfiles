@@ -9,8 +9,8 @@
 --
 
 -- https://neovim.discourse.group/t/how-can-i-setup-eslint-to-format-on-save/2570/4
--- vim.api.nvim_create_autocmd('BufWritePre', {
---     pattern = { '*.tsx', '*.ts', '*.jsx', '*.js' },
---     command = 'EslintFixAll',
---     group = vim.api.nvim_create_augroup('ESlintFormatting', {}),
--- })
+vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = { '*.tsx', '*.ts', '*.jsx', '*.js' },
+    command = 'EslintFixAll',
+    group = vim.api.nvim_create_augroup('ESlintFormatting', {}),
+})
