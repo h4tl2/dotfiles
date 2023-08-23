@@ -31,6 +31,9 @@ return {
                     error = "",
                 },
             },
+            git = {
+                enable = false,
+            },
         }
     end,
 }
