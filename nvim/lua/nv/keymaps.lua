@@ -45,9 +45,14 @@ nnoremap <silent>\h :split<Cr>
 " LSP
 nnoremap \L :LspStop<cr>
 nnoremap \l :LspRestart<cr>
+
 " NvimTree
-nnoremap <silent><C-f> :NvimTreeFindFileToggle<CR>
-nnoremap <silent><leader>r :NvimTreeRefresh<CR>
+" nnoremap <silent><C-f> :NvimTreeFindFileToggle<CR>
+" nnoremap <silent><leader>r :NvimTreeRefresh<CR>
+
+" Netrw
+nnoremap <silent><C-f> :Explore<CR>
+nnoremap <silent><leader>r :Vexplore<CR>
 " Buffers
 " nnoremap <silent><TAB> :BufferLineCycleNext<CR>
 " nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
