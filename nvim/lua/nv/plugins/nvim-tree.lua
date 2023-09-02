@@ -10,7 +10,7 @@ return {
             update_focused_file = {
                 enable = true,
             },
-            auto_reload_on_write = true,
+            auto_reload_on_write = false,
             renderer = {
                 indent_markers = {
                     enable = true

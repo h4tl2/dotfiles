@@ -19,7 +19,7 @@ vim.o.laststatus = 3
 -- vim.o.winbar = "%=%f"
 vim.wo.signcolumn = "yes"
 if vim.fn.has("termguicolors") == 1 then
-    vim.o.termguicolors = true
+	vim.o.termguicolors = true
 end
 vim.o.completeopt = 'menuone,noselect'
 vim.o.mouse = 'a'
@@ -50,7 +50,7 @@ vim.o.timeoutlen = 300
 -- Indentation
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
-vim.opt.expandtab = true
+vim.opt.expandtab = false
 vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 vim.opt.smartindent = true
@@ -80,9 +80,9 @@ vim.opt.hidden = true
 -- [[ Highlight on yank ]]
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-    callback = function()
-        vim.highlight.on_yank()
-    end,
-    group = highlight_group,
-    pattern = '*',
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = '*',
 })

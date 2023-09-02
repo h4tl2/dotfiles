@@ -22,7 +22,6 @@ require('lazy').setup({
       { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
       { 'j-hui/fidget.nvim',       opts = {} },
-      'folke/neodev.nvim',
     },
   },
 
@@ -121,19 +120,7 @@ require('lazy').setup({
 
   -- Themes
   { 'kkga/vim-envy' },
-  { 'kvrohit/rasmus.nvim' },
-  {
-    'olivercederborg/poimandres.nvim',
-    config = function()
-      require('poimandres').setup {
-        bold_vert_split = true,           -- use bold vertical separators
-        dim_nc_background = false,        -- dim 'non-current' window backgrounds
-        disable_background = false,       -- disable background
-        disable_float_background = false, -- disable background for floats
-        disable_italics = true,           -- disable italics
-      }
-    end
-  },
+  { 'Verf/deepwhite.nvim' },
   -- Others
   -- {
   --   "folke/which-key.nvim",
