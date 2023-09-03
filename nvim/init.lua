@@ -84,7 +84,6 @@ require('lazy').setup({
     end
   },
 
-
   -- UI (Tab, status, indicators)
   {
     -- Add indentation guides even on blank lines
@@ -96,6 +95,8 @@ require('lazy').setup({
       show_current_context = true,
     },
   },
+  { "shortcuts/no-neck-pain.nvim", version = "*" },
+  --
   -- GIT
   {
     -- Adds git releated signs to the gutter, as well as utilities for managing changes
