@@ -21,7 +21,12 @@ require('lazy').setup({
       -- Automatically install LSPs to stdpath for neovim
       { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
-      { 'j-hui/fidget.nvim',       opts = {} },
+      {
+        'j-hui/fidget.nvim',
+        tag = "legacy",
+        event = "LspAttach",
+        opts = {}
+      },
     },
   },
 
@@ -83,6 +88,7 @@ require('lazy').setup({
       })
     end
   },
+  { 'Asheq/close-buffers.vim' },
 
 
   -- UI (Tab, status, indicators)

@@ -56,7 +56,9 @@ nnoremap <silent><leader>r :NvimTreeRefresh<CR>
 " Buffers
 " nnoremap <silent><TAB> :BufferLineCycleNext<CR>
 " nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
-nnoremap <silent><leader>dd :bd<CR>
+nnoremap <silent><leader>dd :Bdelete this<CR>
+nnoremap <silent><leader>da :Bdelete other<CR>
+
 nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
 nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
 nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
