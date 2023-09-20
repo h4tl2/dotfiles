@@ -15,17 +15,18 @@ vim.g.rasmus_bold_keywords = true
 vim.g.rasmus_italic_comments = false
 
 local function theme_cycler()
-    local state = 0
-    local themes = {
-        "envy",
-        "deepwhite"
-    }
-    return function()
-        state = (state + 1) % #themes
-        local theme = themes[state + 1]
-        vim.cmd.colorscheme(theme)
-        print(theme)
-    end
+	local state = 0
+	local themes = {
+		"envy",
+		-- "deepwhite"
+		"alabaster"
+	}
+	return function()
+		state = (state + 1) % #themes
+		local theme = themes[state + 1]
+		vim.cmd.colorscheme(theme)
+		print(theme)
+	end
 end
 
 vim.keymap.set("n", "<C-x>", theme_cycler())

@@ -127,6 +127,7 @@ require('lazy').setup({
   -- Themes
   { 'kkga/vim-envy' },
   { 'Verf/deepwhite.nvim' },
+  { 'p00f/alabaster.nvim' },
   -- Others
   -- {
   --   "folke/which-key.nvim",
