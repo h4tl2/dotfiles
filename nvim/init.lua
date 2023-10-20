@@ -137,6 +137,7 @@ require('lazy').setup({
   --     vim.o.timeoutlen = 300
   --   end,
   -- },
+  { "rest-nvim/rest.nvim",    lazy = true },
   {
     'folke/trouble.nvim',
   },
