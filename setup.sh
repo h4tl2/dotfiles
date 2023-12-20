@@ -66,6 +66,7 @@ CASKS=(
     kubecontext
     tyke
     itsycal
+    hiddenbar
     font-iosevka-nerd-font
     # rectangle
 )
