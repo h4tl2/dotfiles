@@ -123,7 +123,15 @@ require('lazy').setup({
   -- Themes
   { 'kkga/vim-envy' },
   { 'Verf/deepwhite.nvim' },
-  { 'p00f/alabaster.nvim' },
+  {
+    'olivercederborg/poimandres.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('poimandres').setup {
+      }
+    end,
+  },
   -- Others
   -- {
   --   "folke/which-key.nvim",
@@ -133,7 +141,7 @@ require('lazy').setup({
   --     vim.o.timeoutlen = 300
   --   end,
   -- },
-  { "rest-nvim/rest.nvim",    lazy = true },
+  { "rest-nvim/rest.nvim",           lazy = true },
   {
     'folke/trouble.nvim',
   },
