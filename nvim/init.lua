@@ -133,18 +133,9 @@ require('lazy').setup({
     end,
   },
   -- Others
-  -- {
-  --   "folke/which-key.nvim",
-  --   event = "VeryLazy",
-  --   init = function()
-  --     vim.o.timeout = true
-  --     vim.o.timeoutlen = 300
-  --   end,
-  -- },
+  { "github/copilot.vim" },
   { "rest-nvim/rest.nvim",           lazy = true },
-  {
-    'folke/trouble.nvim',
-  },
+  { 'folke/trouble.nvim', },
   { 'numToStr/Comment.nvim',         opts = {} },
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
   {
@@ -205,7 +196,7 @@ require('nv.treesitter')
 require('nv.colors')
 require('nv.yasl')
 require('nv.autocmd')
-require('nv.cmp')
+require('nv.autocmp')
 require('nv.lsp')
 require('nv.scratches')
 
