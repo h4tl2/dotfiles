@@ -19,7 +19,7 @@ local function theme_cycler()
 	local themes = {
 		"envy",
 		"deepwhite",
-		"poimandres"
+		"gruvbox",
 	}
 	return function()
 		state = (state + 1) % #themes

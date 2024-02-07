@@ -124,16 +124,38 @@ require('lazy').setup({
   { 'kkga/vim-envy' },
   { 'Verf/deepwhite.nvim' },
   {
-    'olivercederborg/poimandres.nvim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require('poimandres').setup {
+    "ellisonleao/gruvbox.nvim",
+    opts = {
+      italic = {
+        strings = false,
+        emphasis = false,
+        comments = false,
+        operators = false,
+        folds = false,
       }
+    }
+  },
+  -- copilot
+  {
+    "zbirenbaum/copilot.lua",
+    lazy = true,
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
     end,
   },
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end
+  },
   -- Others
-  { "github/copilot.vim" },
+  -- { "github/copilot.vim" },
   { "rest-nvim/rest.nvim",           lazy = true },
   { 'folke/trouble.nvim', },
   { 'numToStr/Comment.nvim',         opts = {} },
@@ -162,6 +184,9 @@ require('lazy').setup({
 
   { import = 'nv.plugins' },
 }, {
+  spec = {
+    { import = "lazyvim.plugins.extras.formatting.prettier" },
+  },
   performance = {
     rtp = {
       disabled_plugins = {
