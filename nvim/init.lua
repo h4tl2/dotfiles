@@ -123,18 +123,7 @@ require('lazy').setup({
   -- Themes
   { 'kkga/vim-envy' },
   { 'Verf/deepwhite.nvim' },
-  {
-    "ellisonleao/gruvbox.nvim",
-    opts = {
-      italic = {
-        strings = false,
-        emphasis = false,
-        comments = false,
-        operators = false,
-        folds = false,
-      }
-    }
-  },
+  { 'https://gitlab.com/madyanov/gruber.vim' },
   -- copilot
   {
     "zbirenbaum/copilot.lua",
