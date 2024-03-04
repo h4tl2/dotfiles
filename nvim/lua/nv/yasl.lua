@@ -114,7 +114,7 @@ local function get_lsp_diagnostic()
 	local info = ""
 
 	if count["errors"] ~= 0 then
-		errors = " %#DiagnosticError#:" .. count["errors"]
+		errors = " %#DiagnosticError#🙀:" .. count["errors"]
 	end
 	if count["warnings"] ~= 0 then
 		warnings = " %#DiagnosticWarn#:" .. count["warnings"]
