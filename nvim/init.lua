@@ -130,7 +130,7 @@ require('lazy').setup({
   { 'kkga/vim-envy' },
   { 'Verf/deepwhite.nvim' },
   { 'https://gitlab.com/madyanov/gruber.vim' },
-  -- copilot
+  -- ai (copilot, chatgpt)
   {
     "zbirenbaum/copilot.lua",
     lazy = true,
@@ -149,9 +149,24 @@ require('lazy').setup({
       require("copilot_cmp").setup()
     end
   },
+  {
+    "jackMort/ChatGPT.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("chatgpt").setup({
+        api_key_cmd = "cat " .. os.getenv('HOME') .. "/.chatgptnvim.txt"
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "folke/trouble.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  },
   -- Others
   -- { "github/copilot.vim" },
-  { "rest-nvim/rest.nvim",           lazy = true },
+  -- { "rest-nvim/rest.nvim",           lazy = true },
   { 'folke/trouble.nvim', },
   { 'numToStr/Comment.nvim',         opts = {} },
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
