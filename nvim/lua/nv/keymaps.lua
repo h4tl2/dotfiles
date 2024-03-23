@@ -1,3 +1,9 @@
+-- modifier (CMD on mac, CTRL on other)
+local withModifier = function(key)
+	local mod = vim.fn.has("mac") == 1 and "D" or "C"
+	return "<" .. mod .. "-" .. key .. ">"
+end
+vim.keymap.set("n", withModifier("s"), ":write <CR>", { desc = "Save buffer", remap = true })
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 -- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
