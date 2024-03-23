@@ -1,9 +1,5 @@
 vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
-vim.opt.listchars:append("eol:↴")
-vim.opt.listchars:append("nbsp:␣")
-vim.opt.listchars:append("trail:␣")
-vim.opt.listchars:append("tab:  →")
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', eol = '↴', space = '⋅' }
 vim.g.editorconfig = true
 vim.o.compatible = false
 vim.o.showmatch = true
@@ -73,6 +69,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
+vim.opt.inccommand = 'split'
 
 -- Splitting
 vim.opt.splitright = true
@@ -81,6 +78,7 @@ vim.opt.splitbelow = true
 -- Miscellaneous
 vim.opt.swapfile = false
 vim.opt.undofile = true
+vim.opt.scrolloff = 10
 vim.cmd [[
     aunmenu PopUp.How-to\ disable\ mouse
     aunmenu PopUp.-1-
@@ -89,11 +87,10 @@ vim.cmd [[
 vim.opt.hidden = true
 
 -- [[ Highlight on yank ]]
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
 	callback = function()
 		vim.highlight.on_yank()
 	end,
-	group = highlight_group,
+	group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
 	pattern = '*',
 })
