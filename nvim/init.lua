@@ -51,7 +51,8 @@ require('lazy').setup({
       })
     end
   },
-  { -- Autoformat
+  {
+    -- Autoformat
     'stevearc/conform.nvim',
     event = { "BufWritePre" },
     cmd = { "ConformInfo" },
@@ -170,6 +171,7 @@ require('lazy').setup({
   },
   {
     'sindrets/diffview.nvim',
+    event = "VeryLazy",
     config = function()
       require('diffview').setup {}
     end
