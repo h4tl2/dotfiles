@@ -23,9 +23,9 @@ require('lazy').setup({
       'williamboman/mason-lspconfig.nvim',
       {
         'j-hui/fidget.nvim',
-        tag = "legacy",
-        event = "LspAttach",
-        opts = {}
+        tag = 'legacy',
+        event = 'LspAttach',
+        opts = {},
       },
     },
     config = function()
@@ -49,13 +49,13 @@ require('lazy').setup({
           end
         end,
       })
-    end
+    end,
   },
   {
     -- Autoformat
     'stevearc/conform.nvim',
-    event = { "BufWritePre" },
-    cmd = { "ConformInfo" },
+    event = { 'BufWritePre' },
+    cmd = { 'ConformInfo' },
     opts = {
       notify_on_error = false,
       format_on_save = function(bufnr)
@@ -75,16 +75,17 @@ require('lazy').setup({
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
-        javascript = { { "prettierd", "prettier" }, { "eslint_d" } },
+        javascript = { { 'prettierd', 'prettier' } },
+        typescript = { { 'prettierd', 'prettier' } },
       },
     },
   },
   {
-    "L3MON4D3/LuaSnip",
+    'L3MON4D3/LuaSnip',
     -- follow latest release.
-    version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    version = 'v2.*', -- Replace <CurrentMajor> by the latest released major (first number of latest release)
     -- install jsregexp (optional!).
-    build = "make install_jsregexp"
+    build = 'make install_jsregexp',
   },
   {
     -- Autocompletion
@@ -94,7 +95,7 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-path',
       'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip'
+      'saadparwaiz1/cmp_luasnip',
     },
   },
   { 'onsails/lspkind-nvim' },
@@ -102,56 +103,54 @@ require('lazy').setup({
     'windwp/nvim-autopairs',
     lazy = true,
     config = function()
-      require('nvim-autopairs').setup(
-        { check_ts = true }, { disable_filetype = { "TelescopePrompt", "vim" } }
-      )
-      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-      local cmp_status_ok, cmp = pcall(require, "cmp")
-      if not cmp_status_ok then return end
-      cmp.event:on('confirm_done',
-        cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
-    end
+      require('nvim-autopairs').setup({ check_ts = true }, { disable_filetype = { 'TelescopePrompt', 'vim' } })
+      local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+      local cmp_status_ok, cmp = pcall(require, 'cmp')
+      if not cmp_status_ok then
+        return
+      end
+      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done { map_char = { tex = '' } })
+    end,
   },
   {
     'nvim-pack/nvim-spectre',
     lazy = true,
     config = function()
-      require('spectre').setup({
+      require('spectre').setup {
         mapping = {
           ['run_replace'] = {
-            map = "<leader>ra",
+            map = '<leader>ra',
             cmd = "<cmd>lua require('spectre.actions').run_replace()<CR>",
-            desc = "replace all"
+            desc = 'replace all',
           },
-        }
-      })
-    end
+        },
+      }
+    end,
   },
   {
     'cappyzawa/trim.nvim',
     opts = {
-      ft_blocklist = { "markdown" }
-    }
+      ft_blocklist = { 'markdown' },
+    },
   },
   { 'rafamadriz/friendly-snippets' },
   {
-    "kylechui/nvim-surround",
-    version = "*", -- Use for stability; omit to use `main` branch for the latest features
-    event = "VeryLazy",
+    'kylechui/nvim-surround',
+    version = '*', -- Use for stability; omit to use `main` branch for the latest features
+    event = 'VeryLazy',
     config = function()
-      require("nvim-surround").setup({
+      require('nvim-surround').setup {
         -- Configuration here, or leave empty to use defaults
-      })
-    end
+      }
+    end,
   },
   { 'Asheq/close-buffers.vim' },
 
-
   -- UI (Tab, status, indicators)
   {
-    "lukas-reineke/indent-blankline.nvim",
+    'lukas-reineke/indent-blankline.nvim',
     config = function()
-      require("ibl").setup {}
+      require('ibl').setup {}
     end,
   },
   -- GIT
@@ -171,10 +170,10 @@ require('lazy').setup({
   },
   {
     'sindrets/diffview.nvim',
-    event = "VeryLazy",
+    event = 'VeryLazy',
     config = function()
       require('diffview').setup {}
-    end
+    end,
   },
 
   -- Themes
@@ -183,43 +182,43 @@ require('lazy').setup({
   { 'https://gitlab.com/madyanov/gruber.vim' },
   -- ai (copilot, chatgpt)
   {
-    "zbirenbaum/copilot.lua",
+    'zbirenbaum/copilot.lua',
     lazy = true,
-    cmd = "Copilot",
-    event = "InsertEnter",
+    cmd = 'Copilot',
+    event = 'InsertEnter',
     config = function()
-      require("copilot").setup({
+      require('copilot').setup {
         suggestion = { enabled = false },
         panel = { enabled = false },
-      })
+      }
     end,
   },
   {
-    "zbirenbaum/copilot-cmp",
+    'zbirenbaum/copilot-cmp',
     config = function()
-      require("copilot_cmp").setup()
-    end
+      require('copilot_cmp').setup()
+    end,
   },
   {
-    "jackMort/ChatGPT.nvim",
-    event = "VeryLazy",
+    'jackMort/ChatGPT.nvim',
+    event = 'VeryLazy',
     config = function()
-      require("chatgpt").setup({
-        api_key_cmd = "cat " .. os.getenv('HOME') .. "/.chatgptnvim.txt"
-      })
+      require('chatgpt').setup {
+        api_key_cmd = 'cat ' .. os.getenv 'HOME' .. '/.chatgptnvim.txt',
+      }
     end,
     dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "folke/trouble.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
+      'MunifTanjim/nui.nvim',
+      'nvim-lua/plenary.nvim',
+      'folke/trouble.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
   },
   -- Others
   -- { "github/copilot.vim" },
   -- { "rest-nvim/rest.nvim",           lazy = true },
-  { 'folke/trouble.nvim', },
-  { 'numToStr/Comment.nvim',         opts = {} },
+  { 'folke/trouble.nvim' },
+  { 'numToStr/Comment.nvim', opts = {} },
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
   {
     'nvim-telescope/telescope-fzf-native.nvim',
@@ -235,7 +234,7 @@ require('lazy').setup({
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
-    build = ":TSUpdate",
+    build = ':TSUpdate',
   },
 
   -- Language specific
@@ -246,45 +245,45 @@ require('lazy').setup({
   { import = 'nv.plugins' },
 }, {
   spec = {
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
+    { import = 'lazyvim.plugins.extras.formatting.prettier' },
   },
   performance = {
     rtp = {
       disabled_plugins = {
-        "2html_plugin",
-        "getscript",
-        "getscriptPlugin",
-        "gzip",
-        "logipat",
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
+        '2html_plugin',
+        'getscript',
+        'getscriptPlugin',
+        'gzip',
+        'logipat',
+        'netrw',
+        'netrwPlugin',
+        'netrwSettings',
+        'netrwFileHandlers',
         -- "matchit",
         -- "matchparen",
-        "tar",
-        "tarPlugin",
-        "rrhelper",
+        'tar',
+        'tarPlugin',
+        'rrhelper',
         -- "vimball",
         -- "vimballPlugin",
-        "zip",
-        "zipPlugin",
+        'zip',
+        'zipPlugin',
       },
     },
   },
 })
 
 -- [[ Setting options ]]
-require('nv.settings')
-require('nv.keymaps')
-require('nv.telescope')
-require('nv.treesitter')
-require('nv.colors')
-require('nv.yasl')
-require('nv.cmd')
-require('nv.autocmp')
-require('nv.lsp')
-require('nv.scratches')
+require 'nv.settings'
+require 'nv.keymaps'
+require 'nv.telescope'
+require 'nv.treesitter'
+require 'nv.colors'
+require 'nv.yasl'
+require 'nv.cmd'
+require 'nv.autocmp'
+require 'nv.lsp'
+require 'nv.scratches'
 
 vim.g.rasmus_bold_keywords = true
 vim.g.rasmus_italic_comments = false
