@@ -1,9 +1,9 @@
 -- modifier (CMD on mac, CTRL on other)
 local withModifier = function(key)
-	local mod = vim.fn.has("mac") == 1 and "D" or "C"
-	return "<" .. mod .. "-" .. key .. ">"
+  local mod = vim.fn.has 'mac' == 1 and 'D' or 'C'
+  return '<' .. mod .. '-' .. key .. '>'
 end
-vim.keymap.set("n", withModifier("s"), ":write <CR>", { desc = "Save buffer", remap = true })
+vim.keymap.set('n', withModifier 's', ':write <CR>', { desc = 'Save buffer', remap = true })
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- Remap for dealing with word wrap
 -- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -19,10 +19,10 @@ vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status, { des
 vim.keymap.set('n', '<C-b>', require('telescope.builtin').buffers, { desc = '[B]uffers' })
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
 
 -- navigate windows
 -- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
@@ -30,9 +30,8 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagn
 -- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 -- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
-
 -- easier way to deal with register when yank text
-vim.cmd([[
+vim.cmd [[
 nmap ,P "0P
 nmap ,p "0p
 " still got no time to study macros
@@ -102,4 +101,4 @@ nnoremap \gr <cmd>Gitsigns reset_hunk<cr>
 nnoremap <silent>\s <cmd>lua require('nv/scratches').open_scratch_file_floating()<CR>
 nnoremap <silent>\c <cmd>lua require('nv/scratches').open_scratch_file_floating({filename="codesnip"})<CR>
 nnoremap <silent>\m <cmd>lua require('nv/scratches').open_scratch_file_floating({filename="vim"})<CR>
-]])
+]]

@@ -5,17 +5,17 @@ vim.o.compatible = false
 vim.o.showmatch = true
 vim.o.showmode = false
 vim.o.title = true
-vim.o.titlestring = "%F"
+vim.o.titlestring = '%F'
 vim.wo.number = true
 -- vim.wo.relativenumber = true
-vim.o.wildmode = "longest,full"
+vim.o.wildmode = 'longest,full'
 -- vim.wo.colorcolumn = "80"
 vim.wo.cursorline = true
 vim.o.laststatus = 3
 -- vim.o.winbar = "%=%f"
-vim.wo.signcolumn = "yes"
-if vim.fn.has("termguicolors") == 1 then
-	vim.o.termguicolors = true
+vim.wo.signcolumn = 'yes'
+if vim.fn.has 'termguicolors' == 1 then
+  vim.o.termguicolors = true
 end
 vim.o.completeopt = 'menuone,noselect'
 vim.o.mouse = 'a'
@@ -23,9 +23,9 @@ vim.o.clipboard = 'unnamedplus'
 vim.opt.wrap = false
 
 -- Enable folding
-vim.cmd('filetype plugin on')
+vim.cmd 'filetype plugin on'
 vim.opt.foldlevel = 20
-vim.cmd([[
+vim.cmd [[
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 function FoldText()
@@ -34,10 +34,10 @@ function FoldText()
 	let fillCount = winwidth('%') - len(line) - len(numOfLines) - 14
 	return line . '  ' . repeat('.', fillCount) . ' (' . numOfLines . ' L)'
 endfunction
-]])
+]]
 vim.opt.fillchars = { fold = ' ' } -- removes trailing dotimes
 -- Netrw
-vim.cmd([[
+vim.cmd [[
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 3
@@ -47,7 +47,7 @@ let g:netrw_winsize = 25
 "   autocmd!
 "   autocmd VimEnter * :Vexplore
 " augroup END
-]])
+]]
 -- Performance
 vim.o.ttyfast = true
 vim.o.updatetime = 250
@@ -55,10 +55,10 @@ vim.o.timeout = true
 vim.o.timeoutlen = 300
 
 -- Indentation
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.expandtab = false
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.numberwidth = 4
@@ -88,9 +88,9 @@ vim.opt.hidden = true
 
 -- [[ Highlight on yank ]]
 vim.api.nvim_create_autocmd('TextYankPost', {
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-	group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
-	pattern = '*',
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = vim.api.nvim_create_augroup('YankHighlight', { clear = true }),
+  pattern = '*',
 })
