@@ -219,6 +219,7 @@ require('lazy').setup({
   -- { "rest-nvim/rest.nvim",           lazy = true },
   { 'folke/trouble.nvim' },
   { 'numToStr/Comment.nvim', opts = {} },
+  { 'tpope/vim-sleuth' },
   { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
   {
     'nvim-telescope/telescope-fzf-native.nvim',
@@ -244,6 +245,7 @@ require('lazy').setup({
 
   { import = 'nv.plugins' },
 }, {
+  lockfile = vim.fn.stdpath 'config' .. '/lazy-lock.json',
   spec = {
     { import = 'lazyvim.plugins.extras.formatting.prettier' },
   },

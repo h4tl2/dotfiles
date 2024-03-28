@@ -43,6 +43,7 @@ nnoremap <S-Down> :m+<CR>
 inoremap <S-Up> <Esc>:m-2<CR>
 inoremap <S-Down> <Esc>:m+<CR>
 inoremap <C-c> <Esc>
+nnoremap <C-c><C-c> :qa<CR>
 nnoremap <leader>yp :let @+ = expand("%")<CR>
 " easy indent
 vnoremap <silent>> >gv
