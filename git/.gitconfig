@@ -11,12 +11,13 @@
     autoSetupRemote = true
 [alias]
     co = checkout
-    amd = commit --amend --reuse-message HEAD
     cm1 = log -1 --format=format:%H
     lgp = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
     sw = !bash -c 'git switch $(git branch --all | sed "s#remotes/origin/##" | fzf)'
     db = !bash -c 'git branch | grep -v "master" | xargs git branch -D'
-# delta diff
+    rba = !bash -c 'git rebase -i $(git merge-base $(git rev-parse --abbrev-ref HEAD) $0)'
+    amd = commit --amend --no-edit
+    # bd = !bash -c 'git for-each-ref --format '%(refname:short)' refs/heads | grep -v "master\|main" | xargs git branch -D'
 [interactive]
     diffFilter = delta --color-only
 [add.interactive]
