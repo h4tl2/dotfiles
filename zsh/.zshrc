@@ -168,7 +168,8 @@ alias gdlb="git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branc
 alias c="cd ~/code"
 alias nv="nvim"
 alias ggg="open https://google.com"
-
+alias lg='lazygit'
+alias gui='gitui'
 # custom load & path
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
