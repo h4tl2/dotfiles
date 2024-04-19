@@ -291,5 +291,5 @@ vim.g.rasmus_bold_keywords = true
 vim.g.rasmus_italic_comments = false
 
 -- Load the colorscheme
-vim.cmd [[ colorscheme envy ]]
+vim.cmd [[ colorscheme deepwhite ]]
 -- vim: ts=2 sts=2 sw=2 et
