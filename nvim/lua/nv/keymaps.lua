@@ -34,8 +34,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.cmd [[
 nmap ,P "0P
 nmap ,p "0p
-" still got no time to study macros
-nnoremap q <nop>
+" nnoremap q <nop>
 nnoremap <silent><ESC> :nohlsearch<Bar>:echo<Cr>
 " vim edit configuration
 nnoremap <S-Up> :m-2<CR>
