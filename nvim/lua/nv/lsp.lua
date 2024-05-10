@@ -136,19 +136,19 @@ local servers = {
     -- }
   },
   gopls = {
-    cmd = { 'gopls', 'serve' },
-    filetypes = { 'go', 'gomod' },
-    root_dir = util.root_pattern('go.work', 'go.mod', '.git'),
-    settings = {
-      gopls = {
-        analyses = {
-          unusedparams = true,
-          unusedwrite = true,
-          -- shadow = true,  https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md#shadow
-        },
-        staticcheck = true,
-      },
-    },
+    -- cmd = { 'gopls', 'serve' },
+    -- filetypes = { 'go', 'gomod' },
+    -- root_dir = util.root_pattern('go.work', 'go.mod', '.git'),
+    -- settings = {
+    --   gopls = {
+    --     analyses = {
+    --       unusedparams = true,
+    --       unusedwrite = true,
+    --       -- shadow = true,  https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md#shadow
+    --     },
+    --     staticcheck = true,
+    --   },
+    -- },
   },
   lua_ls = {
     Lua = {
