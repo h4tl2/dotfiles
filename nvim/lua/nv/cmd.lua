@@ -48,7 +48,7 @@ end, {
   desc = 'Re-enable autoformat-on-save',
 })
 
-vim.cmd [[
-  nmap <Leader>gtb :let projectPath = trim(execute('pwd')) \| let @+ = 'https://bitbucket.org/' . fnamemodify(projectPath, ':p:h:h:t') . '/' . fnamemodify(projectPath, ':p:h:t') . '/src/master/' . expand("%") . '#lines-' . line(".")<CR><CR>
-  nmap <Leader>gtg :let projectPath = trim(execute('pwd')) \| let @+ = 'https://github.com/' . fnamemodify(projectPath, ':p:h:h:t') . '/' . fnamemodify(projectPath, ':p:h:t') . '/blob/master/' . expand("%") . '#L' . line(".")<CR><CR>
-]]
+-- vim.cmd [[
+--   nmap <Leader>gtb :let projectPath = trim(execute('pwd')) \| let @+ = 'https://bitbucket.org/' . fnamemodify(projectPath, ':p:h:h:t') . '/' . fnamemodify(projectPath, ':p:h:t') . '/src/master/' . expand("%") . '#lines-' . line(".")<CR><CR>
+--   nmap <Leader>gtg :let projectPath = trim(execute('pwd')) \| let @+ = 'https://github.com/' . fnamemodify(projectPath, ':p:h:h:t') . '/' . fnamemodify(projectPath, ':p:h:t') . '/blob/master/' . expand("%") . '#L' . line(".")<CR><CR>
+-- ]]

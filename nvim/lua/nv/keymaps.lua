@@ -29,7 +29,13 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 -- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 -- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+local git_utils = require 'nv.git'
+vim.keymap.set('n', '<leader>gtg', function()
+  local url = git_utils.get_line_on_remote()
+  vim.fn.setreg('+', url)
 
+  vim.notify('Copied to clipboard\n' .. url, vim.log.levels.INFO, { title = 'Git URL' })
+end, { desc = 'Copy Git File Path URL' })
 -- easier way to deal with register when yank text
 vim.cmd [[
 nmap ,P "0P
