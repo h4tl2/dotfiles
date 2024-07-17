@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -15,7 +8,7 @@ export ZSH="/Users/nivit.n/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -155,6 +148,21 @@ aws-env() {
     export AWS_DEFAULT_REGION="$(aws configure get region --profile $PROFILE)"
 }
 
+show-node-script () {
+    if cat package.json > /dev/null 2>&1; then
+        scripts=$(cat package.json | jq .scripts | sed '1d;$d' | fzf --height 40%)
+
+        if [[ -n $scripts ]]; then
+            script_name=$(echo $scripts | awk -F ': ' '{gsub(/"/, "", $1); print $1}')
+            echo "yarn run"$script_name;
+        else
+            echo "Exit: You haven't selected any script"
+        fi
+    else
+        echo "Error: There's no package.json"
+    fi
+}
+
 alias gbf='fzf-git-branch'
 alias gcof='fzf-git-checkout'
 alias gsw='fzf-git-switch'
@@ -170,6 +178,7 @@ alias nv="nvim"
 alias ggg="open https://google.com"
 alias lg='lazygit'
 alias gui='gitui'
+alias sns="show-node-script"
 # custom load & path
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
