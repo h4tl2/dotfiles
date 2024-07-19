@@ -1,3 +1,5 @@
+local git_utils = require 'nv.git'
+
 -- modifier (CMD on mac, CTRL on other)
 local withModifier = function(key)
   local mod = vim.fn.has 'mac' == 1 and 'D' or 'C'
@@ -17,7 +19,8 @@ vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
 vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status, { desc = '[?] Git status' })
 vim.keymap.set('n', '<C-b>', require('telescope.builtin').buffers, { desc = '[B]uffers' })
-
+vim.keymap.set('n', '<leader>df', git_utils.telescope_diff_file, { desc = 'Diff file with current buffer' })
+vim.keymap.set('n', '<leader>dg', git_utils.telescope_diff_from_history, { desc = 'Diff from git history' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
@@ -29,7 +32,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 -- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 -- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
-local git_utils = require 'nv.git'
 vim.keymap.set('n', '<leader>gtg', function()
   local url = git_utils.get_line_on_remote()
   vim.fn.setreg('+', url)

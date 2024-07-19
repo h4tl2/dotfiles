@@ -20,6 +20,7 @@ local function theme_cycler()
     'deepwhite',
     'envy',
     'gruber',
+    'lucius',
   }
   return function()
     state = (state + 1) % #themes

@@ -179,6 +179,7 @@ require('lazy').setup({
   -- Themes
   { 'kkga/vim-envy' },
   { 'Verf/deepwhite.nvim' },
+  { 'jonathanfilip/vim-lucius' },
   { 'https://gitlab.com/madyanov/gruber.vim' },
   -- ai (copilot, chatgpt)
   {
