@@ -17,8 +17,8 @@ vim.g.rasmus_italic_comments = false
 local function theme_cycler()
   local state = 0
   local themes = {
-    'deepwhite',
     'envy',
+    'deepwhite',
     'gruber',
   }
   return function()

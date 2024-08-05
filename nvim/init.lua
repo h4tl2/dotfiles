@@ -303,5 +303,5 @@ require 'nv.lsp'
 require 'nv.scratches'
 
 -- Load the colorscheme
-vim.cmd [[ colorscheme deepwhite ]]
+vim.cmd [[ colorscheme envy ]]
 -- vim: ts=2 sts=2 sw=2 et
