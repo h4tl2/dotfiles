@@ -6,6 +6,7 @@ vim.o.showmatch = true
 vim.o.showmode = false
 vim.o.title = true
 vim.o.titlestring = ':%{fnamemodify(getcwd(), ":t")}'
+-- vim.o.titlestring = '%(%{expand("%:~:.:h")}%)/%t - Vim'
 vim.wo.number = true
 -- vim.wo.relativenumber = true
 vim.o.wildmode = 'longest,full'
