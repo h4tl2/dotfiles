@@ -87,13 +87,6 @@ nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
 nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
 nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
 nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
-" Trouble
-nnoremap <leader>tt <cmd>TroubleToggle<cr>
-nnoremap <leader>tw <cmd>TroubleToggle workspace_diagnostics<cr>
-nnoremap <leader>td <cmd>TroubleToggle document_diagnostics<cr>
-nnoremap <leader>tq <cmd>TroubleToggle quickfix<cr>
-nnoremap <leader>tl <cmd>TroubleToggle loclist<cr>
-nnoremap gR <cmd>TroubleToggle lsp_references<cr>
 " Spectre
 nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
 nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
