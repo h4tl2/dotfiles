@@ -17,7 +17,6 @@
 --     }
 --   end,
 -- })
-
 vim.api.nvim_create_user_command('FormatConform', function(args)
   local range = nil
   if args.count ~= -1 then
@@ -41,6 +40,7 @@ end, {
   desc = 'Disable autoformat-on-save',
   bang = true,
 })
+
 vim.api.nvim_create_user_command('FormatEnable', function()
   vim.b.disable_autoformat = false
   vim.g.disable_autoformat = false
@@ -48,7 +48,18 @@ end, {
   desc = 'Re-enable autoformat-on-save',
 })
 
--- vim.cmd [[
---   nmap <Leader>gtb :let projectPath = trim(execute('pwd')) \| let @+ = 'https://bitbucket.org/' . fnamemodify(projectPath, ':p:h:h:t') . '/' . fnamemodify(projectPath, ':p:h:t') . '/src/master/' . expand("%") . '#lines-' . line(".")<CR><CR>
---   nmap <Leader>gtg :let projectPath = trim(execute('pwd')) \| let @+ = 'https://github.com/' . fnamemodify(projectPath, ':p:h:h:t') . '/' . fnamemodify(projectPath, ':p:h:t') . '/blob/master/' . expand("%") . '#L' . line(".")<CR><CR>
--- ]]
+vim.api.nvim_create_user_command(
+  'BlameLine', -- The command name
+  function()
+    vim.cmd 'Gitsigns blame_line'
+  end,
+  { nargs = 0 } -- No arguments needed
+)
+
+vim.api.nvim_create_user_command(
+  'DiffCurrentFile', -- The command name
+  function()
+    vim.cmd 'DiffviewFileHistory %'
+  end,
+  { nargs = 0 } -- No arguments needed
+)
