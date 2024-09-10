@@ -4,17 +4,17 @@ local fn = vim.fn
 local api = vim.api
 
 local modes = setmetatable({
-  ['n'] = 'Normal',
+  ['n'] = 'NOR', -- NORMAL
   ['no'] = 'N·Pending',
-  ['v'] = 'Visual',
+  ['v'] = 'VIS', -- VISUAL
   ['V'] = 'V·Line',
   [''] = 'V·Block', -- this is not ^V, but it's , they're different
   ['s'] = 'Select',
   ['S'] = 'S·Line',
   [''] = 'S·Block', -- same with this one, it's not ^S but it's 
-  ['i'] = 'Insert',
-  ['ic'] = 'Insert',
-  ['R'] = 'Replace',
+  ['i'] = 'INS', -- INSERT
+  ['ic'] = 'INS', -- INSERT
+  ['R'] = 'REP', -- REPLACE
   ['Rv'] = 'V·Replace',
   ['c'] = 'Command',
   ['cv'] = 'Vim·Ex',
@@ -99,7 +99,8 @@ end
 
 local function get_line_info()
   -- return ' %l:%c '"%-0"
-  return ' [󱀳:%-03p :%-03l]'
+  -- return ' [󱀳:%-03p :%-03l]'
+  return ' [:%-02p]'
 end
 
 local function get_lsp_diagnostic()
@@ -138,8 +139,6 @@ end
 
 -- https://alpha2phi.medium.com/neovim-for-beginners-lsp-part-2-37f9f72779b6#3249
 local function get_lsp_client()
-  -- DEPRECATED
-  -- local buf_clients = vim.lsp.buf_get_clients()
   local buf_clients = vim.lsp.get_active_clients { bufnr = vim.fn.bufnr() }
   if next(buf_clients) == nil then
     return ''
@@ -147,10 +146,10 @@ local function get_lsp_client()
   local buf_client_names = {}
   for _, client in pairs(buf_clients) do
     if client.name ~= 'null-ls' then
-      table.insert(buf_client_names, client.name)
+      table.insert(buf_client_names, string.sub(client.name, 1, 3))
     end
   end
-  return ' ' .. table.concat(buf_client_names, ', ') .. ' '
+  return ' ' .. table.concat(buf_client_names, ',') .. ' '
 end
 
 local M = {}
