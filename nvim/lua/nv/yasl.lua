@@ -32,7 +32,7 @@ local modes = setmetatable({
 
 local function mode()
   local current_mode = api.nvim_get_mode().mode
-  return string.format(' %s ', modes[current_mode]):upper()
+  return string.format(' %s', modes[current_mode]):upper()
 end
 
 local function update_mode_colors()
@@ -146,7 +146,7 @@ local function get_lsp_client()
   local buf_client_names = {}
   for _, client in pairs(buf_clients) do
     if client.name ~= 'null-ls' then
-      table.insert(buf_client_names, string.sub(client.name, 1, 3))
+      table.insert(buf_client_names, client.name)
     end
   end
   return ' ' .. table.concat(buf_client_names, ',') .. ' '
