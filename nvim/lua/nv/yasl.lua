@@ -32,7 +32,7 @@ local modes = setmetatable({
 
 local function mode()
   local current_mode = api.nvim_get_mode().mode
-  return string.format(' %s', modes[current_mode]):upper()
+  return string.format(' %s ', modes[current_mode]):upper()
 end
 
 local function update_mode_colors()

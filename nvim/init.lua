@@ -69,14 +69,13 @@ require('lazy').setup({
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
+      default_format_opts = {
+        lsp_format = 'fallback',
+      },
       formatters_by_ft = {
         lua = { 'stylua' },
-        -- python = { "isort", "black" },
-        --
-        -- You can use a sub-list to tell conform to run *until* a formatter
-        -- is found.
-        javascript = { { 'prettierd', 'prettier' } },
-        typescript = { { 'prettierd', 'prettier' }, 'eslint' },
+        javascript = { 'prettierd', 'prettier', 'eslint', stop_after_first = true },
+        typescript = { 'prettierd', 'prettier', 'eslint', stop_after_first = true },
       },
     },
   },
