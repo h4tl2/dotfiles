@@ -80,11 +80,18 @@ local on_attach = function(_, bufnr)
   -- end
 end
 
-local util = require 'lspconfig/util'
+-- local util = require 'lspconfig/util'
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  tsserver = {},
+  tsserver = {
+    init_options = {
+      preferences = {
+        importModuleSpecifierPreference = 'relative',
+        importModuleSpecifierEnding = 'minimal',
+      },
+    },
+  },
   tflint = {},
   zk = {},
   vimls = {},
