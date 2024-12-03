@@ -201,8 +201,8 @@ vim.diagnostic.config {
 -- end
 
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#borders
-vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
-vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=black guibg=#eeeeee]]
+-- vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
+-- vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=black guibg=#eeeeee]]
 
 local border = {
   { '╭', 'FloatBorder' },
