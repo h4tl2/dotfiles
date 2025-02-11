@@ -1,5 +1,5 @@
 vim.opt.list = true
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', eol = '↴', space = '⋅' }
+vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣', eol = '', space = '⋅' }
 vim.g.editorconfig = true
 vim.o.compatible = false
 vim.o.showmatch = true
