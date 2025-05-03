@@ -1,4 +1,4 @@
-local git_utils = require 'nv.git'
+local git_utils = require('custom.git')
 
 -- modifier (CMD on mac, CTRL on other)
 local withModifier = function(key)

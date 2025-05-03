@@ -64,9 +64,9 @@ local function get_git_status()
         -- 
         '  %s [+%s~%s-%s] ',
         string.sub(signs.head, 0, 10),
-        signs.added,
-        signs.changed,
-        signs.removed
+        signs.added or 0,
+        signs.changed or 0,
+        signs.removed or 0
         -- signs.head, signs.added, signs.changed, signs.removed
       )
     or ''
@@ -139,15 +139,14 @@ end
 
 -- https://alpha2phi.medium.com/neovim-for-beginners-lsp-part-2-37f9f72779b6#3249
 local function get_lsp_client()
-  local buf_clients = vim.lsp.get_active_clients { bufnr = vim.fn.bufnr() }
+  local bufnr = vim.fn.bufnr()
+  local buf_clients = vim.lsp.get_clients { bufnr }
   if next(buf_clients) == nil then
     return ''
   end
   local buf_client_names = {}
   for _, client in pairs(buf_clients) do
-    if client.name ~= 'null-ls' then
-      table.insert(buf_client_names, client.name)
-    end
+    table.insert(buf_client_names, client.name)
   end
   return ' ' .. table.concat(buf_client_names, ',') .. ' '
 end
