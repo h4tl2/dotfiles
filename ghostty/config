@@ -1,0 +1,15 @@
+font-family = "Iosevka Nerd Font Mono"
+font-feature = -calt
+font-feature = -dlig
+font-feature = -liga
+font-size = 16
+font-thicken = false
+
+window-padding-y = 0
+window-padding-x = 0
+
+cursor-color = #94C5D6
+
+adjust-cursor-thickness=12
+
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
