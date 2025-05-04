@@ -1,15 +1,16 @@
 font-family = "Iosevka Nerd Font Mono"
-font-feature = -calt
-font-feature = -dlig
-font-feature = -liga
+font-feature = -calt, -liga, -dlig
 font-size = 16
-font-thicken = false
+font-thicken = true
+font-thicken-strength = 5
+
+adjust-cell-width = 5%
 
 window-padding-y = 0
 window-padding-x = 0
 
-cursor-color = #94C5D6
+cursor-color = #77DD77
 
-adjust-cursor-thickness=12
+adjust-cursor-thickness = 2
 
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
