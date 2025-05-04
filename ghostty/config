@@ -1,7 +1,9 @@
 font-family = "Iosevka Nerd Font Mono"
-font-feature = -calt, -liga, -dlig
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
 font-size = 16
-font-thicken = true
+font-thicken = false
 font-thicken-strength = 5
 
 adjust-cell-width = 5%

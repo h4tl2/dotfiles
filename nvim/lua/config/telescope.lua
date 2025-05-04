@@ -94,7 +94,7 @@ telescope.setup {
       theme = 'dropdown',
       hidden = true,
       previewer = false,
-      -- find_command = { "fd", "--no-ignore", "-E", ".DS_Store", "-E", ".git", "--type", "f", "--strip-cwd-prefix" },
+      find_command = { 'fd', '--no-ignore', '-E', '.DS_Store', '-E', '.git', '-E', 'dist', '-E', 'build', '--type', 'f', '--strip-cwd-prefix' },
       -- find_command = { 'rg', '--files', '--hidden', '-g', '!.git' },
       layout_config = { width = 0.60, height = 0.80 },
     },
