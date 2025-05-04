@@ -91,10 +91,12 @@ mkdir $HOME/.config/nvim
 mkdir $HOME/.config/kitty
 mkdir $HOME/.config/alacritty
 mkdir $HOME/.config/gitui
+mkdir $HOME/.config/ghostty
 stow --target=$HOME/.config/kitty kitty
 stow --target=$HOME/.config/nvim nvim
 stow --target=$HOME/.config/alacritty alacritty
 stow --target=$HOME/.config/gitui gitui
+stow --target=$HOME/.config/ghostty ghostty
 stow --target=$HOME git
 stow --target=$HOME vim
 stow --target=$HOME tmux

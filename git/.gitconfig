@@ -1,34 +1,39 @@
 [core]
-    excludesfile = ~/.gitignore_global
-    editor = nvim
+	excludesfile = ~/.gitignore_global
+	editor = nvim
 [user]
-    name = nivitn
-    email = nivit.nan@gmail.com
+	name = nivitn
+	email = nivit.nan@gmail.com
 [includeIf "gitdir:~/code/kn/"]
-    path = ~/code/kn/.gitconfig
+	path = ~/code/kn/.gitconfig
 [push]
-    autoSetupRemote = true
+	autoSetupRemote = true
+	default = current
 [alias]
-    co = checkout
-    cm1 = log -1 --format=format:%H
-    lgp = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-    sw = !bash -c 'git switch $(git branch --all | sed "s#remotes/origin/##" | fzf)'
-    db = !bash -c 'git branch | grep -v "master" | xargs git branch -D'
-    rba = !bash -c 'git rebase -i $(git merge-base $(git rev-parse --abbrev-ref HEAD) $0)'
-    amd = commit --amend --no-edit
-    # bd = !bash -c 'git for-each-ref --format '%(refname:short)' refs/heads | grep -v "master\|main" | xargs git branch -D'
+	co = checkout
+	cm1 = log -1 --format=format:%H
+	lgp = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	sw = !bash -c 'git switch $(git branch --all | sed "s#remotes/origin/##" | fzf)'
+	db = !bash -c 'git branch | grep -v "master" | xargs git branch -D'
+	rba = !bash -c 'git rebase -i $(git merge-base $(git rev-parse --abbrev-ref HEAD) $0)'
+	amd = commit --amend --no-edit
+	coauthor = "!f() { read -p \"Enter Co-Author's Name: \" COAUTHOR_NAME; read -p \"Enter Co-Author's Email: \" COAUTHOR_EMAIL; if [ -z \"$1\" ]; then git commit --edit --quiet --template=<(echo -e \"\\n\\nCo-authored-by: $COAUTHOR_NAME <$COAUTHOR_EMAIL>\"); else git commit -m \"$1\"$nn\"Co-authored-by: $COAUTHOR_NAME <$COAUTHOR_EMAIL>\"; fi; }; f"
+	# bd = !bash -c 'git for-each-ref --format '%(refname:short)' refs/heads | grep -v "master\|main" | xargs git branch -D'
 [add.interactive]
-    useBuiltin = false # required for git 2.37.0
+	useBuiltin = false # required for git 2.37.0
 [merge]
-    conflictstyle = diff3
+	conflictstyle = diff3
 [diff]
-    colorMoved = default
+	colorMoved = default
+	algorithm = histogram
+	renames = copies
 [submodule]
-    recurse = true
+	recurse = true
 [lfs]
     locksverify = false
 [branch]
-    autosetuprebase = always
+	autosetuprebase = always
+	sort = committerdate
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
@@ -36,3 +41,12 @@
     required = true
 [rerere]
 	enabled = true
+[rebase]
+	autosquash = true
+	autoStash = true
+	updateRefs = true
+[pull]
+	rebase = true
+[fetch]
+	pruneTags = true
+	prune = true
