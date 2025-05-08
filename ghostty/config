@@ -3,7 +3,7 @@ font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 font-size = 16
-font-thicken = false
+font-thicken = true
 font-thicken-strength = 5
 
 adjust-cell-width = 5%

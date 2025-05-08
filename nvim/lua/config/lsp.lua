@@ -171,20 +171,40 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
+local lspconfig = require 'lspconfig'
 
 mason_lspconfig.setup {
   ensure_installed = vim.tbl_keys(servers),
+  handlers = {
+    function(server)
+      lspconfig[server].setup {
+        capabilities = capabilities,
+      }
+    end,
+    ['tsserver'] = function()
+      lspconfig.tsserver.setup {
+        capabilities = capabilities,
+        settings = {
+          completions = {
+            completeFunctionCalls = true,
+          },
+        },
+      }
+    end,
+  },
 }
 
-mason_lspconfig.setup_handlers {
-  function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-    }
-  end,
-}
+-- mason_lspconfig.setup_handlers {
+--   function(server)
+--     print(server)
+--     require('lspconfig').setup {}
+--     -- require('lspconfig')[server_name].setup {
+--     --   capabilities = capabilities,
+--     --   on_attach = on_attach,
+--     --   settings = servers[server_name],
+--     -- }
+--   end,
+-- }
 
 -- UI {{{
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
