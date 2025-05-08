@@ -17,7 +17,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   { import = 'plugins' },
 
-  { 'nvim-telescope/telescope.nvim', version = '*', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' } },
   {
     'nvim-telescope/telescope-fzf-native.nvim',
     build = 'make',
@@ -29,7 +29,7 @@ require('lazy').setup({
 }, {
   lockfile = vim.fn.stdpath 'config' .. '/lazy-lock.json',
   spec = {
-    { import = 'lazyvim.plugins.extras.formatting.prettier' },
+    { import = 'plugins.extras.prettier' },
   },
   performance = {
     rtp = {

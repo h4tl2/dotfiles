@@ -7,13 +7,6 @@ if status_ok then
   default_schemas = jsonls_settings.get_default_schemas()
 end
 
-local function extend(tab1, tab2)
-  for _, value in ipairs(tab2 or {}) do
-    table.insert(tab1, value)
-  end
-  return tab1
-end
-
 local schemas = {
   {
     description = 'ESLint config',
@@ -70,14 +63,6 @@ local on_attach = function(_, bufnr)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
   nmap('<leader>fm', vim.lsp.buf.format, '[F]or[M]at')
-  -- if client.supports_method("textDocument/formatting") then
-  --     vim.api.nvim_create_autocmd("BufWritePre", {
-  --         group = vim.api.nvim_create_augroup("LspFormatting", { clear = true }),
-  --         -- buffer = bufnr,
-  --         pattern = { "*.py", "*.go", ".md", ".mdx", "*.lua", "*.vim", "*.sh", "*.{yml,yaml}" },
-  --         callback = function() vim.lsp.buf.format() end
-  --     })
-  -- end
 end
 
 -- local util = require 'lspconfig/util'
@@ -179,6 +164,8 @@ mason_lspconfig.setup {
     function(server)
       lspconfig[server].setup {
         capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers[server],
       }
     end,
     ['tsserver'] = function()
@@ -193,18 +180,6 @@ mason_lspconfig.setup {
     end,
   },
 }
-
--- mason_lspconfig.setup_handlers {
---   function(server)
---     print(server)
---     require('lspconfig').setup {}
---     -- require('lspconfig')[server_name].setup {
---     --   capabilities = capabilities,
---     --   on_attach = on_attach,
---     --   settings = servers[server_name],
---     -- }
---   end,
--- }
 
 -- UI {{{
 -- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
