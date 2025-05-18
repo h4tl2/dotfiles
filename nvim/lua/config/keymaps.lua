@@ -1,4 +1,4 @@
-local git_utils = require('custom.git')
+local git_utils = require 'custom.git'
 
 -- modifier (CMD on mac, CTRL on other)
 local withModifier = function(key)
@@ -12,15 +12,15 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Telescope mappings
-vim.keymap.set('n', '<leader>fc', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
-vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
-vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status, { desc = '[?] Git status' })
-vim.keymap.set('n', '<C-b>', require('telescope.builtin').buffers, { desc = '[B]uffers' })
-vim.keymap.set('n', '<leader>df', git_utils.telescope_diff_file, { desc = 'Diff file with current buffer' })
-vim.keymap.set('n', '<leader>dg', git_utils.telescope_diff_from_history, { desc = 'Diff from git history' })
+-- vim.keymap.set('n', '<leader>fc', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
+-- vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
+-- vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
+-- vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
+-- vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+-- vim.keymap.set('n', '<leader>gs', require('telescope.builtin').git_status, { desc = '[?] Git status' })
+-- vim.keymap.set('n', '<C-b>', require('telescope.builtin').buffers, { desc = '[B]uffers' })
+-- vim.keymap.set('n', '<leader>df', git_utils.telescope_diff_file, { desc = 'Diff file with current buffer' })
+-- vim.keymap.set('n', '<leader>dg', git_utils.telescope_diff_from_history, { desc = 'Diff from git history' })
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
