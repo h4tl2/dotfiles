@@ -38,13 +38,10 @@ local on_attach = function(_, bufnr)
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
-  -- nmap('gr', function()
-  --   require('telescope.builtin').lsp_references { show_line = false }
-  -- end, '[G]oto [R]eferences')
+  nmap('gr', vim.lsp.buf.references, '[G]oto [R]eferences')
+
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-  -- nmap('<leader>fs', require('telescope.builtin').lsp_document_symbols, '[F]ind Document [S]ymbols')
-  -- nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
   -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
@@ -113,9 +110,12 @@ local servers = {
           ['http://json.schemastore.org/kustomization'] = 'kustomization.{yml,yaml}',
           ['http://json.schemastore.org/chart'] = 'Chart.{yml,yaml}',
           -- ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
-          ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json'] = '*api*.{yml,yaml}',
-          ['https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json'] = '*docker-compose*.{yml,yaml}',
-          ['https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json'] = '*flow*.{yml,yaml}',
+          ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json'] =
+          '*api*.{yml,yaml}',
+          ['https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json'] =
+          '*docker-compose*.{yml,yaml}',
+          ['https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json'] =
+          '*flow*.{yml,yaml}',
         },
       },
     },

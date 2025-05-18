@@ -116,15 +116,15 @@ function M.get_cmd_output(cmd, cwd)
   local command = table.remove(cmd, 1)
   local stderr = {}
   local stdout, ret = require('plenary.job')
-    :new({
-      command = command,
-      args = cmd,
-      cwd = cwd,
-      on_stderr = function(_, data)
-        table.insert(stderr, data)
-      end,
-    })
-    :sync()
+      :new({
+        command = command,
+        args = cmd,
+        cwd = cwd,
+        on_stderr = function(_, data)
+          table.insert(stderr, data)
+        end,
+      })
+      :sync()
 
   return stdout, ret, stderr
 end
@@ -172,98 +172,79 @@ function M.diff_file_from_history(commit, file_path)
   M.diff_file(temp_file_path)
 end
 
---- Open a telescope picker to select a file to diff against the current buffer
-function M.telescope_diff_file()
-  require('telescope.builtin').find_files {
-    prompt_title = 'Select File to Compare',
-    attach_mappings = function(prompt_bufnr)
-      local actions = require 'telescope.actions'
-      local action_state = require 'telescope.actions.state'
-
-      actions.select_default:replace(function()
-        actions.close(prompt_bufnr)
-        local selection = action_state.get_selected_entry()
-        M.diff_file(selection.value)
-      end)
-      return true
-    end,
-  }
+--- Open an fzf picker to select a file to diff against the current buffer
+function M.fzf_diff_file()
+  local fzf = require('fzf-lua')
+  fzf.files({
+    prompt = 'Select File to Compare> ',
+    actions = {
+      ['default'] = function(selected)
+        M.diff_file(selected[1])
+      end,
+    },
+  })
 end
 
---- Open a telescope picker to select a commit to diff against the current buffer
-function M.telescope_diff_from_history()
+--- Open an fzf picker to select a commit to diff against the current buffer
+function M.fzf_diff_from_history()
   local current_file = vim.fn.fnamemodify(vim.fn.expand '%:p', ':~:.'):gsub('\\', '/')
-  require('telescope.builtin').git_commits {
-    git_command = { 'git', 'log', '--pretty=oneline', '--abbrev-commit', '--follow', '--', current_file },
-    attach_mappings = function(prompt_bufnr)
-      local actions = require 'telescope.actions'
-      local action_state = require 'telescope.actions.state'
+  local fzf = require('fzf-lua')
 
-      actions.select_default:replace(function()
-        actions.close(prompt_bufnr)
-        local selection = action_state.get_selected_entry()
-        M.diff_file_from_history(selection.value, current_file)
-      end)
-      return true
-    end,
-  }
+  fzf.git_commits({
+    prompt = 'Select Commit> ',
+    cmd = 'git log --pretty=oneline --abbrev-commit --follow -- ' .. current_file,
+    actions = {
+      ['default'] = function(selected)
+        -- Extract commit hash from the selected line (first word)
+        local commit = selected[1]:match('^(%S+)')
+        M.diff_file_from_history(commit, current_file)
+      end,
+    },
+  })
 end
 
 function M.get_branch()
-  -- get the current branch
-  local handle = io.popen 'git branch --show-current'
-  if handle == nil then
+  -- get the current branch using native vim.fn
+  local branch = vim.fn.system('git branch --show-current')
+  if vim.v.shell_error ~= 0 then
     return nil
   end
-  local result = handle:read '*a'
-  handle:close()
-  return result
+  return branch:gsub('\n', '') -- Remove trailing newline
 end
 
 function M.get_file()
-  -- get git root directory
-  local handle = io.popen 'git rev-parse --show-toplevel'
-  if handle == nil then
+  -- get git root directory using native vim.fn
+  local git_root = vim.fn.system('git rev-parse --show-toplevel')
+  if vim.v.shell_error ~= 0 then
     return nil
   end
 
-  local result = handle:read '*a'
-  handle:close()
+  git_root = git_root:gsub('\n', '') -- Remove trailing newline
+  local file_path = vim.fn.expand('%:p')
 
-  -- get the relative file path
-  local git_root_dir = result:match '^.*/'
-  local file_path = vim.fn.expand '%:p'
-  local relative_file_path = file_path:sub(#git_root_dir + 1)
+  -- Get relative path using native vim functions
+  local relative_path = vim.fn.fnamemodify(file_path, ':~:.')
 
   -- Remove the first folder from the relative file path
-  local pos = relative_file_path:find '/'
-
+  local pos = relative_path:find('/')
   if pos then
-    relative_file_path = relative_file_path:sub(pos + 1)
+    relative_path = relative_path:sub(pos + 1)
   end
 
-  return relative_file_path
+  return relative_path
 end
 
 function M.get_remote()
-  local handle = io.popen 'git config --get remote.origin.url'
-  if handle == nil then
-    return nil
-  end
-
-  local result = handle:read '*a'
-
-  if result == '' then
-    print 'No remote found'
+  -- Use native vim.fn instead of io.popen
+  local remote = vim.fn.system('git config --get remote.origin.url')
+  if vim.v.shell_error ~= 0 then
+    print('No remote found')
     return ''
   end
-  handle:close()
 
-  return result
+  return remote:gsub('\n', '') -- Remove trailing newline
 end
 
--- TODO: add support for http/https
--- TODO: add support for branch and commit
 function M.get_line_on_remote()
   local remote = M.get_remote()
   if not remote then
@@ -271,7 +252,7 @@ function M.get_line_on_remote()
   end
 
   local file_path = M.get_file()
-  local line_number = vim.api.nvim__buf_stats(0).current_lnum
+  local line_number = vim.fn.line('.')
 
   -- extract parts from
   -- ssh://git@stash.something:9999/~username/dashboard.git
@@ -285,10 +266,7 @@ function M.get_line_on_remote()
   if string.find(remote, 'github') then
     local user, repo = remote:match 'github.com:(.+)/(.+).git'
     local github_url = 'https://github.com/' .. user .. '/' .. repo
-    local branch = 'main' -- TODO: get the current branch
-    if branch == nil then
-      branch = 'main'
-    end
+    local branch = M.get_branch() or 'main'
     local git_remote_url_with_line = github_url .. '/blob/' .. branch .. '/' .. file_path .. '#L' .. line_number
     return git_remote_url_with_line
   end
