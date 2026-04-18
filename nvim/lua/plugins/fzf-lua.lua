@@ -52,7 +52,7 @@ return {
         },
       },
       files = {
-        previewer = false,
+        previewer = true,
         prompt = ' ',
         cwd_prompt = false,
         actions = {
