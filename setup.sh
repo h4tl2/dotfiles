@@ -26,7 +26,6 @@ TAPS=(
 PACKAGES=(
     git
     fzf
-    awscli
     go
     neovim
     node
@@ -45,6 +44,7 @@ PACKAGES=(
     gnu-sed
     stow
     direnv
+    mole
     # git-delta
     # ncdu
     # fd
@@ -55,10 +55,10 @@ brew install ${PACKAGES[@]}
 echo "Installing cask..."
 CASKS=(
     amethyst
-    # min
     iterm2
     spotify
     visual-studio-code
+    dockdoor
     # logitech-options
     # tableplus
     # chromium
