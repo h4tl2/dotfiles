@@ -15,4 +15,18 @@ cursor-color = #77DD77
 
 adjust-cursor-thickness = 2
 
+# --- Quick Terminal (Quake-style dropdown) ---
+quick-terminal-position = top
+quick-terminal-screen = mouse
+quick-terminal-autohide = true
+quick-terminal-animation-duration = 0.10
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
+
+# --- Security ---
+clipboard-paste-protection = true
+clipboard-paste-bracketed-safe = true
+shell-integration = detect
+
+# Splits management
+keybind = cmd+shift+e=equalize_splits
+keybind = cmd+shift+f=toggle_split_zoom
