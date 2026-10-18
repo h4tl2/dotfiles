@@ -1,0 +1,24 @@
+# Ported from kkga/vim-envy
+background = #eeeeee
+foreground = #000000
+cursor-color = #000000
+cursor-text = #eeeeee
+selection-background = #afd7ff
+selection-foreground = #000000
+
+palette = 0=#000000
+palette = 1=#d70000
+palette = 2=#005f00
+palette = 3=#d75f00
+palette = 4=#005fd7
+palette = 5=#5f00d7
+palette = 6=#0087af
+palette = 7=#b2b2b2
+palette = 8=#585858
+palette = 9=#d70000
+palette = 10=#005f00
+palette = 11=#d75f00
+palette = 12=#005fd7
+palette = 13=#5f00d7
+palette = 14=#0087af
+palette = 15=#b2b2b2

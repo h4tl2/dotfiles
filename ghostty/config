@@ -1,3 +1,4 @@
+theme = "envy"
 font-family = "Iosevka Nerd Font Mono"
 font-feature = -calt
 font-feature = -liga
