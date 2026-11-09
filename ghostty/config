@@ -1,10 +1,10 @@
 theme = "envy"
-font-family = "Iosevka Nerd Font Mono"
+font-family = "Roboto Mono Nerd Font"
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
 font-size = 16
-font-thicken = true
+font-thicken = false
 font-thicken-strength = 5
 
 adjust-cell-width = 5%

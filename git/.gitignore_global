@@ -56,3 +56,5 @@ node_modules/
 *.patch
 env/
 .nvt/
+
+**/.claude/settings.local.json
