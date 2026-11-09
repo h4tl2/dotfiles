@@ -55,11 +55,3 @@ vim.api.nvim_create_user_command(
   end,
   { nargs = 0 } -- No arguments needed
 )
-
-vim.api.nvim_create_user_command(
-  'DiffCurrentFile', -- The command name
-  function()
-    vim.cmd 'DiffviewFileHistory %'
-  end,
-  { nargs = 0 } -- No arguments needed
-)

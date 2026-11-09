@@ -68,9 +68,6 @@ return {
       },
       lsp = {
         symbols = {
-          symbol_hl = function(s)
-            return 'TroubleIcon' .. s
-          end,
           symbol_fmt = function(s)
             return s:lower() .. '\t'
           end,

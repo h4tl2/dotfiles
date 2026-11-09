@@ -1,18 +1,10 @@
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
-local lspkind = require 'lspkind'
-require('luasnip.loaders.from_vscode').lazy_load()
 
 luasnip.config.setup {}
 
 cmp.setup {
-  -- Format the autocomplete menu
-  formatting = {
-    format = lspkind.cmp_format {
-      symbol_map = { Copilot = '' },
-    },
-  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -55,6 +47,5 @@ cmp.setup {
     { name = 'luasnip' },
     { name = 'nvim_lsp_signature_help' },
     { name = 'path' },
-    { name = 'copilot', group_index = 2 },
   },
 }

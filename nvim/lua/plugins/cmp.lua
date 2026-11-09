@@ -18,5 +18,4 @@ return {
     -- install jsregexp (optional!).
     build = 'make install_jsregexp',
   },
-  { 'rafamadriz/friendly-snippets' },
 }

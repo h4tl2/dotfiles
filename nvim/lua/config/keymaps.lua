@@ -96,28 +96,11 @@ nnoremap <silent><leader>r :NvimTreeRefresh<CR>
 " Netrw
 " nnoremap <silent><C-f> :Explore<CR>
 " nnoremap <silent><leader>r :Vexplore<CR>
-" Buffers
-" nnoremap <silent><TAB> :BufferLineCycleNext<CR>
-" nnoremap <silent><S-TAB> :BufferLineCyclePrev<CR>
-
-nnoremap <silent><leader>dd :Bdelete this<CR>
-nnoremap <silent><leader>da :Bdelete other<CR>
-
-nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
-nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
-nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
-nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
-nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
-nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
-nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
 " Spectre
 nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
 nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
 nnoremap <leader>sc <cmd>lua require('spectre').open_file_search()<cr>
 " Git
-nnoremap \dv <cmd>DiffviewOpen<cr>
-nnoremap \dc <cmd>DiffviewClose<cr>
-nnoremap \df <cmd>DiffviewFileHistory %<cr>
 nnoremap \gb <cmd>Gitsigns blame_line<cr>
 nnoremap \gp <cmd>Gitsigns preview_hunk<cr>
 nnoremap \gr <cmd>Gitsigns reset_hunk<cr>
