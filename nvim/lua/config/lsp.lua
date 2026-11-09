@@ -1,172 +1,129 @@
--- vim:fileencoding=utf-8:foldmethod=marker:foldlevel=0
--- LSP settings.
---
-local default_schemas = nil
-local status_ok, jsonls_settings = pcall(require, 'nlspsettings.jsonls')
-if status_ok then
-  default_schemas = jsonls_settings.get_default_schemas()
-end
+-- Native LSP setup (nvim 0.11+). Install servers yourself, see readme.md.
 
-local schemas = {
-  {
-    description = 'ESLint config',
-    fileMatch = { '.eslintrc.json', '.eslintrc' },
-    url = 'http://json.schemastore.org/eslintrc',
-  },
-  {
-    description = 'Package config',
-    fileMatch = { 'package.json' },
-    url = 'https://json.schemastore.org/package',
-  },
-  {
-    description = 'OpenApi config',
-    fileMatch = { '*api*.json' },
-    url = 'https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json',
-  },
-}
+vim.lsp.config('*', {
+  capabilities = require('cmp_nvim_lsp').default_capabilities(),
+})
 
--- local util = require 'lspconfig/util'
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
-local servers = {
-  ts_ls = {
-    -- init_options = {
-    --   preferences = {
-    --     importModuleSpecifierPreference = 'relative',
-    --     importModuleSpecifierEnding = 'minimal',
-    --   },
-    -- },
-    settings = {
-      completion = {
-        completeFunctionCalls = true,
-      },
+vim.lsp.config('gopls', {
+  cmd = { 'gopls' },
+  filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
+  root_markers = { 'go.work', 'go.mod', '.git' },
+})
+
+vim.lsp.config('ts_ls', {
+  cmd = { 'typescript-language-server', '--stdio' },
+  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+  root_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json', '.git' },
+  init_options = { hostInfo = 'neovim' },
+  settings = {
+    completion = {
+      completeFunctionCalls = true,
     },
   },
-  tflint = {},
-  zk = {},
-  vimls = {},
-  pyright = {},
-  sqlls = {},
-  rust_analyzer = {
-    settings = {
-      ['rust-analyzer'] = {
-        checkOnSave = {
-          command = 'clippy',
-        },
-      },
-    },
-  },
-  eslint = {
-    settings = {
-      useESLintClass = true,
-      -- codeActionOnSave = {
-      --     enable = true,
-      --     mode = "all"
-      -- },
-    },
-  },
-  yamlls = {
-    settings = {
-      yaml = {
-        schemas = {
-          kubernetes = '*.yaml',
-          ['http://json.schemastore.org/github-workflow'] = '.github/workflows/*',
-          ['http://json.schemastore.org/github-action'] = '.github/action.{yml,yaml}',
-          -- ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
-          ['http://json.schemastore.org/prettierrc'] = '.prettierrc.{yml,yaml}',
-          ['http://json.schemastore.org/kustomization'] = 'kustomization.{yml,yaml}',
-          ['http://json.schemastore.org/chart'] = 'Chart.{yml,yaml}',
-          -- ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
-          ['https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json'] = '*api*.{yml,yaml}',
-          ['https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json'] = '*docker-compose*.{yml,yaml}',
-          ['https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json'] = '*flow*.{yml,yaml}',
-        },
-      },
-    },
-  },
-  jsonls = {
-    -- settings = {
-    -- 	json = {
-    -- 		schemas = extend(schemas, default_schemas)
-    -- 	}
-    -- }
-  },
-  gopls = {
-    -- cmd = { 'gopls', 'serve' },
-    -- filetypes = { 'go', 'gomod' },
-    -- root_dir = util.root_pattern('go.work', 'go.mod', '.git'),
-    -- settings = {
-    --   gopls = {
-    --     analyses = {
-    --       unusedparams = true,
-    --       unusedwrite = true,
-    --       -- shadow = true,  https://github.com/golang/tools/blob/master/gopls/doc/analyzers.md#shadow
-    --     },
-    --     staticcheck = true,
-    --   },
-    -- },
-  },
-  lua_ls = {
+})
+
+vim.lsp.config('lua_ls', {
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
+  root_markers = { '.luarc.json', '.luarc.jsonc', '.stylua.toml', 'stylua.toml', '.git' },
+  settings = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
     },
   },
-}
+})
 
--- nvim-cmp supports additional completion capabilities, so broadcast that to servers
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+vim.lsp.enable { 'gopls', 'ts_ls', 'lua_ls' }
 
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
+vim.api.nvim_create_user_command('LspStop', function()
+  for _, client in ipairs(vim.lsp.get_clients { bufnr = 0 }) do
+    client:stop()
+  end
+end, { desc = 'Stop LSP clients of current buffer' })
 
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-  automatic_installation = false,
-  handlers = {
-    function(server_name)
-      local server = servers[server_name] or {}
-      server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-      require('lspconfig')[server_name].setup(server)
-    end,
-  },
-}
+vim.api.nvim_create_user_command('LspRestart', function()
+  vim.cmd 'LspStop'
+  -- reload the buffer so the FileType event starts the clients again
+  vim.defer_fn(function()
+    vim.cmd.edit()
+  end, 500)
+end, { desc = 'Restart LSP clients of current buffer' })
 
--- UI {{{
--- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
+  callback = function(event)
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+    local fzf_lua = require 'fzf-lua'
+
+    local map = function(keys, func, desc, mode)
+      vim.keymap.set(mode or 'n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+    end
+
+    map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+    map('<leader>ca', fzf_lua.lsp_code_actions, '[C]ode [A]ction')
+
+    map('gd', fzf_lua.lsp_definitions, '[G]oto [D]efinition')
+    map('gr', vim.lsp.buf.references, '[G]oto [R]eferences')
+
+    map('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
+    map('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
+
+    -- See `:help K` for why this keymap
+    map('K', vim.lsp.buf.hover, 'Hover Documentation')
+    map('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+
+    -- Lesser used LSP functionality
+    map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+    map('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
+    map('<leader>wr', vim.lsp.buf.remove_workspace_folder, '[W]orkspace [R]emove Folder')
+    map('<leader>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, '[W]orkspace [L]ist Folders')
+
+    -- Create a command `:Format` local to the LSP buffer
+    vim.api.nvim_buf_create_user_command(event.buf, 'Format', function(_)
+      vim.lsp.buf.format()
+    end, { desc = 'Format current buffer with LSP' })
+    map('<leader>fm', vim.lsp.buf.format, '[F]or[M]at')
+
+    -- highlight word under cursor
+    if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
+      local highlight_augroup = vim.api.nvim_create_augroup('lsp-highlight', { clear = false })
+      vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+        buffer = event.buf,
+        group = highlight_augroup,
+        callback = vim.lsp.buf.document_highlight,
+      })
+
+      vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+        buffer = event.buf,
+        group = highlight_augroup,
+        callback = vim.lsp.buf.clear_references,
+      })
+
+      vim.api.nvim_create_autocmd('LspDetach', {
+        group = vim.api.nvim_create_augroup('lsp-detach', { clear = true }),
+        callback = function(event2)
+          vim.lsp.buf.clear_references()
+          vim.api.nvim_clear_autocmds { group = 'lsp-highlight', buffer = event2.buf }
+        end,
+      })
+    end
+
+    if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
+      map('<leader>th', function()
+        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+      end, '[T]oggle Inlay [H]ints')
+    end
+  end,
+})
+
 vim.diagnostic.config {
   virtual_text = {
     prefix = '😾', -- Could be '●', '▎', 'x', '■'
   },
 }
 
--- local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
--- for type, icon in pairs(signs) do
---     local hl = "DiagnosticSign" .. type
---     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
--- end
-
--- https://github.com/neovim/nvim-lspconfig/wiki/UI-customization#borders
--- vim.cmd [[autocmd! ColorScheme * highlight NormalFloat guibg=#1f2335]]
--- vim.cmd [[autocmd! ColorScheme * highlight FloatBorder guifg=black guibg=#eeeeee]]
-
-local border = {
-  { '╭', 'FloatBorder' },
-  { '─', 'FloatBorder' },
-  { '╮', 'FloatBorder' },
-  { '│', 'FloatBorder' },
-  { '╯', 'FloatBorder' },
-  { '─', 'FloatBorder' },
-  { '╰', 'FloatBorder' },
-  { '│', 'FloatBorder' },
-}
-
-local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
-  opts = opts or {}
-  opts.border = opts.border or border
-  return orig_util_open_floating_preview(contents, syntax, opts, ...)
-end
-
--- }}}
+-- rounded border for LSP floating windows (hover, signature help)
+vim.o.winborder = 'rounded'

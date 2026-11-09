@@ -5,11 +5,20 @@
 - fzf
 - node 
 - yarn
-- [scratches](./lua/plugins/scratches.lua)
+- nvim 0.11+
+- [scratches](./lua/custom/scratches.lua)
 - [gomvp](https://github.com/abenz1267/gomvp)
-- [vim-go](https://github.com/fatih/vim-go)
 - [prettier-d](https://github.com/fsouza/prettierd)
 - [eslint-d](https://www.npmjs.com/package/eslint_d)
+- stylua
+
+### Language servers
+Servers use native `vim.lsp` config. Install them by hand, they must be in `PATH`.
+```sh
+go install golang.org/x/tools/gopls@latest
+npm i -g typescript typescript-language-server
+brew install lua-language-server
+```
 
 ## Setup
 Install required program
