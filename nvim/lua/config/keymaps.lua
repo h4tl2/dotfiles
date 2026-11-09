@@ -11,7 +11,6 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 -- vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 -- vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- TODO: Telescope mappings (migrate to fzf-lua)
 vim.keymap.set('n', '<leader>df', git_utils.fzf_diff_file, { desc = 'Diff file with current buffer' })
 vim.keymap.set('n', '<leader>dg', git_utils.fzf_diff_from_history, { desc = 'Diff from git history' })
 
